@@ -355,7 +355,10 @@ body {
   width: 36px; height: 4px;
   background: var(--border);
   border-radius: 2px;
-  margin: 10px auto;
+  margin: 12px auto;
+  cursor: pointer;
+  padding: 10px 50px;
+  background-clip: content-box;
 }
 .modal-header {
   padding: 10px 16px 12px;
@@ -670,13 +673,17 @@ html { scroll-behavior: smooth; }
 <!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal" onclick="event.stopPropagation()">
-    <div class="modal-handle"></div>
-    <div class="modal-header">
+    <div class="modal-handle" onclick="forceCloseModal()"></div>
+    <div class="modal-header" style="position:relative">
       <h3 id="modalTitle">Equivalentes</h3>
       <p id="modalSubtitle"></p>
+      <button onclick="forceCloseModal()" style="position:absolute;top:8px;right:8px;background:var(--bg3);border:none;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--text);display:flex;align-items:center;justify-content:center">✕</button>
     </div>
     <input type="text" class="modal-search" id="modalSearch" placeholder="Buscar..." oninput="filterModal()">
     <div class="modal-list" id="modalList"></div>
+    <div style="padding:10px 16px 16px;border-top:1px solid var(--border)">
+      <button onclick="forceCloseModal()" style="width:100%;padding:12px;border:none;border-radius:8px;background:var(--bg3);color:var(--text);font-size:14px;font-weight:500;cursor:pointer">Cerrar</button>
+    </div>
   </div>
 </div>
 
@@ -731,8 +738,9 @@ const MEAL_TIMES = [
 
 const SUPPLEMENTS = [
   {id:'levo', name:'Levotiroxina', detail:'En ayuno, solo con agua', time:'7:00 AM', emoji:'💊'},
-  {id:'omega', name:'OmegaGenics EPA-DHA 1000', detail:'1 cápsula con desayuno', time:'8:00 AM', emoji:'🐟'},
+  {id:'omega', name:'OmegaGenics EPA-DHA 1000', detail:'1 cápsula con desayuno · sin suspender', time:'8:00 AM', emoji:'🐟'},
   {id:'mag1', name:'Mag Glycinate (dosis 1)', detail:'1 tableta 100mg', time:'11:00 AM', emoji:'🧲'},
+  {id:'selenio', name:'Selenio Matter', detail:'2 cápsulas con la comida · 3 meses', time:'2:00 PM', emoji:'🔬'},
   {id:'mag2', name:'Mag Glycinate (dosis 2)', detail:'1 tableta 100mg', time:'8:00 PM', emoji:'🧲'}
 ];
 
@@ -1488,12 +1496,16 @@ function renderSupps() {
         <div class="supp-time">7:00 AM</div>
       </div>
       <div class="supp-row">
-        <div class="supp-info"><div class="supp-name">🐟 OmegaGenics EPA-DHA 1000</div><div class="supp-detail">1 cápsula con el desayuno</div></div>
+        <div class="supp-info"><div class="supp-name">🐟 OmegaGenics EPA-DHA 1000</div><div class="supp-detail">1 cápsula con el desayuno · sin suspender</div></div>
         <div class="supp-time">8:00 AM</div>
       </div>
       <div class="supp-row">
         <div class="supp-info"><div class="supp-name">🧲 Mag Glycinate (dosis 1)</div><div class="supp-detail">1 tableta 100mg · 4+ hrs después de levo ✓</div></div>
         <div class="supp-time">11:00 AM</div>
+      </div>
+      <div class="supp-row">
+        <div class="supp-info"><div class="supp-name">🔬 Selenio Matter</div><div class="supp-detail">2 cápsulas con la comida · por 3 meses (jun–sep 2026)</div></div>
+        <div class="supp-time">2:00 PM</div>
       </div>
       <div class="supp-row">
         <div class="supp-info"><div class="supp-name">🧲 Mag Glycinate (dosis 2)</div><div class="supp-detail">1 tableta 100mg</div></div>
@@ -1515,7 +1527,7 @@ function renderSupps() {
     const doneCount = SUPPLEMENTS.filter(s => suppState[s.id]).length;
     const today = new Date();
     const isToday = today.getDate() === day && today.getMonth() === 5 && today.getFullYear() === 2026;
-    html += `<div class="cal-day ${isToday ? 'today' : ''} ${doneCount === 4 ? 'all-done' : ''}" onclick="showDaySupps(2026,5,${day})">
+    html += `<div class="cal-day ${isToday ? 'today' : ''} ${doneCount === SUPPLEMENTS.length ? 'all-done' : ''}" onclick="showDaySupps(2026,5,${day})">
       <span>${day} jun</span>
       <div class="cal-dots">${SUPPLEMENTS.map((s,i) => `<div class="cal-dot ${suppState[s.id]?'done':''}"></div>`).join('')}</div>
     </div>`;
@@ -1526,7 +1538,7 @@ function renderSupps() {
     const doneCount = SUPPLEMENTS.filter(s => suppState[s.id]).length;
     const today = new Date();
     const isToday = today.getDate() === day && today.getMonth() === 6 && today.getFullYear() === 2026;
-    html += `<div class="cal-day ${isToday ? 'today' : ''} ${doneCount === 4 ? 'all-done' : ''}" onclick="showDaySupps(2026,6,${day})">
+    html += `<div class="cal-day ${isToday ? 'today' : ''} ${doneCount === SUPPLEMENTS.length ? 'all-done' : ''}" onclick="showDaySupps(2026,6,${day})">
       <span>${day}</span>
       <div class="cal-dots">${SUPPLEMENTS.map((s,i) => `<div class="cal-dot ${suppState[s.id]?'done':''}"></div>`).join('')}</div>
     </div>`;
@@ -1670,6 +1682,10 @@ function closeModal(e) {
   if (e.target === document.getElementById('modalOverlay')) {
     document.getElementById('modalOverlay').classList.remove('open');
   }
+}
+
+function forceCloseModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
 }
 
 function openModal(title, subtitle, items) {

@@ -617,6 +617,150 @@ html { scroll-behavior: smooth; }
   text-overflow: ellipsis;
 }
 
+/* Water tracker */
+.water-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 8px 0;
+}
+.water-circle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s;
+  background: transparent;
+}
+.water-circle.filled {
+  background: var(--accent);
+}
+.water-count {
+  font-size: 13px;
+  color: var(--text2);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Levo timer */
+.levo-timer {
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.levo-timer .timer-big {
+  font-size: 28px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin: 4px 0;
+}
+.levo-timer.done {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Shop slider */
+.shop-slider-container {
+  background: var(--bg2);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+}
+.shop-slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.shop-slider-value {
+  background: var(--accent);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+.shop-slider {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--bg3);
+  border-radius: 3px;
+  outline: none;
+}
+.shop-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: 3px solid var(--bg2);
+  box-shadow: var(--shadow);
+}
+.shop-slider::-moz-range-thumb {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: 3px solid var(--bg2);
+}
+.shop-slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 2px 0;
+  font-size: 11px;
+  color: var(--text2);
+}
+
+/* Adherence bar (history) */
+.adherence-card { margin-top: 14px; }
+.adherence-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.adherence-label {
+  font-size: 12px;
+  min-width: 80px;
+  color: var(--text2);
+}
+.adherence-bar {
+  flex: 1;
+  height: 16px;
+  background: var(--bg3);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.adherence-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.3s;
+}
+.adherence-pct {
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 36px;
+  text-align: right;
+}
+
 /* Print-friendly (bonus) */
 @media print {
   .header, .tab-bar, .theme-toggle, .btn, .supp-check, .shop-item input { display: none !important; }
@@ -1112,85 +1256,85 @@ const MEALS = {
 // Shopping list data
 const SHOPPING = [
   // Cereales sin grasa
-  {name:'Amaranto natural',amount:'1/4 taza ~ 16 g',cat:'Cereal',shop:'🌿 Granel / Naturista',eq:'Cereales sin grasa'},
-  {name:'Arroz',amount:'1 taza ~ 188 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa'},
-  {name:'Arroz integral',amount:'2/3 taza ~ 130 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa'},
-  {name:'Avena en hojuela cruda',amount:'2/3 taza ~ 60 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa'},
-  {name:'Granola',amount:'6 cucharadas ~ 42 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa'},
-  {name:'Pan integral',amount:'6 pieza ~ 150 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa'},
-  {name:'Pan integral tostado',amount:'4 pieza ~ 60 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa'},
-  {name:'Papa',amount:'1 pieza ~ 136 g',cat:'Cereal',shop:'🥬 Frutas y Verduras',eq:'Cereales sin grasa'},
-  {name:'Papel de arroz comestible',amount:'10 pieza ~ 40 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa'},
-  {name:'Pasta integral',amount:'2/3 taza ~ 92 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa'},
-  {name:'Quinoa cruda',amount:'60 gramos',cat:'Cereal',shop:'🌿 Granel / Naturista',eq:'Cereales sin grasa'},
-  {name:'Tortilla de maíz',amount:'18 pieza ~ 540 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa'},
-  {name:'Tortitas de arroz',amount:'8 piezas ~ 48 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa'},
-  {name:'Tortitas de arroz inflado integral',amount:'4 piezas ~ 24 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa'},
-  {name:'Tostadas horneadas',amount:'4 piezas ~ 40 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa'},
+  {name:'Amaranto natural',amount:'1/4 taza ~ 16 g',cat:'Cereal',shop:'🌿 Granel / Naturista',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Arroz',amount:'1 taza ~ 188 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Arroz integral',amount:'2/3 taza ~ 130 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Avena en hojuela cruda',amount:'2/3 taza ~ 60 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Granola',amount:'6 cucharadas ~ 42 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Pan integral',amount:'6 pieza ~ 150 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'perec'},
+  {name:'Pan integral tostado',amount:'4 pieza ~ 60 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Papa',amount:'1 pieza ~ 136 g',cat:'Cereal',shop:'🥬 Frutas y Verduras',eq:'Cereales sin grasa',shelf:'perec'},
+  {name:'Papel de arroz comestible',amount:'10 pieza ~ 40 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Pasta integral',amount:'2/3 taza ~ 92 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Quinoa cruda',amount:'60 gramos',cat:'Cereal',shop:'🌿 Granel / Naturista',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Tortilla de maíz',amount:'18 pieza ~ 540 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'perec'},
+  {name:'Tortitas de arroz',amount:'8 piezas ~ 48 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Tortitas de arroz inflado integral',amount:'4 piezas ~ 24 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Tostadas horneadas',amount:'4 piezas ~ 40 g',cat:'Cereal',shop:'🥫 Abarrotes',eq:'Cereales sin grasa',shelf:'larga'},
   // Leche descremada
-  {name:'Jocoque',amount:'5 cucharadas ~ 75 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada'},
-  {name:'Leche deslactosada light',amount:'1 taza ~ 240 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada'},
-  {name:'Yogurt griego natural sin azúcar',amount:'2 taza ~ 500 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada'},
+  {name:'Jocoque',amount:'5 cucharadas ~ 75 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
+  {name:'Leche deslactosada light',amount:'1 taza ~ 240 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
+  {name:'Yogurt griego natural sin azúcar',amount:'2 taza ~ 500 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
   // Grasas sin proteína
-  {name:'Aceite de aguacate',amount:'1 cucharadita ~ 5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína'},
-  {name:'Aceite de oliva',amount:'10 cucharadita ~ 50 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína'},
-  {name:'Aceite en spray',amount:'25 disparos ~ 25 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína'},
-  {name:'Aguacate',amount:'3 y 1/3 pieza ~ 310 g',cat:'Grasa',shop:'🥬 Frutas y Verduras',eq:'Grasas sin proteína'},
-  {name:'Mantequilla de vaca',amount:'1 y 1/2 cucharadita ~ 6 g',cat:'Grasa',shop:'🧀 Lácteos y Quesos',eq:'Grasas sin proteína'},
-  {name:'Mayonesa',amount:'1 cucharadita ~ 5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína'},
+  {name:'Aceite de aguacate',amount:'1 cucharadita ~ 5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
+  {name:'Aceite de oliva',amount:'10 cucharadita ~ 50 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
+  {name:'Aceite en spray',amount:'25 disparos ~ 25 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
+  {name:'Aguacate',amount:'3 y 1/3 pieza ~ 310 g',cat:'Grasa',shop:'🥬 Frutas y Verduras',eq:'Grasas sin proteína',shelf:'perec'},
+  {name:'Mantequilla de vaca',amount:'1 y 1/2 cucharadita ~ 6 g',cat:'Grasa',shop:'🧀 Lácteos y Quesos',eq:'Grasas sin proteína',shelf:'perec'},
+  {name:'Mayonesa',amount:'1 cucharadita ~ 5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
   // Grasas con proteína
-  {name:'Almendra',amount:'40 piezas ~ 48 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína'},
-  {name:'Cacahuate',amount:'28 piezas ~ 24 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína'},
-  {name:'Chocolate sin azúcar',amount:'15 gramos',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína'},
-  {name:'Crema de cacahuate natural',amount:'11 cucharada ~ 110 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína'},
-  {name:'Nuez',amount:'35 mitades ~ 45 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína'},
-  {name:'Pepita de calabaza',amount:'1 y 1/2 cucharadas ~ 12 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína'},
-  {name:'Semilla de chía',amount:'6 cucharadas ~ 36 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína'},
-  {name:'Semilla de linaza',amount:'1 cucharada ~ 9 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína'},
+  {name:'Almendra',amount:'40 piezas ~ 48 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Cacahuate',amount:'28 piezas ~ 24 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Chocolate sin azúcar',amount:'15 gramos',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Crema de cacahuate natural',amount:'11 cucharada ~ 110 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Nuez',amount:'35 mitades ~ 45 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Pepita de calabaza',amount:'1 y 1/2 cucharadas ~ 12 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Semilla de chía',amount:'6 cucharadas ~ 36 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Semilla de linaza',amount:'1 cucharada ~ 9 g',cat:'Grasa',shop:'🌿 Granel / Naturista',eq:'Grasas con proteína',shelf:'larga'},
   // Frutas
-  {name:'Durazno amarillo',amount:'2 piezas ~ 153 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Kiwi',amount:'3 pieza ~ 228 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Manzana',amount:'6 pieza ~ 636 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Pera',amount:'1/2 pieza ~ 81 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Plátano',amount:'1 y 1/2 pieza ~ 162 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Uva',amount:'63 piezas ~ 301 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Zarzamora',amount:'1 y 1/2 taza ~ 216 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Arándano azul',amount:'1 y 3/4 taza ~ 268 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Fresa',amount:'8 taza ~ 1328 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Moras',amount:'1 y 1/6 taza ~ 163 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Papaya picada',amount:'2 taza ~ 280 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
-  {name:'Sandía picada',amount:'2 taza ~ 320 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas'},
+  {name:'Durazno amarillo',amount:'2 piezas ~ 153 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Kiwi',amount:'3 pieza ~ 228 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Manzana',amount:'6 pieza ~ 636 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Pera',amount:'1/2 pieza ~ 81 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Plátano',amount:'1 y 1/2 pieza ~ 162 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Uva',amount:'63 piezas ~ 301 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Zarzamora',amount:'1 y 1/2 taza ~ 216 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Arándano azul',amount:'1 y 3/4 taza ~ 268 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Fresa',amount:'8 taza ~ 1328 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Moras',amount:'1 y 1/6 taza ~ 163 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Papaya picada',amount:'2 taza ~ 280 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Sandía picada',amount:'2 taza ~ 320 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
   // Leguminosas
-  {name:'Frijol',amount:'2 y 1/2 taza ~ 430 g',cat:'Leguminosa',shop:'🥫 Abarrotes',eq:'Leguminosas'},
-  {name:'Frijoles refritos caseros',amount:'1/3 taza ~ 75 g',cat:'Leguminosa',shop:'🥫 Abarrotes',eq:'Leguminosas'},
-  {name:'Garbanzo',amount:'1/2 taza ~ 82 g',cat:'Leguminosa',shop:'🥫 Abarrotes',eq:'Leguminosas'},
+  {name:'Frijol',amount:'2 y 1/2 taza ~ 430 g',cat:'Leguminosa',shop:'🥫 Abarrotes',eq:'Leguminosas',shelf:'larga'},
+  {name:'Frijoles refritos caseros',amount:'1/3 taza ~ 75 g',cat:'Leguminosa',shop:'🥫 Abarrotes',eq:'Leguminosas',shelf:'perec'},
+  {name:'Garbanzo',amount:'1/2 taza ~ 82 g',cat:'Leguminosa',shop:'🥫 Abarrotes',eq:'Leguminosas',shelf:'larga'},
   // Proteína muy baja en grasa
-  {name:'Atún en agua',amount:'3 y 3/4 lata ~ 396 g',cat:'Proteína',shop:'🥫 Abarrotes',eq:'Proteína muy baja en grasa'},
-  {name:'Carne molida de pavo',amount:'180 gramos',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa'},
-  {name:'Clara de huevo',amount:'36 piezas ~ 1188 g',cat:'Proteína',shop:'🧀 Lácteos y Quesos',eq:'Proteína muy baja en grasa'},
-  {name:'Filete de tilapia',amount:'240 gramos',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa'},
-  {name:'Pechuga de pollo',amount:'720 gramos',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa'},
-  {name:'Pescado blanco',amount:'240 gramos',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa'},
-  {name:'Requesón',amount:'36 cucharadas ~ 504 g',cat:'Proteína',shop:'🧀 Lácteos y Quesos',eq:'Proteína muy baja en grasa'},
+  {name:'Atún en agua',amount:'3 y 3/4 lata ~ 396 g',cat:'Proteína',shop:'🥫 Abarrotes',eq:'Proteína muy baja en grasa',shelf:'larga'},
+  {name:'Carne molida de pavo',amount:'180 gramos',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Clara de huevo',amount:'36 piezas ~ 1188 g',cat:'Proteína',shop:'🧀 Lácteos y Quesos',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Filete de tilapia',amount:'240 gramos',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Pechuga de pollo',amount:'720 gramos',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Pescado blanco',amount:'240 gramos',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Requesón',amount:'36 cucharadas ~ 504 g',cat:'Proteína',shop:'🧀 Lácteos y Quesos',eq:'Proteína muy baja en grasa',shelf:'perec'},
   // Proteína baja en grasa
-  {name:'Jamón bajo en grasa',amount:'5 rebanadas ~ 105 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína baja en grasa'},
-  {name:'Queso fresco',amount:'200 gramos',cat:'Proteína',shop:'🧀 Lácteos y Quesos',eq:'Proteína baja en grasa'},
-  {name:'Queso panela',amount:'1100 gramos',cat:'Proteína',shop:'🧀 Lácteos y Quesos',eq:'Proteína baja en grasa'},
+  {name:'Jamón bajo en grasa',amount:'5 rebanadas ~ 105 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína baja en grasa',shelf:'perec'},
+  {name:'Queso fresco',amount:'200 gramos',cat:'Proteína',shop:'🧀 Lácteos y Quesos',eq:'Proteína baja en grasa',shelf:'perec'},
+  {name:'Queso panela',amount:'1100 gramos',cat:'Proteína',shop:'🧀 Lácteos y Quesos',eq:'Proteína baja en grasa',shelf:'perec'},
   // Verduras
-  {name:'Brócoli',amount:'1/2 taza ~ 92 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Calabacita',amount:'3 pieza ~ 273 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Cebolla morada/blanca',amount:'1 y 1/3 taza ~ 147 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Champiñón crudo',amount:'2 y 2/3 taza ~ 248 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Ejote',amount:'3/4 taza ~ 95 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Flor de calabaza',amount:'1 y 1/2 taza ~ 201 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Lechuga',amount:'5 y 3/4 tazas ~ 258 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Nopal',amount:'3 piezas ~ 312 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Pimiento de color',amount:'1 y 1/2 pieza ~ 90 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Zanahoria',amount:'3/4 taza ~ 113 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Espinaca cruda',amount:'8 y 1/2 tazas ~ 510 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Pepino',amount:'3/4 taza ~ 78 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Tomate / jitomate',amount:'8 y 1/3 pieza ~ 942 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'},
-  {name:'Tomate cherry',amount:'9 piezas ~ 214 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras'}
+  {name:'Brócoli',amount:'1/2 taza ~ 92 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Calabacita',amount:'3 pieza ~ 273 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Cebolla morada/blanca',amount:'1 y 1/3 taza ~ 147 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Champiñón crudo',amount:'2 y 2/3 taza ~ 248 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Ejote',amount:'3/4 taza ~ 95 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Flor de calabaza',amount:'1 y 1/2 taza ~ 201 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Lechuga',amount:'5 y 3/4 tazas ~ 258 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Nopal',amount:'3 piezas ~ 312 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Pimiento de color',amount:'1 y 1/2 pieza ~ 90 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Zanahoria',amount:'3/4 taza ~ 113 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Espinaca cruda',amount:'8 y 1/2 tazas ~ 510 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Pepino',amount:'3/4 taza ~ 78 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Tomate / jitomate',amount:'8 y 1/3 pieza ~ 942 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Tomate cherry',amount:'9 piezas ~ 214 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'}
 ];
 
 const SHOP_CAT_COLORS = {
@@ -1260,13 +1404,44 @@ function renderHoy() {
   const dayName = DAYS[dayIdx];
   const dateKey = getDateKey();
   const suppState = getState('supps-' + dateKey, {});
+  const waterState = getState('water-' + dateKey, 0);
+
+  // Levo timer logic
+  const levoTakenAt = getState('levo-time-' + dateKey, null);
+  let timerHtml = '';
+  if (suppState.levo && levoTakenAt) {
+    const elapsed = Date.now() - levoTakenAt;
+    const remaining = Math.max(0, 45 * 60 * 1000 - elapsed);
+    if (remaining > 0) {
+      const mins = Math.floor(remaining / 60000);
+      const secs = Math.floor((remaining % 60000) / 1000);
+      timerHtml = `<div class="levo-timer" id="levoTimer">
+        ⏱ Puedes desayunar en
+        <div class="timer-big" id="timerDisplay">${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}</div>
+      </div>`;
+    } else {
+      timerHtml = `<div class="levo-timer done">✅ ¡Ya puedes desayunar!</div>`;
+    }
+  }
 
   let html = `
     <div class="levo-banner">
       <strong>💊 Levotiroxina — 7:00 AM</strong><br>
-      En ayuno, solo con agua. Esperar 30-60 min antes de comer.<br>
-      <em>El magnesio se toma 4+ hrs después (11 AM y 8 PM).</em>
+      En ayuno, solo con agua. Esperar 30-60 min antes de comer.
+      ${timerHtml}
     </div>
+
+    <div class="card">
+      <div class="card-title">💧 Agua de hoy</div>
+      <div class="water-row">
+  `;
+  for (let i = 0; i < 8; i++) {
+    html += `<div class="water-circle ${i < waterState ? 'filled' : ''}" onclick="toggleWater(${i})">💧</div>`;
+  }
+  html += `</div>
+      <div class="water-count">${waterState} / 8 vasos (${waterState * 250} ml)</div>
+    </div>
+
     <div class="card">
       <div class="card-title">💊 Suplementos de hoy</div>
   `;
@@ -1295,6 +1470,43 @@ function renderHoy() {
   });
 
   document.getElementById('tab-hoy').innerHTML = html;
+
+  // Start timer interval if levo taken
+  if (suppState.levo && levoTakenAt) {
+    startLevoTimer(levoTakenAt);
+  }
+}
+
+// ============ WATER TRACKER ============
+function toggleWater(idx) {
+  const dateKey = getDateKey();
+  const current = getState('water-' + dateKey, 0);
+  // If tapping the last filled circle, decrease; otherwise set to idx+1
+  const newVal = (idx + 1 === current) ? idx : idx + 1;
+  setState('water-' + dateKey, newVal);
+  renderHoy();
+}
+
+// ============ LEVO TIMER ============
+let levoInterval = null;
+
+function startLevoTimer(takenAt) {
+  if (levoInterval) clearInterval(levoInterval);
+  levoInterval = setInterval(() => {
+    const el = document.getElementById('timerDisplay');
+    const timerContainer = document.getElementById('levoTimer');
+    if (!el || !timerContainer) { clearInterval(levoInterval); return; }
+    const remaining = Math.max(0, 45 * 60 * 1000 - (Date.now() - takenAt));
+    if (remaining <= 0) {
+      timerContainer.classList.add('done');
+      timerContainer.innerHTML = '✅ ¡Ya puedes desayunar!';
+      clearInterval(levoInterval);
+      return;
+    }
+    const mins = Math.floor(remaining / 60000);
+    const secs = Math.floor((remaining % 60000) / 1000);
+    el.textContent = `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+  }, 1000);
 }
 
 // ============ RENDER MEAL CARD ============
@@ -1364,6 +1576,13 @@ function toggleSupp(id) {
   const state = getState('supps-' + dateKey, {});
   state[id] = !state[id];
   setState('supps-' + dateKey, state);
+  // Save timestamp when levo is checked for timer
+  if (id === 'levo' && state[id]) {
+    setState('levo-time-' + dateKey, Date.now());
+  } else if (id === 'levo' && !state[id]) {
+    setState('levo-time-' + dateKey, null);
+    if (levoInterval) clearInterval(levoInterval);
+  }
   renderHoy();
   renderSupps();
 }
@@ -1392,41 +1611,117 @@ function selectPlanDay(idx) {
 }
 
 // ============ RENDER: COMPRAS ============
+
+// Parse grams from amount string like "1/2 taza ~ 81 g" or "720 gramos"
+function parseBaseGrams(amount) {
+  const match = amount.match(/~\s*([\d.]+)\s*(g|kg)/i);
+  if (match) {
+    let val = parseFloat(match[1]);
+    if (match[2].toLowerCase() === 'kg') val *= 1000;
+    return val;
+  }
+  // Try "XXX gramos" format
+  const match2 = amount.match(/([\d.]+)\s*gramos/i);
+  if (match2) return parseFloat(match2[1]);
+  return null;
+}
+
+// Parse descriptive qty like "3 y 3/4 lata", "18 pieza", "1/2 pieza"
+function parseDescQty(amount) {
+  const beforeTilde = amount.split('~')[0].trim();
+  // Match patterns: "3 y 3/4 lata", "18 pieza", "1/2 pieza", "2 y 1/2 taza"
+  const m = beforeTilde.match(/^([\d\s\/y.]+)\s+(.+)$/);
+  if (!m) return null;
+  const num = parseFraction(m[1]);
+  return { qty: num, unit: m[2].trim() };
+}
+
+function formatShopAmount(item, weeks) {
+  const desc = parseDescQty(item.amount);
+  const grams = parseBaseGrams(item.amount);
+
+  // If the descriptive unit is "gramos", just show weight
+  if (desc && desc.unit.toLowerCase() === 'gramos') {
+    const totalG = desc.qty * weeks;
+    if (totalG >= 1000) return `${roundNice(totalG / 1000)} kg`;
+    return `${roundNice(totalG)} g`;
+  }
+
+  let parts = [];
+
+  // Descriptive part (piezas, latas, tazas, etc.)
+  if (desc) {
+    const scaled = roundNice(desc.qty * weeks);
+    parts.push(`${scaled} ${desc.unit}`);
+  }
+
+  // Weight part
+  if (grams) {
+    const totalG = grams * weeks;
+    if (totalG >= 1000) {
+      parts.push(`${roundNice(totalG / 1000)} kg`);
+    } else {
+      parts.push(`${roundNice(totalG)} g`);
+    }
+  }
+
+  return parts.join(' · ');
+}
+
 function renderCompras() {
-  const week = getState('shopWeek', getWeekIndex());
-  const viewMode = getState('shopView', 'shop'); // 'cat' or 'shop'
-  const weekLabels = ['Sem 1 (Jun 29 – Jul 5)', 'Sem 2 (Jul 6 – 12)', 'Sem 3 (Jul 13 – 19)', 'Sem 4 (Jul 20 – 25)'];
+  const weeks = getState('shopWeeks', 1);
+  const viewMode = getState('shopView', 'shop');
+  const shelfFilter = getState('shopShelf', 'all'); // 'all', 'larga', 'perec'
 
-  let html = '<div class="week-selector">';
-  weekLabels.forEach((label, i) => {
-    html += `<button class="week-btn ${i === week ? 'active' : ''}" onclick="selectWeek(${i})">${label}</button>`;
-  });
-  html += '</div>';
+  // Slider
+  let html = `
+    <div class="shop-slider-container">
+      <div class="shop-slider-label">
+        <span>🛒 Comprar para:</span>
+        <span class="shop-slider-value" id="sliderLabel">${weeks} semana${weeks > 1 ? 's' : ''}</span>
+      </div>
+      <input type="range" class="shop-slider" min="1" max="4" value="${weeks}" oninput="updateShopWeeks(this.value)">
+      <div class="shop-slider-ticks">
+        <span>1 sem</span><span>2 sem</span><span>3 sem</span><span>4 sem</span>
+      </div>
+    </div>
+  `;
 
-  // View toggle
-  html += `<div style="display:flex;gap:6px;margin-bottom:12px">
-    <button class="week-btn ${viewMode === 'shop' ? 'active' : ''}" onclick="setShopView('shop')" style="flex:1;font-size:12px">🏪 Por lugar de compra</button>
-    <button class="week-btn ${viewMode === 'cat' ? 'active' : ''}" onclick="setShopView('cat')" style="flex:1;font-size:12px">📊 Por grupo nutricional</button>
+  // View toggle row 1: grouping
+  html += `<div style="display:flex;gap:6px;margin-bottom:6px">
+    <button class="week-btn ${viewMode === 'shop' ? 'active' : ''}" onclick="setShopView('shop')" style="flex:1;font-size:12px">🏪 Por lugar</button>
+    <button class="week-btn ${viewMode === 'cat' ? 'active' : ''}" onclick="setShopView('cat')" style="flex:1;font-size:12px">📊 Por grupo</button>
   </div>`;
 
-  const shopState = getState('shop-' + week, {});
-  const total = SHOPPING.length;
-  const checked = SHOPPING.filter(s => shopState[s.name]).length;
+  // View toggle row 2: shelf filter
+  html += `<div style="display:flex;gap:6px;margin-bottom:12px">
+    <button class="week-btn ${shelfFilter === 'all' ? 'active' : ''}" onclick="setShelfFilter('all')" style="flex:1;font-size:12px">🛒 Todos</button>
+    <button class="week-btn ${shelfFilter === 'larga' ? 'active' : ''}" onclick="setShelfFilter('larga')" style="flex:1;font-size:12px">📦 Despensa</button>
+    <button class="week-btn ${shelfFilter === 'perec' ? 'active' : ''}" onclick="setShelfFilter('perec')" style="flex:1;font-size:12px">🥬 Frescos</button>
+  </div>`;
 
-  html += `<div class="progress-text">${checked}/${total} artículos comprados</div>`;
-  html += `<div class="progress-bar"><div class="progress-fill" style="width:${(checked/total)*100}%"></div></div>`;
+  // Filter items by shelf
+  const filteredItems = shelfFilter === 'all' ? SHOPPING : SHOPPING.filter(s => s.shelf === shelfFilter);
+
+  const shopState = getState('shop-checked', {});
+  const total = filteredItems.length;
+  const checked = filteredItems.filter(s => shopState[s.name]).length;
+
+  const filterLabel = shelfFilter === 'larga' ? ' de despensa' : shelfFilter === 'perec' ? ' frescos' : '';
+  html += `<div class="progress-text">${checked}/${total} artículos${filterLabel} comprados</div>`;
+  html += `<div class="progress-bar"><div class="progress-fill" style="width:${total > 0 ? (checked/total)*100 : 0}%"></div></div>`;
 
   // Group by selected view
   const groupKey = viewMode === 'shop' ? 'shop' : 'cat';
   const colorMap = viewMode === 'shop' ? SHOP_LOC_COLORS : SHOP_CAT_COLORS;
   const groups = {};
-  SHOPPING.forEach(s => {
+  filteredItems.forEach(s => {
     const g = s[groupKey];
     if (!groups[g]) groups[g] = [];
     groups[g].push(s);
   });
 
-  // Sort groups: show groups with pending items first
+  // Sort: pending first
   const sortedGroups = Object.entries(groups).sort((a, b) => {
     const aPending = a[1].filter(i => !shopState[i.name]).length;
     const bPending = b[1].filter(i => !shopState[i.name]).length;
@@ -1447,25 +1742,39 @@ function renderCompras() {
       const isChecked = shopState[item.name] || false;
       const escapedName = item.name.replace(/'/g, "\\'");
       const escapedEq = item.eq.replace(/'/g, "\\'");
+      const scaledAmount = formatShopAmount(item, weeks);
       html += `<div class="shop-item ${isChecked ? 'checked' : ''}">
-        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleShop(${week},'${escapedName}')">
-        <label>${item.name} — <em>${item.amount}</em></label>
+        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleShopItem('${escapedName}')">
+        <label><strong>${item.name}</strong><br><em style="font-size:12px">${scaledAmount}</em></label>
         <button onclick="showShopEquiv('${escapedName}','${escapedEq}')" style="background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;cursor:pointer;color:var(--accent);white-space:nowrap;flex-shrink:0" title="Ver equivalencias">🔄</button>
       </div>`;
     });
     html += '</div>';
   }
 
-  // Sync & Reset buttons
+  // Sync & Reset
   html += `<div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
-    <button class="btn btn-primary" onclick="shareProgress()">📤 Compartir progreso</button>
+    <button class="btn btn-primary" onclick="shareProgress()">📤 Compartir</button>
     <button class="btn btn-outline" onclick="importFromFile()">📥 Importar</button>
     <button class="btn btn-outline" onclick="exportAllData()">💾 Exportar</button>
-    <button class="btn btn-danger" onclick="if(confirm('¿Reiniciar compras de esta semana?')){setState('shop-'+${week},{});renderCompras();}">🗑️ Reiniciar semana</button>
+    <button class="btn btn-danger" onclick="if(confirm('¿Reiniciar compras?')){setState('shop-checked',{});renderCompras();}">🗑️ Reiniciar</button>
   </div>
-  <p style="text-align:center;font-size:11px;color:var(--text2);margin-top:8px">📲 Usa "Compartir progreso" para sincronizar entre celular y PC</p>`;
+  <p style="text-align:center;font-size:11px;color:var(--text2);margin-top:8px">📲 Usa "Compartir" para sincronizar entre dispositivos</p>`;
 
   document.getElementById('tab-compras').innerHTML = html;
+}
+
+function updateShopWeeks(val) {
+  val = parseInt(val);
+  setState('shopWeeks', val);
+  renderCompras();
+}
+
+function toggleShopItem(name) {
+  const state = getState('shop-checked', {});
+  state[name] = !state[name];
+  setState('shop-checked', state);
+  renderCompras();
 }
 
 function setShopView(mode) {
@@ -1473,15 +1782,8 @@ function setShopView(mode) {
   renderCompras();
 }
 
-function selectWeek(idx) {
-  setState('shopWeek', idx);
-  renderCompras();
-}
-
-function toggleShop(week, name) {
-  const state = getState('shop-' + week, {});
-  state[name] = !state[name];
-  setState('shop-' + week, state);
+function setShelfFilter(mode) {
+  setState('shopShelf', mode);
   renderCompras();
 }
 
@@ -1549,6 +1851,36 @@ function renderSupps() {
   for (let i = 0; i < remainder; i++) html += '<div class="cal-day empty"></div>';
 
   html += '</div></div>';
+
+  // Adherence history card
+  const adh = calcAdherence();
+  html += `
+    <div class="card adherence-card">
+      <div class="card-title">📊 Adherencia (${adh.totalDays} días)</div>
+
+      <div class="adherence-row">
+        <span class="adherence-label">💊 Suplementos</span>
+        <div class="adherence-bar"><div class="adherence-fill" style="width:${adh.suppPct}%;background:var(--accent)"></div></div>
+        <span class="adherence-pct">${adh.suppPct}%</span>
+      </div>
+      <div style="font-size:11px;color:var(--text2);margin:-4px 0 8px 90px">${adh.suppPerfectDays}/${adh.totalDays} días completos</div>
+
+      <div class="adherence-row">
+        <span class="adherence-label">💧 Agua</span>
+        <div class="adherence-bar"><div class="adherence-fill" style="width:${Math.min(100, adh.waterAvg / 8 * 100)}%;background:var(--info)"></div></div>
+        <span class="adherence-pct">${adh.waterAvg}/8</span>
+      </div>
+      <div style="font-size:11px;color:var(--text2);margin:-4px 0 8px 90px">${adh.waterGoodDays} días con 6+ vasos</div>
+
+      <div class="adherence-row">
+        <span class="adherence-label">🛒 Compras</span>
+        <div class="adherence-bar"><div class="adherence-fill" style="width:${adh.shopPct}%;background:var(--warning)"></div></div>
+        <span class="adherence-pct">${adh.shopPct}%</span>
+      </div>
+      <div style="font-size:11px;color:var(--text2);margin:-4px 0 0 90px">${SHOPPING.filter(s=>getState('shop-checked',{})[s.name]).length}/${SHOPPING.length} artículos</div>
+    </div>
+  `;
+
   document.getElementById('tab-supps').innerHTML = html;
 }
 
@@ -1556,11 +1888,87 @@ function showDaySupps(y, m, d) {
   const dateKey = `${y}-${m+1}-${d}`;
   const suppState = getState('supps-' + dateKey, {});
   const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio'];
-  let items = SUPPLEMENTS.map(s => ({
-    name: `${s.emoji} ${s.name}`,
-    detail: `${s.time} — ${suppState[s.id] ? '✅ Tomado' : '⬜ Pendiente'}`
-  }));
-  openModal(`${d} de ${months[m]} ${y}`, 'Suplementos del día', items.map(i => [i.name, i.detail]));
+
+  // Store current editing day globally
+  window._editingSuppDay = { y, m, d, dateKey };
+
+  document.getElementById('modalTitle').textContent = `${d} de ${months[m]} ${y}`;
+  document.getElementById('modalSubtitle').textContent = 'Toca para marcar/desmarcar';
+  document.getElementById('modalSearch').style.display = 'none';
+
+  const listEl = document.getElementById('modalList');
+  listEl.innerHTML = SUPPLEMENTS.map(s => {
+    const checked = suppState[s.id] || false;
+    return `<div class="modal-item" style="cursor:pointer;padding:12px 0" onclick="toggleDaySupp('${s.id}')">
+      <span>${checked ? '✅' : '⬜'} ${s.emoji} ${s.name}</span>
+      <span style="color:var(--text2);font-size:12px">${s.time}</span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function toggleDaySupp(suppId) {
+  const { dateKey } = window._editingSuppDay;
+  const state = getState('supps-' + dateKey, {});
+  state[suppId] = !state[suppId];
+  setState('supps-' + dateKey, state);
+  // Re-render the modal and calendar
+  showDaySupps(window._editingSuppDay.y, window._editingSuppDay.m, window._editingSuppDay.d);
+  renderSupps();
+  renderHoy();
+}
+
+// Close modal - restore search visibility
+const _origForceClose = forceCloseModal;
+forceCloseModal = function() {
+  document.getElementById('modalSearch').style.display = '';
+  _origForceClose();
+};
+const _origCloseModal = closeModal;
+closeModal = function(e) {
+  document.getElementById('modalSearch').style.display = '';
+  _origCloseModal(e);
+};
+
+// ============ ADHERENCE HISTORY ============
+function calcAdherence() {
+  const today = new Date();
+  let totalDays = 0;
+  let suppDays = 0;
+  let totalSupps = 0;
+  let takenSupps = 0;
+  let waterTotal = 0;
+  let waterDays = 0;
+
+  // Check from June 29 to today
+  const start = new Date(2026, 5, 29);
+  const end = new Date(Math.min(today.getTime(), new Date(2026, 6, 25).getTime()));
+
+  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+    const dk = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+    const ss = getState('supps-' + dk, {});
+    const water = getState('water-' + dk, 0);
+    totalDays++;
+    const dayTaken = SUPPLEMENTS.filter(s => ss[s.id]).length;
+    totalSupps += SUPPLEMENTS.length;
+    takenSupps += dayTaken;
+    if (dayTaken === SUPPLEMENTS.length) suppDays++;
+    waterTotal += water;
+    if (water >= 6) waterDays++; // 6+ vasos = good day
+  }
+
+  const shopState = getState('shop-checked', {});
+  const shopChecked = SHOPPING.filter(s => shopState[s.name]).length;
+
+  return {
+    totalDays,
+    suppPct: totalDays > 0 ? Math.round((takenSupps / totalSupps) * 100) : 0,
+    suppPerfectDays: suppDays,
+    waterAvg: totalDays > 0 ? roundNice(waterTotal / totalDays) : 0,
+    waterGoodDays: waterDays,
+    shopPct: Math.round((shopChecked / SHOPPING.length) * 100)
+  };
 }
 
 // ============ RENDER: EQUIVALENTES ============
@@ -1704,7 +2112,7 @@ function getAllPlanData() {
   const data = {};
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    if (key.startsWith('shop-') || key.startsWith('supps-')) {
+    if (key.startsWith('shop-') || key.startsWith('supps-') || key.startsWith('water-') || key.startsWith('levo-time-')) {
       data[key] = JSON.parse(localStorage.getItem(key));
     }
   }

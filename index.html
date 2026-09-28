@@ -782,7 +782,7 @@ html { scroll-behavior: smooth; }
 <div class="header">
   <h1>🥗 Plan Nutricional</h1>
   <div class="header-right">
-    <span style="font-size:11px;opacity:0.8">Jul 27 – Ago 22</span>
+    <span style="font-size:11px;opacity:0.8">Sep 27 – Oct 31</span>
     <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
   </div>
 </div>
@@ -864,9 +864,6 @@ const EQUIVALENTS = {
   'Proteína muy baja en grasa': {color:'var(--cat-proteina)', items:[
     ['Almeja fresca sin concha','4 piezas'],['Atún en agua','1/3 lata'],['Calamar crudo','45 gramos'],['Camarón mediano','6 piezas'],['Camarón seco','10 gramos'],['Carne molida de pavo','30 gramos'],['Clara de huevo','2 piezas'],['Filete de tilapia','40 gramos'],['Huachinango','35 gramos'],['Machaca de res','15 gramos'],['Medallón de atún','30 gramos'],['Pechuga de pavo horneada','2 rebanadas delgadas'],['Pechuga de pollo','30 gramos'],['Pechuga de pollo deshebrada','32 gramos'],['Pechuga de pollo molida','30 gramos'],['Pescado blanco','40 gramos'],['Pescado molido','30 gramos'],['Pulpo crudo','45 gramos'],['Queso cottage','3 cucharadas'],['Requesón','3 cucharadas'],['Salmón ahumado','35 gramos'],['Surimi','40 gramos']
   ]},
-  'Proteína baja en grasa': {color:'var(--cat-proteina)', items:[
-    ['Arrachera de res','30 gramos'],['Atún en aceite','1/3 lata'],['Chuleta de cerdo','45 gramos'],['Hígado de pollo cocido','30 gramos'],['Hígado de res cocido','30 gramos'],['Jamón bajo en grasa','2 rebanadas'],['Lomo','40 gramos'],['Muslo de pollo sin piel','1/2 pieza'],['Pierna','40 gramos'],['Pierna de cerdo','40 gramos'],['Pierna de pollo sin piel','1/3 pieza'],['Queso cheddar bajo en grasa','30 gramos'],['Queso fresco','40 gramos'],['Queso fresco de cabra','30 gramos'],['Queso oaxaca light','30 gramos'],['Queso panela','40 gramos'],['Queso ricotta bajo en grasa','3 cucharadas'],['Res molida magra','30 gramos'],['Res sin grasa','30 gramos'],['Salmón','30 gramos'],['Ternera','35 gramos'],['Tofu firme','40 gramos']
-  ]},
   'Leche descremada': {color:'var(--cat-lacteo)', items:[
     ['Leche descremada','1 taza'],['Leche deslactosada light','1 taza'],['Leche evaporada descremada','1/2 taza'],['Sustituto lácteo de almendra','1 taza'],['Sustituto lácteo de arroz','1 taza'],['Sustituto lácteo de coco','1 taza'],['Sustituto lácteo de nuez','1 taza'],['Yogurt griego natural sin azúcar','1 taza']
   ]},
@@ -890,371 +887,380 @@ for (const [group, data] of Object.entries(EQUIVALENTS)) {
 // Meal plan data - full weekly plan
 const MEALS = {
   desayuno: [
-    {name:'Toast integral con guacamole, queso cottage y uvas',img:'🍽️',ingredients:[
-      {txt:'2 pieza Pan integral',group:'Cereales sin grasa',qty:2},
-      {txt:'18 piezas Uva',group:'Frutas',qty:1},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'1 taza yogurt griego natural sin azúcar',group:'Leche descremada',qty:1},
-      {txt:'18 cucharadas Queso cottage',group:'Proteína muy baja en grasa',qty:1},
-      {txt:'4 piezas tomate cherry / jitomate cherry',group:'Verduras',qty:1},
-      {txt:'Sal al gusto',free:true}
-    ],steps:['Tuesta el pan integral hasta que esté dorado','Aplasta el aguacate y mezcla con un poco de sal','Unta el aguacate sobre el pan tostado','Coloca el queso cottage sobre el aguacate','Lava las uvas y acompáñalo o agrégalas por encima en mitades si lo deseas.']},
-    {name:'Claras de huevo con nopal',img:'🍽️',ingredients:[
-      {txt:'4 piezas Tostadas horneadas',group:'Cereales sin grasa',qty:1},
-      {txt:'1 pieza Manzana',group:'Frutas',qty:1},
-      {txt:'1 cucharadita Aceite',group:'Grasas sin proteína',qty:1},
-      {txt:'1 taza Yogurt griego natural sin azúcar',group:'Leche descremada',qty:1},
-      {txt:'12 piezas Clara de huevo',group:'Proteína muy baja en grasa',qty:1},
-      {txt:'2 piezas Nopal crudo',group:'Verduras',qty:1}
-    ],steps:['Parte el nopal en trozos pequeños. Colócalo en un sartén antiadherente caliente y cocina durante 5 minutos, hasta que se comiencen a dorar.','Luego vierte las claras de huevo y revuelve continuamente hasta lograr el término que te gusta.','Sirve sobre tostadas horneadas.','¡Disfruta!']},
-    {name:'Sándwich de pollo y plátano',img:'🍽️',ingredients:[
-      {txt:'2 pieza Pan integral',group:'Cereales sin grasa',qty:2},
-      {txt:'1/2 pieza Plátano',group:'Frutas',qty:1},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'1 taza Leche descremada',group:'Leche descremada',qty:1},
-      {txt:'180 gramos Pechuga de pollo',group:'Proteína muy baja en grasa',qty:6},
-      {txt:'1 1/2 tazas Lechuga',group:'Verduras',qty:1},
-      {txt:'1/2 pieza tomate / jitomate',group:'Verduras',qty:0.5}
-    ],steps:['Cocina la pechuga de pollo y desmenúzala.','Corta el aguacate y el tomate en rodajas.','Coloca una capa de lechuga en una rebanada de pan integral.','Agrega el pollo desmenuzado, el aguacate y el tomate.','Cubre con otra rebanada de pan integral.','Licua el plátano con leche descremada hasta obtener una mezcla suave.','Sirve el sándwich junto al licuado.']},
-    {name:'Wrap de atún con aguacate y elote',img:'🍽️',ingredients:[
-      {txt:'1/2 taza Elote amarillo desgranado',group:'Cereales sin grasa',qty:1},
-      {txt:'1/2 pieza Tortilla de harina',group:'Cereales sin grasa',qty:1},
-      {txt:'1 taza mango picado',group:'Frutas',qty:1},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'2 lata Atún en agua',group:'Proteína muy baja en grasa',qty:6},
-      {txt:'3 tazas Lechuga',group:'Verduras',qty:1},
-      {txt:'1 porción lácteo',group:'Leche descremada',qty:1}
-    ],steps:['Abre la lata de atún en agua y escúrrelo bien.','Corta el aguacate por la mitad, quita el hueso y saca la pulpa con una cuchara.','En un tazón, mezcla el atún en agua con el elote amarillo desgranado.','Agrega el aguacate cortado en cubos a la mezcla de atún y elote.','En un sartén calienta la tortilla de harina.','Toma una tortilla de harina y coloca una porción de la mezcla en el centro.','Añade algunas hojas de lechuga sobre la mezcla.','Enrolla la tortilla de harina formando un wrap.']},
-    {name:'Pan pita con pollo',img:'🍽️',ingredients:[
-      {txt:'2/3 pieza Pan árabe integral',group:'Cereales sin grasa',qty:2},
-      {txt:'1 taza fresa rebanada',group:'Frutas',qty:1},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'96 gramos Pechuga de pollo deshebrada',group:'Proteína muy baja en grasa',qty:3},
-      {txt:'120 gramos Queso panela',group:'Proteína baja en grasa',qty:3},
-      {txt:'1 1/2 tazas Lechuga',group:'Verduras',qty:1},
-      {txt:'1/4 taza Zanahoria cruda picada/rallada',group:'Verduras',qty:0.5},
-      {txt:'1 porción lácteo',group:'Leche descremada',qty:1}
-    ],steps:['Coloca la pechuga de pollo deshebrada en el pan árabe integral','Agrega el aguacate en rodajas sobre el pollo','Añade la lechuga fresca al gusto','Espolvorea la zanahoria cruda picada o rallada','Coloca rodajas de fresa para un toque dulce','Finaliza con trozos de queso panela encima']},
-    {name:'Sándwich de pechuga de pavo y aguacate',img:'🍽️',ingredients:[
-      {txt:'2 pieza Pan integral',group:'Cereales sin grasa',qty:2},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'6 rebanadas delgadas Pechuga de pavo horneada',group:'Proteína muy baja en grasa',qty:1},
-      {txt:'120 gramos Queso panela',group:'Proteína baja en grasa',qty:3},
-      {txt:'1/2 pieza tomate / jitomate',group:'Verduras',qty:0.5},
-      {txt:'1 1/2 tazas Lechuga',group:'Verduras',qty:1},
-      {txt:'1 porción fruta',group:'Frutas',qty:1},
-      {txt:'1 porción lácteo',group:'Leche descremada',qty:1}
-    ],steps:['Corta el jitomate, la lechuga, el aguacate, el queso panela y la pechuga de pavo horneada en rebanadas.','Coloca sobre el pan integral una capa de aguacate, luego la pechuga de pavo, el queso panela, el jitomate y la lechuga.','Cierra el sándwich con otra pieza de pan integral, puedes calentar un poco si lo deseas.']},
-    {name:'Bistec de res con calabacita y tomate',img:'🍽️',ingredients:[
-      {txt:'2 pieza Tortilla de maíz',group:'Cereales sin grasa',qty:2},
-      {txt:'3/4 taza moras',group:'Frutas',qty:1},
-      {txt:'1 cucharadita Aceite de oliva',group:'Grasas sin proteína',qty:1},
-      {txt:'180 gramos Res sin grasa',group:'Proteína baja en grasa',qty:6},
-      {txt:'1 2/3 piezas Tomate verde',group:'Verduras',qty:1},
-      {txt:'1/3 pieza Calabacita',group:'Verduras',qty:0.333},
-      {txt:'1/6 taza Cebolla morada/blanca',group:'Verduras',qty:0.333},
-      {txt:'Sal al gusto',free:true},
-      {txt:'Pimienta al gusto',free:true},
-      {txt:'1 porción lácteo',group:'Leche descremada',qty:1}
-    ],steps:['Corta la res sin grasa en trozos pequeños.','Pica finamente la cebolla.','Lava y corta la calabacita en rodajas o en cubos medianos.','Lava los tomates verdes y córtalos en mitades.','En una sartén grande, calienta un poco de aceite de oliva a fuego medio.','Agrega la cebolla y sofríe hasta que esté transparente.','Incorpora la res y cocina hasta que esté dorada.','Añade los tomates verdes y la calabacita a la sartén.','Cocina todo junto hasta que la calabacita esté tierna y los tomates verdes suelten su jugo.','Revuelve bien y ajusta la cocción hasta que todo esté bien integrado.','Sazona con un poco de sal y pimienta.','Acompaña con tortilla de maíz.']}
+    {name:"Ensalada de pollo y aguacate",img:'🍽️',ingredients:[
+      {"txt": "2 paquete Galleta salma", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "2 piezas Mandarina", "group": "Frutas", "qty": 1},
+      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "1 taza yogurt griego natural sin azúcar", "group": "Leche descremada", "qty": 1},
+      {"txt": "192 gramos Pechuga de pollo deshebrada", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "1 1/6 tazas Lechuga", "group": "Verduras", "qty": 0.389},
+      {"txt": "1/3 pieza tomate / jitomate", "group": "Verduras", "qty": 0.333},
+      {"txt": "1/3 taza pepino rebanado", "group": "Verduras", "qty": 0.333},
+      {"txt": "Limón", "free": true},
+      {"txt": "Aceite de oliva", "free": true},
+      {"txt": "Sal", "free": true},
+      {"txt": "Pimienta", "free": true}
+    ],steps:["Lava y corta la lechuga en trozos", "Corta el aguacate y el jitomate en cubos", "Pela y corta el pepino en rodajas", "Mezcla en un tazón la lechuga, el pollo deshebrado, el aguacate, el jitomate y el pepino", "Exprime el limón sobre la mezcla", "Agrega aceite de oliva, sal y pimienta al gusto", "Sirve la ensalada con galletas salma al lado"]},
+    {name:"Sandwich de requesón a la poblana con rajas y elotitos + smoothie de mango",img:'🍽️',ingredients:[
+      {"txt": "1 pieza Pan integral", "group": "Cereales sin grasa", "qty": 1},
+      {"txt": "1/2 taza Elote amarillo desgranado", "group": "Cereales sin grasa", "qty": 1},
+      {"txt": "1 taza mango picado", "group": "Frutas", "qty": 1},
+      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "1 taza Leche deslactosada light", "group": "Leche descremada", "qty": 1},
+      {"txt": "18 cucharadas Requesón", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "1/2 pieza Chile poblano", "group": "Verduras", "qty": 1},
+      {"txt": "Ajo", "free": true},
+      {"txt": "Sal", "free": true}
+    ],steps:["Asa el chile poblano, retira la piel y córtalo en rajas.", "Calienta un poco de aceite de oliva y cocina el ajo con las rajas de chile poblano y el elote amarillo desgranado; agrega sal y mezcla.", "Incorpora el requesón a la mezcla y cocina solo hasta integrar.", "Rellena el pan integral con la preparación de requesón a la poblana.", "Licúa el mango con la leche hasta obtener un smoothie suave.", "Sirve el sándwich con el smoothie de mango aparte."]},
+    {name:"Tostadas de Atún y Aguacate",img:'🍽️',ingredients:[
+      {"txt": "2 pieza Pan integral", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1/2 pieza Plátano", "group": "Frutas", "qty": 1},
+      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1 taza Leche deslactosada light", "group": "Leche descremada", "qty": 1},
+      {"txt": "2 lata Atún en agua", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "4 tazas Arúgula cruda", "group": "Verduras", "qty": 1},
+      {"txt": "Café", "free": true}
+    ],steps:["Tuesta los panes en tu tostadora.", "Corta el aguacate en trozos, aplástalo con un tenedor y extiéndelo sobre cada tostada.", "Abre las latas de atún y escúrrelas. Coloca el atún sobre las tostadas con aguacate y esparce el aceite de oliva por encima.", "Prepara el café en la cantidad de leche indicada", "Sirve las tostadas acompañadas del café con leche y del plátano como postre"]},
+    {name:"Sándwich de pechuga de pavo con pera",img:'🍽️',ingredients:[
+      {"txt": "2 pieza Pan integral", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1/2 pieza Pera", "group": "Frutas", "qty": 1},
+      {"txt": "1 cucharadita Mayonesa", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "12 rebanadas delgadas Pechuga de pavo horneada", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "3 tazas Lechuga", "group": "Verduras", "qty": 1},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["Untar mayonesa en el pan integral.", "Agregar la pechuga de pavo horneada sobre la mayonesa.", "Añadir el queso panela y la lechuga en el sándwich.", "Cerrar el sándwich y partirlo a la mitad.", "Servir la pera como postre."]},
+    {name:"Pan integral tostado con aguacate y jitomate, con licuado de fresa",img:'🍽️',ingredients:[
+      {"txt": "2 pieza Pan integral tostado", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1 taza fresa rebanada", "group": "Frutas", "qty": 1},
+      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "1 taza Leche descremada", "group": "Leche descremada", "qty": 1},
+      {"txt": "1 pieza tomate / jitomate", "group": "Verduras", "qty": 1},
+      {"txt": "Sal", "free": true},
+      {"txt": "Limón", "free": true},
+      {"txt": "Pimienta", "free": true},
+      {"txt": "6 porciones proteína", "group": "Proteína muy baja en grasa", "qty": 6}
+    ],steps:["Tuesta el pan integral.", "Machaca el aguacate con sal y jugo de limón y úntalo sobre el pan.", "Cubre con el jitomate en rebanadas y termina con pimienta.", "Licúa las fresas con la leche descremada y sirve el licuado frío."]},
+    {name:"Sándwich de pollo con fruta y verdura",img:'🍽️',ingredients:[
+      {"txt": "2 pieza Pan integral", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "3/4 taza moras", "group": "Frutas", "qty": 1},
+      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "2 piezas tomate cherry / jitomate cherry", "group": "Verduras", "qty": 0.5},
+      {"txt": "1/2 pieza Pimiento de color", "group": "Verduras", "qty": 0.5},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["Arma el sándwich con el pollo, aguacate y jitomate. Pártelo a la mitad.", "Lava y/o desinfecta las frutas y verduras. Parte en bastones los pimientos.", "Coloca todo en un tupper con compartimientos separando la fruta.", "¡Disfruta!"]},
+    {name:"Chilaquiles verdes con pechuga de pollo deshebrada y aguacate",img:'🍽️',ingredients:[
+      {"txt": "60 gramos Totopos horneados", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "192 gramos Pechuga de pollo deshebrada", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "5 piezas Tomate verde", "group": "Verduras", "qty": 1},
+      {"txt": "Ajo", "free": true},
+      {"txt": "Epazote", "free": true},
+      {"txt": "Sal", "free": true},
+      {"txt": "1 porción fruta", "group": "Frutas", "qty": 1},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["Licúa el tomate verde con ajo, epazote y sal, y calienta la salsa.", "Baña los totopos horneados con la salsa y la pechuga de pollo deshebrada.", "Sirve con el aguacate en rebanadas."]}
   ],
   colacion1: [
-    {name:'Mezcla energética',img:'🍽️',ingredients:[
-      {txt:'2 cucharadas Arándano deshidratado',group:'Frutas',qty:1},
-      {txt:'3 1/2 piezas Almendra',group:'Grasas con proteína',qty:1},
-      {txt:'1/3 cucharada Crema de cacahuate natural',group:'Grasas con proteína',qty:0.333},
-      {txt:'2 1/3 piezas Nuez de la india sin sal',group:'Grasas con proteína',qty:1}
-    ],steps:['Primero, toma un tazón y añade la nuez de la india.','Luego, agrega la almendra.','Incorpora los arándano deshidratado y mézclalo todo bien.','Finalmente, añade la crema de cacahuate y mezcla hasta que todo esté bien combinado.']},
-    {name:'Barritas de chocolate con dátil y cacahuate',img:'🍽️',ingredients:[
-      {txt:'2 piezas Dátil seco',group:'Frutas',qty:1},
-      {txt:'4 3/4 piezas Cacahuate',group:'Grasas con proteína',qty:1},
-      {txt:'1/3 cucharada Crema de cacahuate natural',group:'Grasas con proteína',qty:0.333},
-      {txt:'5.0 gramos Chocolate sin azúcar',group:'Grasas con proteína',qty:0.333}
-    ],steps:['Pica los dátiles secos en trozos pequeños.','En un tazón, mezcla los trozos de dátil seco con el cacahuate.','Derrite el chocolate en un recipiente a baño maría o en el microondas.','Una vez derretido, deja enfriar un poco el chocolate.','Toma un molde y vierte una capa del chocolate en el fondo.','Agrega una porción de la mezcla de cacahuate y dátil seco sobre el chocolate.','Haz un pequeño hueco en el centro de la mezcla y rellénalo con crema de cacahuate natural.','Cubre todo con más chocolate, asegurándote de que esté bien sellado.','Refrigera hasta que el chocolate esté firme.','Corta en trozos pequeños.']},
-    {name:'Summer fruit bowl',img:'🍽️',ingredients:[
-      {txt:'1/4 taza moras',group:'Frutas',qty:0.333},
-      {txt:'1/3 taza Frambuesa',group:'Frutas',qty:0.333},
-      {txt:'1/6 pieza Mango ataúlfo',group:'Frutas',qty:0.333},
-      {txt:'5 piezas Almendra',group:'Grasas con proteína',qty:1},
-      {txt:'3 1/2 mitades Nuez',group:'Grasas con proteína',qty:1}
-    ],steps:['Cortar en cuadros el mango y poner en un bowl con las demás frutas.','Agregar las nueces y almendras y disfrutar!']},
-    {name:'Manzana con chocolate y nuez',img:'🍽️',ingredients:[
-      {txt:'1 pieza Manzana',group:'Frutas',qty:1},
-      {txt:'3 1/2 mitades Nuez',group:'Grasas con proteína',qty:1},
-      {txt:'7.5 gramos Chocolate sin azúcar',group:'Grasas con proteína',qty:0.5}
-    ],steps:['Corta la manzana en cubos.','Pica las nueces en trozos grandes.','Derrite el chocolate a baño maría o en el microondas.','En un tazón, mezcla la manzana y las nueces.','Agrega el chocolate semiamargo derretido y revuelve bien.','Puedes refrigera mínimo por 30 minutos si lo deseas','¡Disfruta!']},
-    {name:'Cerezas y almendras',img:'🍽️',ingredients:[
-      {txt:'20 piezas Cereza',group:'Frutas',qty:1},
-      {txt:'10 piezas Almendra',group:'Grasas con proteína',qty:1}
-    ],steps:['Lava las cerezas y quita los huesos.','Toma un puñado de almendras.','Mezcla las cerezas con las almendras.','Disfruta de la mezcla como un snack saludable.']},
-    {name:'Tuna y cacahuates',img:'🍽️',ingredients:[
-      {txt:'2 piezas Tuna',group:'Frutas',qty:1},
-      {txt:'14 piezas Cacahuate',group:'Grasas con proteína',qty:1}
-    ],steps:['Lavar y pelar la tuna.','Cortar la tuna en trozos.','Colocar los trozos de tuna en un plato con los cacahuates.','¡Disfruta!']},
-    {name:'Ensalada de manzana y mango con almendras',img:'🍽️',ingredients:[
-      {txt:'1/2 pieza Manzana',group:'Frutas',qty:0.5},
-      {txt:'1/2 taza mango picado',group:'Frutas',qty:0.5},
-      {txt:'10 piezas Almendra',group:'Grasas con proteína',qty:1},
-      {txt:'Limón',free:true},
-      {txt:'Chile en polvo',free:true}
-    ],steps:['Lava la manzana y pica en pedazos.','Lava el mango y córtalo en cubos.','Agrega el mango, el limón y el chile en polvo a la manzana.','Mezcla bien todos los ingredientes.','Acompaña con almendras.']}
+    {name:"Piña con cacahuates",img:'🍽️',ingredients:[
+      {"txt": "3/4 taza Piña picada", "group": "Frutas", "qty": 1},
+      {"txt": "14 piezas Cacahuate", "group": "Grasas con proteína", "qty": 1}
+    ],steps:["Remueve la cáscara y el corazón de la piña. Parte en cubos pequeños.", "Corta la naranja por la mitad y pártela en gajos.", "Sirve la piña con la naranja.", "¡Disfruta!", "***TIP: parte la piña entera cuando la compres, así será más práctico comerla durante la semana. Aprovecha la cáscara para preparar té."]},
+    {name:"Mix de berries y nueces",img:'🍽️',ingredients:[
+      {"txt": "1/4 taza moras", "group": "Frutas", "qty": 0.333},
+      {"txt": "1/3 taza Zarzamora", "group": "Frutas", "qty": 0.333},
+      {"txt": "1/3 taza Frambuesa", "group": "Frutas", "qty": 0.333},
+      {"txt": "1/4 taza Mix de frutos secos y semillas", "group": "Grasas con proteína", "qty": 1},
+      {"txt": "Té verde sin azúcar", "free": true}
+    ],steps:["Acompaña el mix de frutos secos con las berries y opcional té sin azúcar.", "¡Disfruta!"]},
+    {name:"Smoothie de fresas con crema de cacahuate",img:'🍽️',ingredients:[
+      {"txt": "1 taza fresa rebanada", "group": "Frutas", "qty": 1},
+      {"txt": "1 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 1},
+      {"txt": "Lechada de almendra sin endulzar", "free": true}
+    ],steps:["Licuar las fresas congeladas con la crema de cacahuate y la lechada."]},
+    {name:"Ensalada de frutos rojos y almendras.",img:'🍽️',ingredients:[
+      {"txt": "1/3 taza fresa rebanada", "group": "Frutas", "qty": 0.333},
+      {"txt": "1/3 taza Frambuesa", "group": "Frutas", "qty": 0.333},
+      {"txt": "1/4 taza moras", "group": "Frutas", "qty": 0.333},
+      {"txt": "10 piezas Almendra", "group": "Grasas con proteína", "qty": 1}
+    ],steps:["Lava y desinfecta muy bien los frutos rojos. Acompaña con almendras."]},
+    {name:"Chips de manzana horneadas",img:'🍽️',ingredients:[
+      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
+      {"txt": "7 mitades Nuez", "group": "Grasas con proteína", "qty": 1}
+    ],steps:["Cortar en rebanadas delgadas la manzana y poner canela en polvo por un lado.", "Hornear o en freidora de aire por 15 minutos o hasta tener la consistencia deseada.", "Acompañar con nueces y disfrutar!"]},
+    {name:"Galleta en manzana",img:'🍽️',ingredients:[
+      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
+      {"txt": "1 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 1},
+      {"txt": "3,4 chispas de chocolate amargo o semiamargo", "free": true}
+    ],steps:["Cortar la manzana en rebanadas y untar la crema de cacahuate", "Colocar de topping chispas de chocolate amargo como adorno. Disfrutar!"]},
+    {name:"Smoothie de moras y crema de cacahuate",img:'🍽️',ingredients:[
+      {"txt": "3/4 taza moras", "group": "Frutas", "qty": 1},
+      {"txt": "1 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 1},
+      {"txt": "Lechada de avena o almendras", "free": true},
+      {"txt": "Hielos", "free": true},
+      {"txt": "Stevia", "free": true}
+    ],steps:["Lava y desinfecta las moras.", "Licúa todos los ingredientes y el hielo. Sirve en un vaso, decora con una pieza de mora encima."]}
   ],
   comida: [
-    {name:'Enchiladas de pollo gratinadas con frijoles refritos',img:'🍽️',ingredients:[
-      {txt:'2 pieza Tortilla de maíz',group:'Cereales sin grasa',qty:2},
-      {txt:'1 cucharada Crema',group:'Grasas sin proteína',qty:1},
-      {txt:'1/3 taza Frijoles refritos caseros',group:'Leguminosas',qty:1},
-      {txt:'1 pieza Pierna de pollo sin piel',group:'Proteína baja en grasa',qty:3},
-      {txt:'90 gramos Queso oaxaca light',group:'Proteína baja en grasa',qty:3},
-      {txt:'2 1/2 piezas Tomate verde',group:'Verduras',qty:1},
-      {txt:'1/4 taza Cebolla morada/blanca',group:'Verduras',qty:0.5},
-      {txt:'Sal',free:true},
-      {txt:'Ajo',free:true},
-      {txt:'Chile serrano',free:true},
-      {txt:'Cilantro',free:true}
-    ],steps:['Cuece la pierna de pollo sin piel en agua con ajo y sal; deshébrala y reserva un poco del caldo de cocción.','Hierve el tomate verde con el chile serrano y la cebolla hasta que cambien de color y licúalos con el cilantro y un poco del caldo hasta obtener una salsa tersa; no la cueles.','Regresa la salsa a la olla y cuécela a fuego medio hasta que espese, sin freírla.','Calienta las tortillas de maíz en el comal, pásalas una por una por la salsa, rellénalas con el pollo deshebrado y enróllalas en un refractario.','Báñalas con la salsa, cúbrelas con el queso oaxaca light rallado y gratina en el horno hasta que el queso se derrita y burbujee.','Aparte, calienta los frijoles refritos caseros en un sartén antiadherente y sírvelos al lado de las enchiladas.']},
-    {name:'Ensalada de pollo a la plancha con frijoles y lechuga',img:'🍽️',ingredients:[
-      {txt:'1 taza Croutones',group:'Cereales sin grasa',qty:2},
-      {txt:'1 cucharadita Aceite de oliva',group:'Grasas sin proteína',qty:1},
-      {txt:'1/2 taza Frijol cocido',group:'Leguminosas',qty:1},
-      {txt:'180 gramos Pechuga de pollo',group:'Proteína muy baja en grasa',qty:6},
-      {txt:'3 tazas Lechuga',group:'Verduras',qty:1},
-      {txt:'Sal',free:true},
-      {txt:'Jugo de limón',free:true}
-    ],steps:['Sazona la pechuga de pollo con sal.','Cocina la pechuga de pollo a la plancha hasta que esté bien cocida y córtala en tiras.','Lava y corta la lechuga.','Coloca la lechuga en un plato y agrega el frijol cocido y el pollo.','Añade los croutones por encima y termina aderezando con aceite de oliva y un poco de jugo de limón.']},
-    {name:'Pollo en crema de espinaca y jalapeño',img:'🍽️',ingredients:[
-      {txt:'2/3 taza Pasta integral cocida',group:'Cereales sin grasa',qty:2},
-      {txt:'1 cucharada Crema',group:'Grasas sin proteína',qty:1},
-      {txt:'1 taza Bebida vegetal de soya sin azúcar y sin endulzar',group:'Leguminosas',qty:1},
-      {txt:'2 pieza Pierna de pollo sin piel',group:'Proteína baja en grasa',qty:6},
-      {txt:'2 tazas Espinaca cruda picada',group:'Verduras',qty:1},
-      {txt:'Chile jalapeño',free:true}
-    ],steps:['En un comal vas a asar unos minutos tus chiles jalapeños','Después licúa los chiles con la crema','En un sartén agrega el pollo y cuando este cocido agrega la crema de jalapeño','En un plato agrega una cama de pasta cocida y agrega el pollo con crema encima']},
-    {name:'Salpicón de res',img:'🍽️',ingredients:[
-      {txt:'4 piezas Tostadas horneadas',group:'Cereales sin grasa',qty:1},
-      {txt:'1 cucharadita Aceite de oliva',group:'Grasas sin proteína',qty:1},
-      {txt:'1/2 taza Lenteja cocida',group:'Leguminosas',qty:1},
-      {txt:'180 gramos Arrachera de res',group:'Proteína baja en grasa',qty:6},
-      {txt:'1/2 pieza tomate / jitomate',group:'Verduras',qty:0.5},
-      {txt:'1/4 taza Cebolla morada/blanca',group:'Verduras',qty:0.5},
-      {txt:'Chile verde',free:true},
-      {txt:'Limón',free:true},
-      {txt:'Vinagre blanco',free:true},
-      {txt:'Lechuga',free:true}
-    ],steps:['Cocina la carne en agua hirviendo durante 15 min','Corta la cebolla, los jitomates y los chiles verdes fínamente.','Deshebra la carne, agrega las verduras, 1 cucharada de vinagre, aceite de oliva y limón al gusto.','Parte la lechuga en tiras y añádela al salpicón.','Acompaña el salpicón con frijoles y tostadas.','¡Disfruta!']},
-    {name:'Medallón de atún y ensalada de garbanzo',img:'🍽️',ingredients:[
-      {txt:'1 taza Elote amarillo desgranado',group:'Cereales sin grasa',qty:2},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'1/2 taza Garbanzo cocido',group:'Leguminosas',qty:1},
-      {txt:'180 gramos Medallón de atún',group:'Proteína muy baja en grasa',qty:6},
-      {txt:'1 taza Mix de vegetales verdes',group:'Verduras',qty:1},
-      {txt:'Sal',free:true}
-    ],steps:['En un sartén antiadherente muy caliente, sella el medallón de atún por ambos lados. Sazona al gusto.','Sirve una cama de lechugas, agrega el elote desgranado y encima el medallón de atún fileteado junto con los garbanzos y el aguacate.','¡DISFRUTA!']},
-    {name:'Ensalada de col rizada con garbanzos y queso fresco',img:'🍽️',ingredients:[
-      {txt:'2/3 taza Pasta de quinoa',group:'Cereales sin grasa',qty:2},
-      {txt:'1 cucharadita Aceite de oliva',group:'Grasas sin proteína',qty:1},
-      {txt:'1/2 taza Garbanzo cocido',group:'Leguminosas',qty:1},
-      {txt:'240 gramos Queso fresco',group:'Proteína baja en grasa',qty:6},
-      {txt:'1/2 taza Col rizada',group:'Verduras',qty:0.5},
-      {txt:'1/2 taza pepino rebanado',group:'Verduras',qty:0.5}
-    ],steps:['Combina la col rizada y el pepino en un bol.','Añade la pasta de quinoa y los garbanzos.','Desmenuza el queso fresco encima.','Aliña con aceite de oliva, sal, pimienta y vinagre balsámico.','Mezcla suavemente y sirve.']},
-    {name:'Bowl de atún',img:'🍽️',ingredients:[
-      {txt:'1/2 taza Arroz cocido',group:'Cereales sin grasa',qty:2},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'1/2 taza Garbanzo cocido',group:'Leguminosas',qty:1},
-      {txt:'180 gramos Medallón de atún',group:'Proteína muy baja en grasa',qty:6},
-      {txt:'1/6 taza Zanahoria cruda picada/rallada',group:'Verduras',qty:0.333},
-      {txt:'1/3 taza pepino rebanado',group:'Verduras',qty:0.333},
-      {txt:'1 tazas Germen de alfalfa crudo',group:'Verduras',qty:1},
-      {txt:'Ajonjolí',free:true},
-      {txt:'Limón',free:true}
-    ],steps:['Condimentar el atún con limón y ajonjolí. Si lo deseas puedes sellarlo.','Rallar la zanahoria y el pepino. En un bowl agregar una cama de arroz, las verduras, el aguacate, germinado, garbanzos y el atún. Puedes agregar más limón y ajonjolí al final.']}
+    {name:"Ensalada de pollo con garbanzos",img:'🍽️',ingredients:[
+      {"txt": "2 paquete Galleta salma", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/2 taza Garbanzo cocido", "group": "Leguminosas", "qty": 1},
+      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "1 tazas Espinaca cruda picada", "group": "Verduras", "qty": 0.5},
+      {"txt": "1 1/2 tazas Lechuga", "group": "Verduras", "qty": 0.5},
+      {"txt": "Limón", "free": true},
+      {"txt": "Sal y pimienta", "free": true}
+    ],steps:["Pollo: Agrega agua en una olla grande y honda. Añade la sal, cebolla, ajo, pimienta y pollo. Calienta el agua hasta que empiece a burbujear un poco. A medida que avanza la cocción, se formará espuma que debemos sacar con una cuchara. Deja cocinar entre 35 a 45 minutos. Deshebra el pollo con las manos o con ayuda de dos tenedores.", "Garbanzos: Deja remojar los garbanzos de 8 a 12 horas. Vacía el agua. En una olla coloca agua nueva y ponla a hervir con un poco de sal. Vacía los garbanzos hidratados una vez que el agua esté hirviendo y cuece alrededor de una hora hasta que estén suaves. Retira la espuma que se forma en los primeros minutos.", "Lava y desinfecta las espinacas y lechuga.", "En un bowl añade la lechuga y las espinacas, luego agrega los garbanzos cocidos y el pollo deshebrado.", "Agrega un poco de aceite de oliva y revuelve todos los ingredientes.", "Finalmente, acompaña con un poco de aguacate y galletas salmas."]},
+    {name:"Tortitas de atún",img:'🍽️',ingredients:[
+      {"txt": "8 piezas Galletas habaneras", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
+      {"txt": "2 lata Atún en agua", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "1/6 taza Ejote cocido", "group": "Verduras", "qty": 0.333},
+      {"txt": "1/6 taza Zanahoria cruda picada/rallada", "group": "Verduras", "qty": 0.333},
+      {"txt": "1 tazas Lechuga", "group": "Verduras", "qty": 0.333},
+      {"txt": "Sal", "free": true},
+      {"txt": "Pimienta", "free": true}
+    ],steps:["Cocer la zanahoria", "Mezclar la zanahoria con el ejote cocido y el atún en agua sin agua, formar tortitas", "Sazonar con sal y pimienta", "Echar el aceite de oliva en el sartén y dejar que se caliente un poco", "Cocinar las tortitas de atún en el sartén", "Acompañar de lechuga picada y frijol cocido", "Acompaña con galletas habaneras."]},
+    {name:"Pasta con requesón y tomates horneados",img:'🍽️',ingredients:[
+      {"txt": "2/3 taza Pasta integral cocida", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "1/2 taza Lenteja cocida", "group": "Leguminosas", "qty": 1},
+      {"txt": "18 cucharadas Requesón", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "4 piezas tomate cherry / jitomate cherry", "group": "Verduras", "qty": 1},
+      {"txt": "Albahaca", "free": true},
+      {"txt": "Sal y pimienta", "free": true},
+      {"txt": "Ajo", "free": true}
+    ],steps:["En un refractario agrega los jitomate cherry, requesón y sazona sal, pimienta, ajo finamente picado y agrega encima el aceite de oliva.", "Lleva al horno a 180ºc por 15 minutos o hasta que los jitomates estén suaves.", "Mientras cocina la pasta de acuerdo a las instrucciones de su empaque.", "Saca el refractario del horno y agrega la pasta previamente cocida, mezcla todo y agrega hojas de albahaca.", "Sirve y disfruta!"]},
+    {name:"Caldo de pollo con verduras, frijoles cocidos y tostadas con guacamole",img:'🍽️',ingredients:[
+      {"txt": "4 piezas Tostadas horneadas", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "2 cucharadas Guacamole", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
+      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "1/2 taza Sopa de verduras", "group": "Verduras", "qty": 1},
+      {"txt": "Cebolla", "free": true},
+      {"txt": "Diente de ajo", "free": true},
+      {"txt": "Sal", "free": true},
+      {"txt": "Orégano", "free": true}
+    ],steps:["Cocina la pechuga de pollo en agua.", "Agrega la cebolla y el diente de ajo picados al caldo.", "Añade la sopa de verduras al caldo y cocina hasta que todo esté tierno.", "Sirve el caldo en un tazón con frijoles cocidos al lado.", "Prepara las tostadas y acompaña con guacamole."]},
+    {name:"Taquitos de pollo con frijoles",img:'🍽️',ingredients:[
+      {"txt": "2 pieza Tortilla de maíz", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
+      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "3 tazas Lechuga", "group": "Verduras", "qty": 1},
+      {"txt": "Sal y pimienta", "free": true}
+    ],steps:["Cortar la pechuga de pollo en tiras, salpimienta", "Cocinar la pechuga de pollo en un sartén con poco aceite", "Calentar las tortillas de maíz", "Rellenar las tortillas con la pechuga de pollo, lechuga, frijol cocido y aguacate", "Enrollar las tortillas para formar los taquitos", "Servir los taquitos con salsa de tu preferencia"]},
+    {name:"Tacos de pollo con pico de gallo y frijoles cocidos",img:'🍽️',ingredients:[
+      {"txt": "2 pieza Tortilla de maíz", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1 cucharadita Aceite", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
+      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "1/2 pieza tomate / jitomate", "group": "Verduras", "qty": 0.5},
+      {"txt": "1/4 taza Cebolla morada/blanca", "group": "Verduras", "qty": 0.5},
+      {"txt": "1 cda de cilantro picado", "free": true}
+    ],steps:["Corta y mezcla el jitomate, la cebolla y el cilantro.", "Corta la pechuga en pequeños cubos y sazona.", "En una cacerola con un poco de aceite agrega el pollo y cocina.", "Calienta las tortillas en el sartén.", "Sirve el pollo sobre las tortillas.", "Acompaña con el pico de gallo y frijoles cocidos."]},
+    {name:"Fajitas de pollo con aguacate",img:'🍽️',ingredients:[
+      {"txt": "2 pieza Tortilla de maíz", "group": "Cereales sin grasa", "qty": 2},
+      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
+      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
+      {"txt": "1/2 pieza Pimiento de color", "group": "Verduras", "qty": 0.5},
+      {"txt": "1/4 taza Cebolla morada/blanca", "group": "Verduras", "qty": 0.5},
+      {"txt": "Sal", "free": true},
+      {"txt": "Limón", "free": true}
+    ],steps:["PARA COCER LOS GRANOS DE FRIJOL: Enjuágalos y déjalos remojando durante 12 horas. Al finalizar el remojo, estos ya deben estar relativamente suaves. Escurre el agua de remojo. Coloca los frijoles remojados en una olla y agrega agua fresca. El agua debe exceder 3 veces la porción de frijol. Añade 1/2 cebolla y 2 dientes de ajo (opcional). Cocina a fuego alto y cuando hierva el agua, tapa la olla y continúa cocinando durante aprox. 2 horas hasta que los frijoles estén completamente blandos y tenga consistencia de sopa (si usas olla exprés estarán listos antes). Revuelve ocasionalmente. ** No permitas que el agua esté por debajo del nivel de los frijoles para evitar que se quemen. Añade más agua hirviendo si es necesario.", "Corta el pollo y las verduras en tiras delgadas.", "Coloca el pollo y las verduras en un sartén con aceite caliente. Sazona al gusto con sal y limón. Cocina hasta que pollo esté dorado y las verduras suaves.", "Prepara guacamole aplastando el aguacate y sazonando con una pizca de sal y limón.", "Calienta las tortillas.", "Sirve las fajitas de pollo, acompañadas de frijol, guacamole y tortilla de maiz.", "¡Disfruta!"]}
   ],
   colacion2: [
-    {name:'Pera',img:'🍽️',ingredients:[
-      {txt:'1/2 pieza Pera',group:'Frutas',qty:1},
-      {txt:'10 piezas Almendra',group:'Grasas con proteína',qty:1}
-    ],steps:['Tomar la porción indicada']},
-    {name:'Fresa con nuez de la india',img:'🍽️',ingredients:[
-      {txt:'1 taza fresa rebanada',group:'Frutas',qty:1},
-      {txt:'7 piezas Nuez de la india sin sal',group:'Grasas con proteína',qty:1}
-    ],steps:['Lava y rebana las fresas.','Coloca las fresas rebanadas en un plato.','Agrega las nueces de la india sobre las fresas.']},
-    {name:'Ciruelas pasas y almendras',img:'🍽️',ingredients:[
-      {txt:'7 piezas Ciruela pasa deshuesada',group:'Frutas',qty:1},
-      {txt:'10 piezas Almendra',group:'Grasas con proteína',qty:1}
-    ],steps:['Corta las ciruelas pasas en trozos pequeños.','Pica las almendras en trozos.','Mezcla las ciruelas pasas y las almendras en un tazón.','Sirve la mezcla como un snack o un postre.']},
-    {name:'Fresas cubiertas de chocolate y crema de cacahuate',img:'🍽️',ingredients:[
-      {txt:'1 taza fresa rebanada',group:'Frutas',qty:1},
-      {txt:'7.5 gramos Chocolate sin azúcar',group:'Grasas con proteína',qty:0.5},
-      {txt:'1/2 cucharada Crema de cacahuate natural',group:'Grasas con proteína',qty:0.5}
-    ],steps:['Lava y desinfecta las fresas para después cortarlas en rebanadas','Derrite el chocolate en el microondas en intervalos de 20 segundos.','Coloca las rebanadas como base y vierte mantequilla de cacahuate encima','Agrega el chocolate encima','Refrigera las fresas cubiertas por al menos 30 minutos antes de disfrutar.']},
-    {name:'Moras con canela y nuez de la india',img:'🍽️',ingredients:[
-      {txt:'1/2 taza moras',group:'Frutas',qty:0.667},
-      {txt:'1/2 taza Zarzamora',group:'Frutas',qty:0.5},
-      {txt:'7 piezas Nuez de la india sin sal',group:'Grasas con proteína',qty:1},
-      {txt:'Canela',free:true}
-    ],steps:['En un plato coloca las moras y la nuez de la india, espolvorea encima canela.','¡Disfruta!']},
-    {name:'Mango y semilla de calabaza',img:'🍽️',ingredients:[
-      {txt:'1/2 pieza Mango petacón',group:'Frutas',qty:1},
-      {txt:'1 1/2 cucharada Semilla de calabaza',group:'Grasas con proteína',qty:1}
-    ],steps:['Cortar el mango petacón en trozos','Mezclar los trozos de mango y semilla de calabaza']},
-    {name:'Papaya y almendras',img:'🍽️',ingredients:[
-      {txt:'1 taza papaya picada',group:'Frutas',qty:1},
-      {txt:'10 piezas Almendra',group:'Grasas con proteína',qty:1}
-    ],steps:['Pica la papaya en cubos.','Acompaña con almendras']}
+    {name:"Naranja con crema de cacahuate natural",img:'🍽️',ingredients:[
+      {"txt": "2 piezas Naranja", "group": "Frutas", "qty": 1},
+      {"txt": "1 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 1}
+    ],steps:["Pela la naranja en gajos y acompaña con cacahuates naturales.", "¡disfrutar!"]},
+    {name:"Manzana con cacahuate",img:'🍽️',ingredients:[
+      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
+      {"txt": "14 piezas Cacahuate", "group": "Grasas con proteína", "qty": 1}
+    ],steps:["Parte la manzana en gajos.", "Acompaña con la porción indicada de cacahuate (cuida que no tenga mucha sal).", "¡Sirve y disfruta!"]},
+    {name:"Mango picado con mix de frutos secos y semillas",img:'🍽️',ingredients:[
+      {"txt": "1/2 pieza Mango ataúlfo", "group": "Frutas", "qty": 1},
+      {"txt": "1/4 taza Mix de frutos secos y semillas", "group": "Grasas con proteína", "qty": 1}
+    ],steps:["Lavar, pelar y picar el mango en cubos.", "Tomar la porción indicada de mango junto con la porción de frutos secos y semillas.", "¡Disfruta!"]},
+    {name:"Plátano con crema de cacahuate",img:'🍽️',ingredients:[
+      {"txt": "1/2 pieza Plátano", "group": "Frutas", "qty": 1},
+      {"txt": "1/2 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 0.5},
+      {"txt": "3 1/2 mitades Nuez", "group": "Grasas con proteína", "qty": 0.5}
+    ],steps:["Corta el plátano por la mitad y úntalo con la crema de cacahuate.", "Agrega trozos de nuez encima.", "¡sirve y disfruta!"]},
+    {name:"Manzanas cubiertas con chocolate amargo",img:'🍽️',ingredients:[
+      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
+      {"txt": "7 mitades Nuez", "group": "Grasas con proteína", "qty": 1},
+      {"txt": "Chocolate amargo", "free": true}
+    ],steps:["Corta la manzana en rebanadas a tu gusto.", "Derrite tu cuadrito de chocolate amargo en el microondas durante 1 min.", "Toma la manzana y cubrela con el chocolate, agrega las nueces encima.", "¡Sirve y disfruta!"]},
+    {name:"Mora y frambuesa con nuez de la india",img:'🍽️',ingredients:[
+      {"txt": "1/2 taza moras", "group": "Frutas", "qty": 0.667},
+      {"txt": "1/2 taza Frambuesa", "group": "Frutas", "qty": 0.5},
+      {"txt": "7 piezas Nuez de la india sin sal", "group": "Grasas con proteína", "qty": 1}
+    ],steps:["En un plato sirve la porción de frutas y nuez.", "Disfruta!"]},
+    {name:"Uvas y pistaches",img:'🍽️',ingredients:[
+      {"txt": "18 piezas Uva", "group": "Frutas", "qty": 1},
+      {"txt": "18 piezas Pistache", "group": "Grasas con proteína", "qty": 1}
+    ],steps:["Toma la porción señalada de uva y pistache.", "¡Disfruta!"]}
   ],
   cena: [
-    {name:'Sándwich de pollo y pechuga de pavo + Licuado de plátano',img:'🍽️',ingredients:[
-      {txt:'2 pieza Pan integral',group:'Cereales sin grasa',qty:2},
-      {txt:'1/2 pieza Plátano',group:'Frutas',qty:1},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'1 taza Leche descremada',group:'Leche descremada',qty:1},
-      {txt:'75 gramos Pechuga de pollo',group:'Proteína muy baja en grasa',qty:2.5},
-      {txt:'5 rebanadas delgadas Pechuga de pavo horneada',group:'Proteína muy baja en grasa',qty:1},
-      {txt:'1 1/2 tazas Lechuga',group:'Verduras',qty:1},
-      {txt:'1/2 pieza tomate / jitomate',group:'Verduras',qty:0.5}
-    ],steps:['Tostar el pan por ambos lados.','Colocar la pechuga de pavo en rebanada, en ambos panes','Agrega el aguacate, la porción de pollo previamente asado o cocido y verdura (lechuga, y rebanadas de jitomate) cerrar el sándwich.','Acompaña con un licuado de plátano: Licuar le leche descremada y el plátano (opcional puedes agregar hielos)','¡Disfruta!']},
-    {name:'Tacos de lechuga y pollo',img:'🍽️',ingredients:[
-      {txt:'4 piezas Tostadas horneadas',group:'Cereales sin grasa',qty:1},
-      {txt:'1/2 taza fresa rebanada',group:'Frutas',qty:0.5},
-      {txt:'9 piezas Uva',group:'Frutas',qty:1},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'1 taza Leche deslactosada light',group:'Leche descremada',qty:1},
-      {txt:'150 gramos Pechuga de pollo',group:'Proteína muy baja en grasa',qty:5},
-      {txt:'1/2 pieza tomate / jitomate',group:'Verduras',qty:0.5},
-      {txt:'1 1/2 tazas Lechuga',group:'Verduras',qty:1},
-      {txt:'Cilantro',free:true},
-      {txt:'Limón',free:true},
-      {txt:'Sal y pimienta',free:true},
-      {txt:'Cebolla',free:true}
-    ],steps:['Cocer el pollo en agua durante 30 min. una vez listo deshebrar','Preparar una salsa picando finamente jitomate, cebolla, cilantro y agrega limón y sal para sazonar.','En las hojas de lechuga servir el pollo, la salsa y aguacate','Acompañar con una porción de fruta']},
-    {name:'Wrap de atún con aguacate y elote',img:'🍽️',ingredients:[
-      {txt:'1/2 taza Elote amarillo desgranado',group:'Cereales sin grasa',qty:1},
-      {txt:'1/2 pieza Tortilla de harina',group:'Cereales sin grasa',qty:1},
-      {txt:'1 taza mango picado',group:'Frutas',qty:1},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'1 2/3 lata Atún en agua',group:'Proteína muy baja en grasa',qty:5},
-      {txt:'3 tazas Lechuga',group:'Verduras',qty:1},
-      {txt:'1 porción lácteo',group:'Leche descremada',qty:1}
-    ],steps:['Abre la lata de atún en agua y escúrrelo bien.','Corta el aguacate por la mitad, quita el hueso y saca la pulpa con una cuchara.','En un tazón, mezcla el atún en agua con el elote amarillo desgranado.','Agrega el aguacate cortado en cubos a la mezcla de atún y elote.','En un sartén calienta la tortilla de harina.','Toma una tortilla de harina y coloca una porción de la mezcla en el centro.','Añade algunas hojas de lechuga sobre la mezcla.','Enrolla la tortilla de harina formando un wrap.']},
-    {name:'Tostada de pechuga de pollo con jitomate cherry y aguacate',img:'🍽️',ingredients:[
-      {txt:'2 pieza Pan integral tostado',group:'Cereales sin grasa',qty:2},
-      {txt:'1 pieza Manzana',group:'Frutas',qty:1},
-      {txt:'1/3 pieza Aguacate',group:'Grasas sin proteína',qty:1},
-      {txt:'150 gramos Pechuga de pollo',group:'Proteína muy baja en grasa',qty:5},
-      {txt:'4 piezas tomate cherry / jitomate cherry',group:'Verduras',qty:1},
-      {txt:'1 porción lácteo',group:'Leche descremada',qty:1}
-    ],steps:['Tuesta el pan integral.','Cocina la pechuga de pollo y córtala en tiras.','Corta los jitomates cherry por la mitad.','Corta el aguacate en rodajas.','Coloca las tiras de pollo sobre el pan tostado.','Agrega los jitomates cherry y las rodajas de aguacate.','Corta la manzana en gajos y sírvela de postre.']},
-    {name:'Crepes de avena con espinaca y champiñones',img:'🍽️',ingredients:[
-      {txt:'2/3 taza Avena en hojuela cruda',group:'Cereales sin grasa',qty:2},
-      {txt:'1 cucharadita Aceite de oliva',group:'Grasas sin proteína',qty:1},
-      {txt:'1 taza Leche deslactosada light',group:'Leche descremada',qty:1},
-      {txt:'10 piezas Clara de huevo',group:'Proteína muy baja en grasa',qty:1},
-      {txt:'1/3 taza Champiñon crudo',group:'Verduras',qty:0.333},
-      {txt:'1/6 taza Cebolla morada/blanca',group:'Verduras',qty:0.333},
-      {txt:'2/3 tazas Espinaca cruda picada',group:'Verduras',qty:1},
-      {txt:'Pizca de sal',free:true},
-      {txt:'1 porción fruta',group:'Frutas',qty:1}
-    ],steps:['Lava las espinacas y córtalas en tiras no muy largas. pica también media cebolla y los champiñones','En una sartén con un poco de aceite caliente sofríe la cebolla y los champiñones a fuego medio durante 4-5 minutos. añade las espinacas, un poco de sal a todo, y saltea durante un par de minutos más','En tu procesador de alimentos tritura la avena hasta convertirla en harina de avena.','Añade a la harina de avena, el huevo, media cucharadita de sal y la leche. tritura todo','En una sartén echa unas gotitas de aceite de manera que se esparza por toda la sartén. extiende un poco de la mezcla, mueve la sartén para que te quede toda bien cubierta de la masa, y cocina a fuego medio 1-2 minutos. dale la vuelta con cuidado','Vierte sobre la misma un poco del salteado de espinacas con champiñones que has preparado y, poco poco, ve cerrando la crepe. repite la operación tantas veces como crepes y relleno te salgan.','¡disfruta!']},
-    {name:'Ensalada de pollo con espinacas y fresas',img:'🍽️',ingredients:[
-      {txt:'1 taza fresa rebanada',group:'Frutas',qty:1},
-      {txt:'1 cucharadita Aceite de oliva',group:'Grasas sin proteína',qty:1},
-      {txt:'150 gramos Pechuga de pollo',group:'Proteína muy baja en grasa',qty:5},
-      {txt:'2 tazas Espinaca cruda picada',group:'Verduras',qty:1},
-      {txt:'Sal al gusto',free:true},
-      {txt:'2 porciones cereal',group:'Cereales sin grasa',qty:2},
-      {txt:'1 porción lácteo',group:'Leche descremada',qty:1}
-    ],steps:['Cocina la pechuga de pollo a la plancha y déjala enfriar','Corta la pechuga de pollo en trozos','Lava y pica las espinacas crudas','Corta las fresas en rebanadas','Mezcla en un tazón las espinacas, el pollo y las fresas','Adereza con aceite de oliva y una pizca de sal','Revuelve bien y sirve']},
-    {name:'Tostadas con queso cottage y fresas',img:'🍽️',ingredients:[
-      {txt:'2 pieza Pan integral tostado',group:'Cereales sin grasa',qty:2},
-      {txt:'1 taza fresa rebanada',group:'Frutas',qty:1},
-      {txt:'1 1/2 cucharadita Mantequilla de vaca',group:'Grasas sin proteína',qty:1},
-      {txt:'15 cucharadas Queso cottage',group:'Proteína muy baja en grasa',qty:1},
-      {txt:'1 porción verdura',group:'Verduras',qty:1},
-      {txt:'1 porción lácteo',group:'Leche descremada',qty:1}
-    ],steps:['Unta la mantequilla sobre el pan integral tostado.','Agrega el queso cottage encima del pan.','Coloca las fresas rebanadas sobre el queso cottage.','Sirve las tostadas']}
+    {name:"Ensalada de pollo con espinaca, aguacate y croutones, con naranja y vinagreta",img:'🍽️',ingredients:[
+      {"txt": "1/2 taza Croutones", "group": "Cereales sin grasa", "qty": 1},
+      {"txt": "2 piezas Naranja", "group": "Frutas", "qty": 1},
+      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/4 cucharada Vinagreta", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "150 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 5},
+      {"txt": "2 tazas Espinaca cruda picada", "group": "Verduras", "qty": 1},
+      {"txt": "Sal", "free": true},
+      {"txt": "Pimienta", "free": true},
+      {"txt": "Jugo de limón", "free": true},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["Cocina la pechuga de pollo con sal y pimienta hasta que esté bien cocida, y luego córtala en trozos.", "Lava la espinaca y colócala en un plato o tazón.", "Pela la naranja y córtala en gajos.", "Corta el aguacate en rebanadas o cubos.", "Agrega sobre la espinaca el pollo, la naranja, el aguacate y los croutones.", "Aliña con jugo de limón y vinagreta antes de servir."]},
+    {name:"Bowl de Salmón con Pepino y Mango",img:'🍽️',ingredients:[
+      {"txt": "1/3 taza Arroz integral cocido", "group": "Cereales sin grasa", "qty": 1},
+      {"txt": "1 taza mango picado", "group": "Frutas", "qty": 1},
+      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/2 cucharadita Mayonesa", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "175 gramos Salmón ahumado", "group": "Proteína muy baja en grasa", "qty": 5},
+      {"txt": "1 taza pepino rebanado", "group": "Verduras", "qty": 1},
+      {"txt": "Siracha", "free": true},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["Comienza preparando los ingredientes de la siguiente forma. Lava y corta en rodajas finas el pepino. Pela y corta en trozos pequeños el mango. Corta el aguacate en trozos.", "En un recipiente vierte la mayonesa y la salsa sriracha, y mezcla.", "Añade el salmón ahumado cortado en tacos y/o lonchas y mézclalas con la salsa que acabas de preparar.", "En un recipiente coloca como base el arroz blanco. Coloca en un lado las rodajas de pepino, el salmón ahumado con su salsa, y termina poniendo los trozos de mango y aguacate."]},
+    {name:"Pan de pita con pollo",img:'🍽️',ingredients:[
+      {"txt": "1/3 pieza Pan árabe integral", "group": "Cereales sin grasa", "qty": 1},
+      {"txt": "3/4 taza Piña picada", "group": "Frutas", "qty": 1},
+      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "150 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 5},
+      {"txt": "1/4 taza Zanahoria cruda picada/rallada", "group": "Verduras", "qty": 0.5},
+      {"txt": "1/2 taza Mix de vegetales verdes", "group": "Verduras", "qty": 0.5},
+      {"txt": "Sal y pimienta", "free": true},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["Asar el pollo con sal y pimienta, partir en trozos pequeños", "Picar las verduras", "Calentar el pan pita con el pollo y las verduras", "Acompaña con la porción de fruta y disfruta"]},
+    {name:"Toast con claras de huevo, verduras y guacamole",img:'🍽️',ingredients:[
+      {"txt": "1 pieza Pan integral", "group": "Cereales sin grasa", "qty": 1},
+      {"txt": "2 piezas Naranja", "group": "Frutas", "qty": 1},
+      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1 cucharadas Guacamole", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "10 piezas Clara de huevo", "group": "Proteína muy baja en grasa", "qty": 5},
+      {"txt": "1 tazas Espinaca cruda picada", "group": "Verduras", "qty": 0.5},
+      {"txt": "1/2 pieza tomate / jitomate", "group": "Verduras", "qty": 0.5},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["En un sartén cuece las claras con un poco de aceite, sal, pimienta y espinacas.", "Tostar el pan y añadir el aguacate, las claras con espinacas y unas rodajas de tomate.", "Acompaña con una porción de fruta."]},
+    {name:"Pan tostado con requesón y aguacate",img:'🍽️',ingredients:[
+      {"txt": "1/3 pieza Baguette integral chico", "group": "Cereales sin grasa", "qty": 1},
+      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
+      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "15 cucharadas Requesón", "group": "Proteína muy baja en grasa", "qty": 5},
+      {"txt": "4 piezas tomate cherry / jitomate cherry", "group": "Verduras", "qty": 1},
+      {"txt": "Pimienta", "free": true},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["Tostar el pan y agregar el requesón, aguacate, jitomate y pimienta encima.", "Acompañar con una porción de fruta"]},
+    {name:"Filete de pescado con espárragos y papa",img:'🍽️',ingredients:[
+      {"txt": "1/2 pieza Papa cocida", "group": "Cereales sin grasa", "qty": 1},
+      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
+      {"txt": "200 gramos Filete de tilapia", "group": "Proteína muy baja en grasa", "qty": 5},
+      {"txt": "6 piezas Espárrago", "group": "Verduras", "qty": 1},
+      {"txt": "Jugo de limón", "free": true},
+      {"txt": "Sal al gusto", "free": true},
+      {"txt": "1 porción fruta", "group": "Frutas", "qty": 1},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["Comienza cocinando la papa en una olla con agua y un poco de sal hasta que esté tierna.", "Mientras se cocina la papa, prepara el filete de tilapia.", "Calienta un poco de aceite de oliva en una sartén a fuego medio.", "Coloca el filete de tilapia en la sartén y cocina hasta que esté dorado por ambos lados, agrega un poco de sal.", "Mientras se cocina el filete, corta los espárragos en trozos de aproximadamente 5 cm.", "Agrega los espárragos a la sartén con el filete de tilapia y cocina hasta que estén tiernos.", "Exprime el limón sobre el filete de tilapia y los espárragos para darles un toque fresco.", "Sirve el filete de tilapia con los espárragos y acompáñalo con la porción de papa cocida."]},
+    {name:"Ensalada de pollo",img:'🍽️',ingredients:[
+      {"txt": "1/4 pieza Papa cocida", "group": "Cereales sin grasa", "qty": 0.5},
+      {"txt": "1/4 taza Elote amarillo desgranado", "group": "Cereales sin grasa", "qty": 0.5},
+      {"txt": "1/2 cucharada Crema", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "1/2 cucharadita Mayonesa", "group": "Grasas sin proteína", "qty": 0.5},
+      {"txt": "150 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 5},
+      {"txt": "1/6 taza Zanahoria cruda picada/rallada", "group": "Verduras", "qty": 0.333},
+      {"txt": "1/6 taza Chícharo cocido sin vaina", "group": "Verduras", "qty": 0.667},
+      {"txt": "1 tazas Lechuga", "group": "Verduras", "qty": 0.333},
+      {"txt": "Sal al gusto", "free": true},
+      {"txt": "Pimienta al gusto", "free": true},
+      {"txt": "1 porción fruta", "group": "Frutas", "qty": 1},
+      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
+    ],steps:["Cocina la pechuga de pollo en una olla con agua y un poco de sal hasta que esté bien cocida y luego déjala enfriar un poco.", "Mientras tanto, pela y corta la papa en cubos pequeños.", "Corta la zanahoria en cubos pequeños.", "Cocina la papa y zanahoria en una olla con un poco de sal y agua, hasta que este bien cocidas.", "En un tazón agrega la pechuga de pollo desmenuzada, la papa y la zanahoria.", "Incorpora la crema y la mayonesa a la mezcla.", "Agrega los granos de elotes y los chícharos.", "Lava y corta la lechuga en trozos y colócala con el resto de los ingredientes.", "Finalmente, mezcla todos y sazona con un poco de sal y pimienta."]}
   ]
 };
 
 
 // Shopping list data
 const SHOPPING = [
-  {name:'Arroz cocido',amount:'1/2 taza ~ 94 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Croutones',amount:'1 taza ~ 30 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Arroz integral cocido',amount:'1/3 taza ~ 65 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Baguette integral chico',amount:'1/3 pieza ~ 27 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Croutones',amount:'1/2 taza ~ 15 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Elote amarillo desgranado',amount:'3/4 taza ~ 124.5 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Galleta salma',amount:'4 paquete ~ 72 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Galletas habaneras',amount:'8 piezas ~ 36 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
   {name:'Pan integral',amount:'8 pieza ~ 200 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Pan árabe integral',amount:'2/3 pieza ~ 42 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Pan integral tostado',amount:'2 pieza ~ 30 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Pan árabe integral',amount:'1/3 pieza ~ 21 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Papa cocida',amount:'3/4 pieza ~ 102 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
   {name:'Pasta integral cocida',amount:'2/3 taza ~ 92 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Tortilla de maíz',amount:'4 pieza ~ 120 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Leche descremada',amount:'2 taza ~ 490 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
-  {name:'Yogurt griego natural sin azúcar',amount:'2 taza ~ 500 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
-  {name:'Aceite de oliva',amount:'6 cucharadita ~ 30 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Aguacate',amount:'3 y 2/3 pieza ~ 341 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Almendra',amount:'58 y 1/2 piezas ~ 70.08 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Chocolate sin azúcar',amount:'19 y 3/4 gramos ~ 19.95 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Crema de cacahuate natural',amount:'1 y 1/6 cucharada ~ 11.6 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Nuez',amount:'7 mitades ~ 9 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Semilla de calabaza',amount:'1 y 1/2 cucharada ~ 15 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Cereza',amount:'20 piezas ~ 88 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Dátil seco',amount:'2 piezas ~ 17 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Mango ataúlfo',amount:'1/6 pieza ~ 21.08 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Manzana',amount:'3 y 1/2 pieza ~ 371 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Plátano',amount:'1 pieza ~ 108 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Uva',amount:'27 piezas ~ 129 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Fresa rebanada',amount:'5 y 1/2 taza ~ 913 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Moras',amount:'1 y 1/2 taza ~ 200.16 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Avena en hojuela cruda',amount:'2/3 taza ~ 60 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Elote amarillo desgranado',amount:'2 taza ~ 332 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Pan integral tostado',amount:'4 pieza ~ 60 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Pasta de quinoa',amount:'2/3 taza ~ 92 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Tortilla de harina',amount:'1 pieza ~ 28 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Tostadas horneadas',amount:'12 piezas ~ 120 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Tortilla de maíz',amount:'6 pieza ~ 180 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Tostadas horneadas',amount:'4 piezas ~ 40 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Totopos horneados',amount:'60 gramos ~ 60 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
+  {name:'Leche descremada',amount:'1 taza ~ 245 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
   {name:'Leche deslactosada light',amount:'2 taza ~ 480 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
+  {name:'Yogurt griego natural sin azúcar',amount:'1 taza ~ 250 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
   {name:'Aceite',amount:'1 cucharadita ~ 5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Cacahuate',amount:'18 y 3/4 piezas ~ 16.08 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Crema',amount:'2 cucharada ~ 30 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Mantequilla de vaca',amount:'1 y 1/2 cucharadita ~ 6 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Nuez de la india sin sal',amount:'16 y 1/3 piezas ~ 25.63 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Arándano deshidratado',amount:'2 cucharadas ~ 18 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Ciruela pasa deshuesada',amount:'7 piezas ~ 56 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Frambuesa',amount:'1/3 taza ~ 40.59 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Mango petacón',amount:'1/2 pieza ~ 110 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Aguacate',amount:'2 y 2/3 pieza ~ 250.82 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
+  {name:'Almendra',amount:'10 piezas ~ 12 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Cacahuate',amount:'28 piezas ~ 24 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Crema',amount:'1/2 cucharada ~ 7.5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
+  {name:'Crema de cacahuate natural',amount:'4 y 1/2 cucharada ~ 45 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Guacamole',amount:'3 cucharadas ~ 42 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
+  {name:'Mayonesa',amount:'2 cucharadita ~ 10 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
+  {name:'Mix de frutos secos y semillas',amount:'1/2 taza ~ 50 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Nuez',amount:'17 y 1/2 mitades ~ 22.5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Nuez de la india sin sal',amount:'7 piezas ~ 11 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Pistache',amount:'18 piezas ~ 13 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
+  {name:'Vinagreta',amount:'1/4 cucharada ~ 4 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
+  {name:'Frambuesa',amount:'1 y 1/6 taza ~ 142.68 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Mandarina',amount:'2 piezas ~ 128 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Mango ataúlfo',amount:'1/2 pieza ~ 62 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Manzana',amount:'5 pieza ~ 530 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Naranja',amount:'6 piezas ~ 456 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
   {name:'Pera',amount:'1/2 pieza ~ 81 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Tuna',amount:'2 piezas ~ 138 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Zarzamora',amount:'1/2 taza ~ 72 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Mango picado',amount:'2 y 1/2 taza ~ 412.5 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Papaya picada',amount:'1 taza ~ 140 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Bebida vegetal de soya sin azúcar y sin endulzar',amount:'1 taza ~ 240 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
-  {name:'Frijol cocido',amount:'1/2 taza ~ 86 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
-  {name:'Frijoles refritos caseros',amount:'1/3 taza ~ 75 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
-  {name:'Garbanzo cocido',amount:'1 y 1/2 taza ~ 246 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
+  {name:'Piña picada',amount:'1 y 1/2 taza ~ 248 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Plátano',amount:'1 pieza ~ 108 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Uva',amount:'18 piezas ~ 86 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Zarzamora',amount:'1/3 taza ~ 47.52 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Fresa rebanada',amount:'2 y 1/3 taza ~ 388.44 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Mango picado',amount:'2 taza ~ 330 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Moras',amount:'2 y 1/3 taza ~ 344.16 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
+  {name:'Frijol cocido',amount:'2 y 1/2 taza ~ 430 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
+  {name:'Garbanzo cocido',amount:'1/2 taza ~ 82 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
   {name:'Lenteja cocida',amount:'1/2 taza ~ 99 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
-  {name:'Arrachera de res',amount:'180 gramos ~ 180 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína baja en grasa',shelf:'perec'},
-  {name:'Atún en agua',amount:'3 y 2/3 lata ~ 363 g',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Clara de huevo',amount:'22 piezas ~ 726 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Medallón de atún',amount:'360 gramos ~ 360 g',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Pechuga de pavo horneada',amount:'11 rebanadas delgadas ~ 176 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Pechuga de pollo',amount:'885 gramos ~ 885 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Pechuga de pollo deshebrada',amount:'96 gramos ~ 96 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Pierna de pollo sin piel',amount:'2 y 3/4 pieza ~ 387 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína baja en grasa',shelf:'perec'},
-  {name:'Queso cottage',amount:'33 cucharadas ~ 528 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Queso fresco',amount:'240 gramos ~ 240 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína baja en grasa',shelf:'perec'},
-  {name:'Queso oaxaca light',amount:'90 gramos ~ 90 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína baja en grasa',shelf:'perec'},
-  {name:'Queso panela',amount:'240 gramos ~ 240 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína baja en grasa',shelf:'perec'},
-  {name:'Res sin grasa',amount:'180 gramos ~ 180 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína baja en grasa',shelf:'perec'},
-  {name:'Calabacita',amount:'1/3 pieza ~ 30.03 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Cebolla morada/blanca',amount:'3/4 taza ~ 97.44 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Champiñon crudo',amount:'1/3 taza ~ 31.62 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Col rizada',amount:'1/2 taza ~ 33.5 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Espinaca cruda picada',amount:'4 y 2/3 tazas ~ 279.6 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Germen de alfalfa crudo',amount:'3/4 tazas ~ 32.67 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Lechuga',amount:'16 y 1/2 tazas ~ 742.5 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Mix de vegetales verdes',amount:'1 taza ~ 192 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Nopal crudo',amount:'2 piezas ~ 134 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Tomate verde',amount:'4 y 1/4 piezas ~ 72.24 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Zanahoria cruda picada/rallada',amount:'1/2 taza ~ 53.76 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Pepino rebanado',amount:'3/4 taza ~ 86.32 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Tomate / jitomate',amount:'2 y 1/2 pieza ~ 282.5 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Tomate cherry / jitomate cherry',amount:'8 piezas ~ 190 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'}
+  {name:'Atún en agua',amount:'4 lata ~ 396 g',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Clara de huevo',amount:'10 piezas ~ 330 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Filete de tilapia',amount:'200 gramos ~ 200 g',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Pechuga de pavo horneada',amount:'12 rebanadas delgadas ~ 192 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Pechuga de pollo',amount:'1530 gramos ~ 1530 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Pechuga de pollo deshebrada',amount:'384 gramos ~ 384 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Requesón',amount:'51 cucharadas ~ 714 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Salmón ahumado',amount:'175 gramos ~ 175 g',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
+  {name:'Arúgula cruda',amount:'4 tazas ~ 80 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Cebolla morada/blanca',amount:'1/2 taza ~ 58 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Chile poblano',amount:'1/2 pieza ~ 32 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Chícharo cocido sin vaina',amount:'1/6 taza ~ 12.8 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Ejote cocido',amount:'1/6 taza ~ 21.42 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Espinaca cruda picada',amount:'4 tazas ~ 240 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Espárrago',amount:'6 piezas ~ 90 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Lechuga',amount:'10 y 1/2 tazas ~ 472.5 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Mix de vegetales verdes',amount:'1/2 taza ~ 96 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Pimiento de color',amount:'1 pieza ~ 64 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Sopa de verduras',amount:'1/2 taza ~ 46 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Tomate verde',amount:'5 piezas ~ 86 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Zanahoria cruda picada/rallada',amount:'2/3 taza ~ 75.52 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Pepino rebanado',amount:'1 y 1/3 taza ~ 138.32 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Tomate / jitomate',amount:'2 y 1/3 pieza ~ 263.29 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
+  {name:'Tomate cherry / jitomate cherry',amount:'10 piezas ~ 237.5 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'}
 ];
 
 
@@ -1302,7 +1308,7 @@ function switchTab(id) {
 }
 
 // ============ DATE HELPERS ============
-const PLAN_START = new Date(2026, 7, 17); // Lunes 17 de agosto de 2026 (semana del plan asignado el 23/8/2026)
+const PLAN_START = new Date(2026, 8, 21); // Lunes 21 de septiembre de 2026 (semana del plan asignado el 27/9/2026)
 function getDayIndex() {
   const today = new Date();
   const diff = Math.floor((today - PLAN_START) / 86400000);
@@ -1710,7 +1716,7 @@ function setShelfFilter(mode) {
 
 // ============ RENDER: SUPLEMENTOS ============
 function renderSupps() {
-  const year = 2026, month = 7; // Agosto 2026 (0-indexed: 7)
+  const year = 2026, month = 8; // Septiembre 2026 (0-indexed: 8)
   let html = `
     <div class="card">
       <div class="card-title">💊 Protocolo de Suplementos</div>
@@ -1720,40 +1726,40 @@ function renderSupps() {
       </div>
     </div>
     <div class="card">
-      <div class="card-title">📅 Calendario — Agosto/Septiembre 2026</div>
+      <div class="card-title">📅 Calendario — Septiembre/Octubre 2026</div>
   `;
 
-  // Render calendar for Agosto 23 (plan asignado) al 19 de Septiembre (próxima revisión), 2026
+  // Render calendar for Septiembre 27 (plan asignado) al 31 de Octubre (próxima revisión), 2026
   const totalSupps = SUPPLEMENTS.length;
   html += '<div class="cal-grid">';
   ['L','M','Mi','J','V','S','D'].forEach(d => html += `<div class="cal-day-header">${d}</div>`);
 
-  // 23 de agosto de 2026 es domingo; añadimos 6 celdas vacías (L-S) antes de empezar la semana
+  // 27 de septiembre de 2026 es domingo; añadimos 6 celdas vacías (L-S) antes de empezar la semana
   for (let i = 0; i < 6; i++) html += '<div class="cal-day empty"></div>';
 
-  for (let day = 23; day <= 31; day++) {
-    const dateKey = `2026-8-${day}`;
-    const suppState = getState('supps-' + dateKey, {});
-    const doneCount = SUPPLEMENTS.filter(s => suppState[s.id]).length;
-    const today = new Date();
-    const isToday = today.getDate() === day && today.getMonth() === 7 && today.getFullYear() === 2026;
-    html += `<div class="cal-day ${isToday ? 'today' : ''} ${doneCount === totalSupps ? 'all-done' : ''}" onclick="showDaySupps(2026,7,${day})">
-      <span>${day} ago</span>
-      <div class="cal-dots">${SUPPLEMENTS.map((s,i) => `<div class="cal-dot ${suppState[s.id]?'done':''}"></div>`).join('')}</div>
-    </div>`;
-  }
-  for (let day = 1; day <= 19; day++) {
+  for (let day = 27; day <= 30; day++) {
     const dateKey = `2026-9-${day}`;
     const suppState = getState('supps-' + dateKey, {});
     const doneCount = SUPPLEMENTS.filter(s => suppState[s.id]).length;
     const today = new Date();
     const isToday = today.getDate() === day && today.getMonth() === 8 && today.getFullYear() === 2026;
     html += `<div class="cal-day ${isToday ? 'today' : ''} ${doneCount === totalSupps ? 'all-done' : ''}" onclick="showDaySupps(2026,8,${day})">
+      <span>${day} sep</span>
+      <div class="cal-dots">${SUPPLEMENTS.map((s,i) => `<div class="cal-dot ${suppState[s.id]?'done':''}"></div>`).join('')}</div>
+    </div>`;
+  }
+  for (let day = 1; day <= 31; day++) {
+    const dateKey = `2026-10-${day}`;
+    const suppState = getState('supps-' + dateKey, {});
+    const doneCount = SUPPLEMENTS.filter(s => suppState[s.id]).length;
+    const today = new Date();
+    const isToday = today.getDate() === day && today.getMonth() === 9 && today.getFullYear() === 2026;
+    html += `<div class="cal-day ${isToday ? 'today' : ''} ${doneCount === totalSupps ? 'all-done' : ''}" onclick="showDaySupps(2026,9,${day})">
       <span>${day}</span>
       <div class="cal-dots">${SUPPLEMENTS.map((s,i) => `<div class="cal-dot ${suppState[s.id]?'done':''}"></div>`).join('')}</div>
     </div>`;
   }
-  const totalCells = 6 + 9 + 19;
+  const totalCells = 6 + 4 + 31;
   const remainder = (7 - (totalCells % 7)) % 7;
   for (let i = 0; i < remainder; i++) html += '<div class="cal-day empty"></div>';
 
@@ -1794,7 +1800,7 @@ function renderSupps() {
 function showDaySupps(y, m, d) {
   const dateKey = `${y}-${m+1}-${d}`;
   const suppState = getState('supps-' + dateKey, {});
-  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre'];
+  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
   // Store current editing day globally
   window._editingSuppDay = { y, m, d, dateKey };
@@ -1848,9 +1854,9 @@ function calcAdherence() {
   let waterTotal = 0;
   let waterDays = 0;
 
-  // Check from July 27 to today
-  const start = new Date(2026, 6, 27);
-  const end = new Date(Math.min(today.getTime(), new Date(2026, 7, 22).getTime()));
+  // Check from September 27 to today
+  const start = new Date(2026, 8, 27);
+  const end = new Date(Math.min(today.getTime(), new Date(2026, 9, 31).getTime()));
 
   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
     const dk = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plan Nutricional — Efrain</title>
+<title>Plan Nutricional — Efraim</title>
 <style>
 :root {
   --bg: #f7f7f8;
@@ -261,9 +261,7 @@ body {
   transition: width 0.3s;
 }
 .progress-text { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
-.shop-category {
-  margin-bottom: 12px;
-}
+.shop-category { margin-bottom: 12px; }
 .shop-cat-header {
   display: flex;
   align-items: center;
@@ -303,9 +301,7 @@ body {
   font-size: 14px;
   margin-bottom: 14px;
 }
-.eq-group {
-  margin-bottom: 12px;
-}
+.eq-group { margin-bottom: 12px; }
 .eq-group-title {
   font-size: 14px;
   font-weight: 600;
@@ -400,48 +396,6 @@ body {
   cursor: pointer;
 }
 
-/* Supplement Calendar */
-.cal-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-  margin-top: 10px;
-}
-.cal-day-header {
-  text-align: center;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text2);
-  padding: 4px;
-}
-.cal-day {
-  aspect-ratio: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  font-size: 12px;
-  cursor: pointer;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  position: relative;
-}
-.cal-day.empty { background: transparent; border: none; cursor: default; }
-.cal-day.today { border-color: var(--accent); border-width: 2px; }
-.cal-day .cal-dots {
-  display: flex;
-  gap: 2px;
-  margin-top: 2px;
-}
-.cal-dot {
-  width: 4px; height: 4px;
-  border-radius: 50%;
-  background: var(--border);
-}
-.cal-dot.done { background: var(--accent); }
-.cal-day.all-done { background: var(--accent-light); }
-
 /* Plan semanal */
 .day-tabs {
   display: flex;
@@ -491,132 +445,6 @@ body {
 }
 .levo-banner strong { color: var(--accent); }
 
-/* ============ RESPONSIVE ============ */
-
-/* iPhone safe areas (notch, home bar) */
-@supports (padding: env(safe-area-inset-bottom)) {
-  body { padding-bottom: calc(20px + env(safe-area-inset-bottom)); }
-  .header { padding-top: calc(14px + env(safe-area-inset-top)); }
-}
-
-/* Mobile-first: small screens (iPhone SE, regular iPhones) */
-@media (max-width: 374px) {
-  .header h1 { font-size: 14px; }
-  .header-right span { display: none; }
-  .tab-btn { padding: 8px 10px; font-size: 11px; }
-  .meal-img { width: 56px; height: 56px; font-size: 24px; }
-  .meal-name { font-size: 13px; }
-  .cal-day { font-size: 10px; }
-  .week-selector { gap: 4px; }
-  .week-btn { font-size: 11px; padding: 6px 10px; }
-}
-
-/* Regular mobile (375px - 599px) */
-@media (max-width: 599px) {
-  .tab-content { padding: 12px; }
-  .modal {
-    max-height: 80vh;
-    border-radius: 16px 16px 0 0;
-  }
-  .week-selector { flex-wrap: wrap; }
-  .shop-item label { font-size: 13px; }
-  .eq-item { padding: 8px 12px; }
-}
-
-/* Tablet + Desktop (600px+) */
-@media (min-width: 600px) {
-  .tab-btn { font-size: 13px; padding: 12px 20px; }
-  .tab-content { padding: 20px; max-width: 960px; }
-  .header { padding: 16px 24px; }
-  .header h1 { font-size: 18px; }
-  .card { padding: 20px; }
-  .meal-header { padding: 16px; }
-  .meal-img { width: 80px; height: 80px; font-size: 36px; }
-  .meal-name { font-size: 16px; }
-  .meal-desc { font-size: 13px; white-space: normal; }
-  .meal-detail { padding: 0 20px 20px; }
-  .ingredient-list li { padding: 7px 0; font-size: 14px; }
-  .recipe-steps li { font-size: 14px; }
-  .supp-name { font-size: 15px; }
-  .supp-detail { font-size: 13px; }
-  .levo-banner { font-size: 13px; padding: 16px; }
-  .search-box { font-size: 15px; padding: 12px 16px; }
-  .modal {
-    max-height: 60vh;
-    border-radius: 16px;
-    margin-bottom: auto;
-    margin-top: auto;
-  }
-  .modal-overlay { align-items: center; }
-  .modal-item { font-size: 14px; padding: 10px 0; }
-  .shop-item { font-size: 14px; padding: 10px 0; }
-  .shop-item input { width: 20px; height: 20px; }
-  .cal-day { font-size: 13px; }
-  .progress-text { font-size: 13px; }
-}
-
-/* Large desktop (900px+) */
-@media (min-width: 900px) {
-  .tab-content { max-width: 1060px; }
-
-  /* 2-column layout for meals in Plan Semanal and Recetas */
-  #tab-plan .meal-card,
-  #tab-recetas .meal-card {
-    display: inline-block;
-    width: calc(50% - 8px);
-    vertical-align: top;
-    margin-right: 14px;
-  }
-  #tab-plan .meal-card:nth-child(2n),
-  #tab-recetas .meal-card:nth-child(2n) {
-    margin-right: 0;
-  }
-
-  /* 2-column shopping list */
-  .shop-category {
-    display: inline-block;
-    width: calc(50% - 8px);
-    vertical-align: top;
-    margin-right: 14px;
-  }
-  .shop-category:nth-child(2n) { margin-right: 0; }
-
-  /* Wider modal */
-  .modal { max-width: 560px; }
-
-  .eq-group {
-    display: inline-block;
-    width: calc(50% - 8px);
-    vertical-align: top;
-    margin-right: 14px;
-  }
-  .eq-group:nth-child(2n) { margin-right: 0; }
-
-  .header h1 { font-size: 20px; }
-  .tab-btn { font-size: 14px; padding: 14px 24px; }
-}
-
-/* Touch targets: ensure minimum 44px hit area on mobile */
-@media (pointer: coarse) {
-  .tab-btn { min-height: 44px; }
-  .supp-check { width: 24px; height: 24px; }
-  .shop-item input { width: 22px; height: 22px; }
-  .day-tab { min-height: 40px; }
-  .week-btn { min-height: 40px; }
-  .meal-header { min-height: 72px; }
-  .ing-clickable { padding: 4px 0; display: inline-block; }
-  .eq-group-title { min-height: 44px; display: flex; align-items: center; }
-}
-
-/* Smooth scrolling */
-html { scroll-behavior: smooth; }
-
-/* Prevent text overflow everywhere */
-.meal-desc, .supp-name, .shop-item label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 /* Water tracker */
 .water-row {
   display: flex;
@@ -638,9 +466,7 @@ html { scroll-behavior: smooth; }
   transition: all 0.2s;
   background: transparent;
 }
-.water-circle.filled {
-  background: var(--accent);
-}
+.water-circle.filled { background: var(--accent); }
 .water-count {
   font-size: 13px;
   color: var(--text2);
@@ -648,1524 +474,1418 @@ html { scroll-behavior: smooth; }
   margin-top: 4px;
 }
 
-/* Levo timer */
-.levo-timer {
-  background: var(--accent-light);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 12px;
-  margin-top: 8px;
+/* Equivalents table */
+.eq-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+.eq-table th {
+  background: var(--accent);
+  color: white;
+  padding: 6px 8px;
   text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--accent);
-}
-.levo-timer .timer-big {
-  font-size: 28px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  margin: 4px 0;
-}
-.levo-timer.done {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-
-/* Shop slider */
-.shop-slider-container {
-  background: var(--bg2);
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  margin-bottom: 14px;
-  border: 1px solid var(--border);
-}
-.shop-slider-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 600;
-}
-.shop-slider-value {
-  background: var(--accent);
-  color: white;
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 13px;
-}
-.shop-slider {
-  width: 100%;
-  height: 6px;
-  -webkit-appearance: none;
-  appearance: none;
-  background: var(--bg3);
-  border-radius: 3px;
-  outline: none;
-}
-.shop-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: var(--accent);
-  cursor: pointer;
-  border: 3px solid var(--bg2);
-  box-shadow: var(--shadow);
-}
-.shop-slider::-moz-range-thumb {
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: var(--accent);
-  cursor: pointer;
-  border: 3px solid var(--bg2);
-}
-.shop-slider-ticks {
-  display: flex;
-  justify-content: space-between;
-  padding: 4px 2px 0;
   font-size: 11px;
-  color: var(--text2);
 }
+.eq-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.eq-table tr:last-child td { border-bottom: none; }
+.eq-table td:first-child { text-align: left; font-weight: 500; }
+.eq-table tr:nth-child(even) td { background: var(--bg3); }
 
-/* Adherence bar (history) */
-.adherence-card { margin-top: 14px; }
-.adherence-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+@supports (padding: env(safe-area-inset-bottom)) {
+  body { padding-bottom: calc(20px + env(safe-area-inset-bottom)); }
+  .header { padding-top: calc(14px + env(safe-area-inset-top)); }
 }
-.adherence-label {
-  font-size: 12px;
-  min-width: 80px;
-  color: var(--text2);
+@media (max-width: 374px) {
+  .header h1 { font-size: 14px; }
+  .tab-btn { padding: 8px 10px; font-size: 11px; }
+  .meal-img { width: 56px; height: 56px; font-size: 24px; }
+  .meal-name { font-size: 13px; }
 }
-.adherence-bar {
-  flex: 1;
-  height: 16px;
-  background: var(--bg3);
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
+@media (max-width: 599px) {
+  .tab-content { padding: 12px; }
+  .modal { max-height: 80vh; border-radius: 16px 16px 0 0; }
+  .week-selector { flex-wrap: wrap; }
 }
-.adherence-fill {
-  height: 100%;
-  border-radius: 8px;
-  transition: width 0.3s;
+@media (min-width: 600px) {
+  .tab-btn { font-size: 13px; padding: 12px 20px; }
+  .tab-content { padding: 20px; max-width: 960px; }
+  .header { padding: 16px 24px; }
+  .header h1 { font-size: 18px; }
+  .card { padding: 20px; }
+  .meal-header { padding: 16px; }
+  .meal-img { width: 80px; height: 80px; font-size: 36px; }
+  .meal-name { font-size: 16px; }
+  .meal-desc { font-size: 13px; white-space: normal; }
+  .meal-detail { padding: 0 20px 20px; }
+  .ingredient-list li { padding: 7px 0; font-size: 14px; }
+  .recipe-steps li { font-size: 14px; }
+  .modal { max-height: 60vh; border-radius: 16px; margin: auto; }
+  .modal-overlay { align-items: center; }
 }
-.adherence-pct {
-  font-size: 12px;
-  font-weight: 600;
-  min-width: 36px;
-  text-align: right;
+@media (min-width: 900px) {
+  .tab-content { max-width: 1060px; }
+  #tab-plan .meal-card, #tab-recetas .meal-card {
+    display: inline-block;
+    width: calc(50% - 8px);
+    vertical-align: top;
+    margin-right: 14px;
+  }
+  #tab-plan .meal-card:nth-child(2n), #tab-recetas .meal-card:nth-child(2n) { margin-right: 0; }
+  .shop-category {
+    display: inline-block;
+    width: calc(50% - 8px);
+    vertical-align: top;
+    margin-right: 14px;
+  }
+  .shop-category:nth-child(2n) { margin-right: 0; }
+  .modal { max-width: 560px; }
+  .eq-group {
+    display: inline-block;
+    width: calc(50% - 8px);
+    vertical-align: top;
+    margin-right: 14px;
+  }
+  .eq-group:nth-child(2n) { margin-right: 0; }
+  .header h1 { font-size: 20px; }
+  .tab-btn { font-size: 14px; padding: 14px 24px; }
 }
-
-/* Print-friendly (bonus) */
-@media print {
-  .header, .tab-bar, .theme-toggle, .btn, .supp-check, .shop-item input { display: none !important; }
-  .tab-content { display: block !important; padding: 0; }
-  .meal-detail { display: block !important; }
-  body { padding: 0; background: white; color: black; }
+@media (pointer: coarse) {
+  .tab-btn { min-height: 44px; }
+  .supp-check { width: 24px; height: 24px; }
+  .shop-item input { width: 22px; height: 22px; }
+  .day-tab { min-height: 40px; }
+  .week-btn { min-height: 40px; }
+  .meal-header { min-height: 72px; }
+  .ing-clickable { padding: 4px 0; display: inline-block; }
+  .eq-group-title { min-height: 44px; display: flex; align-items: center; }
 }
+html { scroll-behavior: smooth; }
+.meal-desc, .supp-name, .shop-item label { overflow: hidden; text-overflow: ellipsis; }
 </style>
-
-<!-- iOS PWA meta tags -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Plan Nutricional">
-<meta name="theme-color" content="#2d6a4f">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥗</text></svg>">
 </head>
 <body>
 
 <div class="header">
-  <h1>🥗 Plan Nutricional</h1>
+  <h1>🥗 Plan Nutricional · Noviembre 2026</h1>
   <div class="header-right">
-    <span style="font-size:11px;opacity:0.8">Sep 27 – Oct 31</span>
-    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
   </div>
 </div>
 
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('hoy')">📅 Hoy</button>
-  <button class="tab-btn" onclick="switchTab('plan')">📋 Plan Semanal</button>
-  <button class="tab-btn" onclick="switchTab('compras')">🛒 Compras</button>
-  <button class="tab-btn" onclick="switchTab('supps')">💊 Suplementos</button>
-  <button class="tab-btn" onclick="switchTab('equiv')">🔄 Equivalentes</button>
-  <button class="tab-btn" onclick="switchTab('recetas')">👨‍🍳 Recetas</button>
+  <button class="tab-btn active" onclick="showTab('tab-hoy')">🏠 Hoy</button>
+  <button class="tab-btn" onclick="showTab('tab-plan')">📅 Plan</button>
+  <button class="tab-btn" onclick="showTab('tab-compras')">🛒 Compras</button>
+  <button class="tab-btn" onclick="showTab('tab-recetas')">👨‍🍳 Recetas</button>
+  <button class="tab-btn" onclick="showTab('tab-equiv')">⚖️ Equivalentes</button>
 </div>
 
-<!-- TAB: HOY -->
-<div class="tab-content active" id="tab-hoy"></div>
+<!-- ========== TAB HOY ========== -->
+<div id="tab-hoy" class="tab-content active">
+  <div class="levo-banner">
+    <strong>Plan: 31/10/2026</strong> · Marisa Yolanda Quiroz Salcedo<br>
+    Cédula: 8262660 / 12841372 · Paciente: Efraim Isaac Vallejo Muñoz
+  </div>
 
-<!-- TAB: PLAN SEMANAL -->
-<div class="tab-content" id="tab-plan"></div>
+  <div class="card">
+    <div class="card-title">💧 Agua del día</div>
+    <div class="water-row" id="waterRow"></div>
+    <div class="water-count" id="waterCount">0 / 8 vasos</div>
+  </div>
 
-<!-- TAB: COMPRAS -->
-<div class="tab-content" id="tab-compras"></div>
+  <div class="card">
+    <div class="card-title">📊 Equivalentes del día</div>
+    <table class="eq-table">
+      <thead>
+        <tr>
+          <th>Grupo</th>
+          <th>Total</th>
+          <th>Des 8am</th>
+          <th>Col1 11am</th>
+          <th>Com 2pm</th>
+          <th>Col2 5pm</th>
+          <th>Cena 8pm</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Verduras</td><td>2</td><td>0.5</td><td>—</td><td>0.5</td><td>—</td><td>1</td></tr>
+        <tr><td>Frutas</td><td>4</td><td>—</td><td>1</td><td>2</td><td>1</td><td>—</td></tr>
+        <tr><td>Cereales sin grasa</td><td>8</td><td>1</td><td>3</td><td>—</td><td>3</td><td>1</td></tr>
+        <tr><td>Leguminosas</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>1</td></tr>
+        <tr><td>Proteína muy baja en grasa</td><td>3</td><td>—</td><td>1</td><td>—</td><td>—</td><td>2</td></tr>
+        <tr><td>Proteína baja en grasa</td><td>3</td><td>1</td><td>—</td><td>2</td><td>—</td><td>—</td></tr>
+        <tr><td>Proteína moderada en grasa</td><td>2</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Leche descremada</td><td>1</td><td>—</td><td>1</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Grasas sin proteína</td><td>6</td><td>2</td><td>—</td><td>2</td><td>—</td><td>2</td></tr>
+        <tr><td>Grasas con proteína</td><td>1</td><td>—</td><td>1</td><td>—</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-<!-- TAB: SUPLEMENTOS -->
-<div class="tab-content" id="tab-supps"></div>
+  <div id="hoy-meals"></div>
+</div>
 
-<!-- TAB: EQUIVALENTES -->
-<div class="tab-content" id="tab-equiv"></div>
+<!-- ========== TAB PLAN ========== -->
+<div id="tab-plan" class="tab-content">
+  <div class="day-tabs" id="dayTabs"></div>
+  <div id="plan-meals"></div>
+</div>
 
-<!-- TAB: RECETAS -->
-<div class="tab-content" id="tab-recetas"></div>
+<!-- ========== TAB COMPRAS ========== -->
+<div id="tab-compras" class="tab-content">
+  <div class="card">
+    <div class="card-title">🛒 Lista de compras semanal</div>
+    <div class="progress-text" id="shopProgressText">0 / 0 artículos</div>
+    <div class="progress-bar"><div class="progress-fill" id="shopProgress" style="width:0%"></div></div>
+    <button class="btn btn-outline" style="margin-bottom:12px;font-size:12px;" onclick="resetShop()">🔄 Resetear lista</button>
+  </div>
+  <div id="shopList"></div>
+</div>
 
-<!-- MODAL -->
+<!-- ========== TAB RECETAS ========== -->
+<div id="tab-recetas" class="tab-content">
+  <div class="day-tabs" id="recetasTabs"></div>
+  <div id="recetas-meals"></div>
+</div>
+
+<!-- ========== TAB EQUIVALENTES ========== -->
+<div id="tab-equiv" class="tab-content">
+  <input class="search-box" type="search" placeholder="🔍 Buscar alimento…" oninput="filterEquiv(this.value)" />
+  <div id="equivList"></div>
+</div>
+
+<!-- Modal equivalentes -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal" onclick="event.stopPropagation()">
-    <div class="modal-handle" onclick="forceCloseModal()"></div>
-    <div class="modal-header" style="position:relative">
+  <div class="modal">
+    <div class="modal-handle" onclick="closeModal()"></div>
+    <div class="modal-header" style="position:relative;">
       <h3 id="modalTitle">Equivalentes</h3>
       <p id="modalSubtitle"></p>
-      <button onclick="forceCloseModal()" style="position:absolute;top:8px;right:8px;background:var(--bg3);border:none;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--text);display:flex;align-items:center;justify-content:center">✕</button>
+      <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
-    <input type="text" class="modal-search" id="modalSearch" placeholder="Buscar..." oninput="filterModal()">
+    <input class="modal-search" type="search" placeholder="Buscar…" oninput="filterModal(this.value)" />
     <div class="modal-list" id="modalList"></div>
-    <div style="padding:10px 16px 16px;border-top:1px solid var(--border)">
-      <button onclick="forceCloseModal()" style="width:100%;padding:12px;border:none;border-radius:8px;background:var(--bg3);color:var(--text);font-size:14px;font-weight:500;cursor:pointer">Cerrar</button>
-    </div>
   </div>
 </div>
 
 <script>
-// ============ DATA ============
-const MEAL_IMAGES = {};
+// ===================== DATA =====================
 
-const DAYS = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-const MEAL_TIMES = [
-  {key:'desayuno', label:'Desayuno', time:'8:00 AM', emoji:'🍳'},
-  {key:'colacion1', label:'Colación 1', time:'11:00 AM', emoji:'🍎'},
-  {key:'comida', label:'Comida', time:'2:00 PM', emoji:'🍽️'},
-  {key:'colacion2', label:'Colación 2', time:'5:00 PM', emoji:'🥜'},
-  {key:'cena', label:'Cena', time:'8:00 PM', emoji:'🌙'}
-];
-
-const SUPPLEMENTS = [
-  {id:'levo', name:'Levotiroxina', detail:'En ayuno, solo con agua · esperar 30-60 min antes de comer', time:'7:00 AM', emoji:'💊'}
-];
-
-const EQUIVALENTS = {
-  'Verduras': {color:'var(--cat-verdura)', items:[
-    ['Acelga cruda','2 taza'],['Alcachofa mediana','1 pieza'],['Apio','1 1/2 taza'],['Arúgula cruda','4 tazas'],['Berenjena picada cocida','1 taza'],['Berro crudo','2 taza'],['Betabel crudo','1/4 pieza'],['Brócoli cocido','1/2 taza'],['Calabacita','1 pieza'],['Calabaza de castilla cocida','1/2 taza'],['Cebolla morada/blanca','1/2 taza'],['Cebollin picado','3 cucharadas'],['Cebollita cambray','3 piezas'],['Champiñon crudo','1 taza'],['Chayote','1/2 pieza'],['Chícharo cocido sin vaina','1/4 taza'],['Chile poblano','1/2 pieza'],['Col cruda','2 taza'],['Col de bruselas','63 gramos'],['Col morada cruda picada','1 taza'],['Col rizada','1 taza'],['Coliflor cocida','1 taza'],['Ejote cocido','1/2 taza'],['Espárrago','6 piezas'],['Espinaca cruda picada','2 tazas'],['Flor de calabaza cocida','1 taza'],['Germen de alfalfa crudo','3 tazas'],['Germen de lenteja crudo','1/4 taza'],['Germen de soya cocido','1/3 taza'],['Haba verde','4 pieza'],['Hongo portobello crudo','1 pieza'],['Huitlacoche cocido','1/3 taza'],['Jicama picada','1/2 taza'],['Jitomate o tomate deshidratado','5 pieza'],['Lechuga','3 tazas'],['Mix de vegetales verdes','1 taza'],['Nopal cocido','1 taza'],['Nopal crudo','2 piezas'],['Palmito enlatado','1 pieza'],['Pepinillo','1/3 taza'],['Pepino rebanado','1 taza'],['Pimiento de color','1 pieza'],['Puerro crudo','1/4 pieza'],['Puré de tomate','1/4 taza'],['Rábano crudo rebanado','1 taza'],['Sopa de verduras','1/2 taza'],['Tomate / jitomate','1 pieza'],['Tomate cherry / jitomate cherry','4 piezas'],['Tomate verde','5 piezas'],['Verdolaga cruda','2 taza'],['Verduras picadas','1/2 taza'],['Zanahoria cruda picada/rallada','1/2 taza'],['Zanahoria miniatura cruda','4 piezas']
-  ]},
-  'Frutas': {color:'var(--cat-fruta)', items:[
-    ['Acaí','4 cucharadas'],['Agua de coco','1 1/2 taza'],['Arándano azul','3/4 taza'],['Arándano deshidratado','2 cucharadas'],['Carambolo','1 1/2 pieza mediana'],['Cereza','20 piezas'],['Chabacano','4 pieza'],['Ciruela amarilla','3 pieza pequeña'],['Ciruela criolla roja o amarilla','3 piezas'],['Ciruela negra','1/2 pieza'],['Ciruela pasa deshuesada','7 piezas'],['Dátil seco','2 piezas'],['Durazno amarillo','2 piezas'],['Frambuesa','1 taza'],['Fresa rebanada','1 taza'],['Granada roja','1 pieza'],['Guanábana','1 pieza pequeña'],['Guayaba','3 piezas'],['Higo','2 piezas'],['Kiwi','1 1/2 pieza'],['Lima','3 piezas'],['Limón','4 pieza'],['Mamey','1/3 pieza'],['Mandarina','2 piezas'],['Mango ataúlfo','1/2 pieza'],['Mango manila','1 pieza'],['Mango petacón','1/2 pieza'],['Mango picado','1 taza'],['Manzana','1 pieza'],['Maracuya','3 pieza'],['Melón picado','1 taza'],['Moras','3/4 taza'],['Naranja','2 piezas'],['Nectarina','1 pieza'],['Papaya picada','1 taza'],['Pasitas','10 piezas'],['Pera','1/2 pieza'],['Piña picada','3/4 taza'],['Pitahaya','2 pieza'],['Plátano','1/2 pieza'],['Plátano dominico','3 piezas'],['Plátano macho','1/4 pieza'],['Pulpa de tamarindo sin azúcar','8 cucharadas'],['Sandía picada','1 taza'],['Toronja','1 pieza'],['Tuna','2 piezas'],['Uva','18 piezas'],['Yaca','30 gramos'],['Zarzamora','1 taza']
-  ]},
-  'Cereales sin grasa': {color:'var(--cat-cereal)', items:[
-    ['Amaranto natural','1/4 taza'],['Arepa','1/2 pieza'],['Arroz cocido','1/4 taza'],['Arroz integral cocido','1/3 taza'],['Arroz salvaje cocido','1/3 taza'],['Atole en polvo','7 cucharaditas'],['Avena en hojuela cruda','1/3 taza'],['Baguette integral chico','1/3 pieza'],['Barra de avena frutos rojos','1 pieza'],['Bolillo/birote sin migajón','1/3 pieza'],['Camote al horno','1/3 taza'],['Camote cocido','1/3 taza'],['Cebada','20 gramos'],['Cereal infantil fortificado','15 gramos'],['Couscous cocido','1/3 taza'],['Croutones','1/2 taza'],['Elote','1/2 taza'],['Elote amarillo desgranado','1/2 taza'],['Fécula de maíz','2 cucharadas'],['Fideo cocido','1/2 taza'],['Fideos chinos de arroz','20 gramos'],['Galleta de animalito','6 piezas'],['Galleta salma','1 paquete'],['Galletas gluten free tipo maría','5 piezas'],['Galletas habaneras','4 piezas'],['Galletas marías','5 piezas'],['Galletas saladas','4 piezas'],['Granola','3 cucharadas'],['Harina de avena','2 cucharadas'],['Harina de maiz','2 1/2 cucharadas'],['Harina de maiz precocido','1 1/2 cucharadas'],['Harina de tapioca','2 1/2 cucharadas'],['Harina de trigo','2 1/2 cucharada'],['Harina de yuca','2 cucharada'],['Harina gluten free','2 1/2 cucharadas'],['Harina integral','2 1/2 cucharadas'],['Hojas crudas de lasagna','20 gramos'],['Maiz pozolero','1/3 taza'],['Palomitas naturales','2 1/2 taza'],['Pan árabe integral','1/3 pieza'],['Pan blanco','1 pieza'],['Pan de hamburguesa','1/3 pieza'],['Pan de hotdog','1/2 pieza'],['Pan de masa madre','30 gramos'],['Pan integral','1 pieza'],['Pan integral tostado','1 pieza'],['Pan molido','1 cucharada'],['Pan pita taquero','1 pieza'],['Pan thin integral','1 1/2 pieza'],['Papa cambray','5 piezas'],['Papa cocida','1/2 pieza'],['Papel de arroz comestible','5 pieza'],['Pasta cocida','1/2 taza'],['Pasta de quinoa','1/3 taza'],['Pasta integral cocida','1/3 taza'],['Pretzel','6 pieza'],['Quinoa cruda','20 gramos'],['Seitán (gluten de trigo)','30 gramos'],['Sémola de maíz','1/2 taza'],['Sope de maíz','1 pieza'],['Tapioca','1 cucharada'],['Tortilla de harina','1/2 pieza'],['Tortilla de maíz','1 pieza'],['Tortilla de nopal','3 piezas'],['Tortitas de arroz','2 piezas'],['Tortitas de arroz inflado integral','2 piezas'],['Tostadas horneadas','2 piezas'],['Totopos horneados','30 gramos'],['Waffle sin azúcar','1 pieza'],['Yuca','1/4 pieza']
-  ]},
-  'Leguminosas': {color:'var(--cat-leguminosa)', items:[
-    ['Alubia cocida','1/2 taza'],['Bebida vegetal de soya sin azúcar y sin endulzar','1 taza'],['Edamame','27 gramos'],['Frijol cocido','1/2 taza'],['Frijol de soya cocido','1/2 taza'],['Frijoles refritos caseros','1/3 taza'],['Garbanzo cocido','1/2 taza'],['Haba cocida','1/2 taza'],['Lenteja cocida','1/2 taza'],['Miso','60 gramos'],['Soya texturizada','30 gramos'],['Tempeh (soya fermentada)','30 gramos']
-  ]},
-  'Proteína muy baja en grasa': {color:'var(--cat-proteina)', items:[
-    ['Almeja fresca sin concha','4 piezas'],['Atún en agua','1/3 lata'],['Calamar crudo','45 gramos'],['Camarón mediano','6 piezas'],['Camarón seco','10 gramos'],['Carne molida de pavo','30 gramos'],['Clara de huevo','2 piezas'],['Filete de tilapia','40 gramos'],['Huachinango','35 gramos'],['Machaca de res','15 gramos'],['Medallón de atún','30 gramos'],['Pechuga de pavo horneada','2 rebanadas delgadas'],['Pechuga de pollo','30 gramos'],['Pechuga de pollo deshebrada','32 gramos'],['Pechuga de pollo molida','30 gramos'],['Pescado blanco','40 gramos'],['Pescado molido','30 gramos'],['Pulpo crudo','45 gramos'],['Queso cottage','3 cucharadas'],['Requesón','3 cucharadas'],['Salmón ahumado','35 gramos'],['Surimi','40 gramos']
-  ]},
-  'Leche descremada': {color:'var(--cat-lacteo)', items:[
-    ['Leche descremada','1 taza'],['Leche deslactosada light','1 taza'],['Leche evaporada descremada','1/2 taza'],['Sustituto lácteo de almendra','1 taza'],['Sustituto lácteo de arroz','1 taza'],['Sustituto lácteo de coco','1 taza'],['Sustituto lácteo de nuez','1 taza'],['Yogurt griego natural sin azúcar','1 taza']
-  ]},
-  'Grasas sin proteína': {color:'var(--cat-grasa)', items:[
-    ['Aceite','1 cucharadita'],['Aceite de aguacate','1 cucharadita'],['Aceite de ajonjolí','1 cucharadita'],['Aceite de coco','1 cucharadita'],['Aceite de linaza','1 cucharadita'],['Aceite de oliva','1 cucharadita'],['Aceite de palma','1 cucharadita'],['Aceite de uva','1 cucharadita'],['Aceite en spray','5 disparos de 1 seg'],['Aceituna negra','5 piezas'],['Aceituna verde','6 piezas'],['Aguacate','1/3 pieza'],['Coco fresco','12 gramos'],['Coco rallado','1 1/2 cucharadas'],['Crema','1 cucharada'],['Crema batida','1 1/2 cucharada'],['Crema para batir','1 cucharada'],['Guacamole','2 cucharadas'],['Mantequilla de vaca','1 1/2 cucharadita'],['Mayonesa','1 cucharadita'],['Queso crema','1 cucharada'],['Queso philadelphia','1 cucharada'],['Tocino','1 rebanadas delgadas'],['Vinagreta','1/2 cucharada']
-  ]},
-  'Grasas con proteína': {color:'var(--cat-grasa)', items:[
-    ['Almendra','10 piezas'],['Almendra fileteada','2 cucharadas'],['Avellana','9 piezas'],['Cacahuate','14 piezas'],['Cacahuate con cascara','12 gramos'],['Chocolate sin azúcar','15 gramos'],['Crema de almendra natural','1 cucharada'],['Crema de cacahuate natural','1 cucharada'],['Harina de almendras','11 gramos'],['Harina de linaza','2 cucharadas'],['Harina de nuez','2 cucharadas'],['Hummus de garbanzo','1 cucharada'],['Linaza molida','1 cucharada'],['Mazapán sin azúcar','1 pieza'],['Mix de frutos secos y semillas','1/4 taza'],['Nuez','7 mitades'],['Nuez de brasil','2 pieza'],['Nuez de la india sin sal','7 piezas'],['Nuez de macadamia','4 pieza'],['Pepita de calabaza','1 1/2 cucharadas'],['Piñon','1 cucharada'],['Pistache','18 piezas'],['Semilla de ajonjolí','4 cucharaditas'],['Semilla de calabaza','1 1/2 cucharada'],['Semilla de cártamo','1 1/4 cucharadas'],['Semilla de chía','2 cucharadas'],['Semilla de chía','12 gramos'],['Semilla de girasol','4 cucharaditas'],['Semilla de linaza','1 cucharada'],['Tahini','1 cucharada']
-  ]}
+const PLAN_INFO = {
+  paciente: "Efraim Isaac Vallejo Muñoz",
+  nutriologa: "Marisa Yolanda Quiroz Salcedo",
+  cedula: "8262660 / 12841372",
+  fecha: "31/10/2026"
 };
 
+const DIAS = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
+const COMIDAS = ["Desayuno","Colación 1","Comida","Colación 2","Cena"];
+const COMIDA_TIMES = {"Desayuno":"8:00","Colación 1":"11:00","Comida":"14:00","Colación 2":"17:00","Cena":"20:00"};
+const COMIDA_EMOJI = {"Desayuno":"🍳","Colación 1":"🍎","Comida":"🍽️","Colación 2":"🥝","Cena":"🌙"};
 
-// Ingredient group mapping for clickable equivalents
-const ING_GROUP = {};
-for (const [group, data] of Object.entries(EQUIVALENTS)) {
-  for (const [name] of data.items) {
-    ING_GROUP[name.toLowerCase()] = group;
-  }
-}
-
-// Meal plan data - full weekly plan
 const MEALS = {
-  desayuno: [
-    {name:"Ensalada de pollo y aguacate",img:'🍽️',ingredients:[
-      {"txt": "2 paquete Galleta salma", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "2 piezas Mandarina", "group": "Frutas", "qty": 1},
-      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "1 taza yogurt griego natural sin azúcar", "group": "Leche descremada", "qty": 1},
-      {"txt": "192 gramos Pechuga de pollo deshebrada", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "1 1/6 tazas Lechuga", "group": "Verduras", "qty": 0.389},
-      {"txt": "1/3 pieza tomate / jitomate", "group": "Verduras", "qty": 0.333},
-      {"txt": "1/3 taza pepino rebanado", "group": "Verduras", "qty": 0.333},
-      {"txt": "Limón", "free": true},
-      {"txt": "Aceite de oliva", "free": true},
-      {"txt": "Sal", "free": true},
-      {"txt": "Pimienta", "free": true}
-    ],steps:["Lava y corta la lechuga en trozos", "Corta el aguacate y el jitomate en cubos", "Pela y corta el pepino en rodajas", "Mezcla en un tazón la lechuga, el pollo deshebrado, el aguacate, el jitomate y el pepino", "Exprime el limón sobre la mezcla", "Agrega aceite de oliva, sal y pimienta al gusto", "Sirve la ensalada con galletas salma al lado"]},
-    {name:"Sandwich de requesón a la poblana con rajas y elotitos + smoothie de mango",img:'🍽️',ingredients:[
-      {"txt": "1 pieza Pan integral", "group": "Cereales sin grasa", "qty": 1},
-      {"txt": "1/2 taza Elote amarillo desgranado", "group": "Cereales sin grasa", "qty": 1},
-      {"txt": "1 taza mango picado", "group": "Frutas", "qty": 1},
-      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "1 taza Leche deslactosada light", "group": "Leche descremada", "qty": 1},
-      {"txt": "18 cucharadas Requesón", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "1/2 pieza Chile poblano", "group": "Verduras", "qty": 1},
-      {"txt": "Ajo", "free": true},
-      {"txt": "Sal", "free": true}
-    ],steps:["Asa el chile poblano, retira la piel y córtalo en rajas.", "Calienta un poco de aceite de oliva y cocina el ajo con las rajas de chile poblano y el elote amarillo desgranado; agrega sal y mezcla.", "Incorpora el requesón a la mezcla y cocina solo hasta integrar.", "Rellena el pan integral con la preparación de requesón a la poblana.", "Licúa el mango con la leche hasta obtener un smoothie suave.", "Sirve el sándwich con el smoothie de mango aparte."]},
-    {name:"Tostadas de Atún y Aguacate",img:'🍽️',ingredients:[
-      {"txt": "2 pieza Pan integral", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1/2 pieza Plátano", "group": "Frutas", "qty": 1},
-      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1 taza Leche deslactosada light", "group": "Leche descremada", "qty": 1},
-      {"txt": "2 lata Atún en agua", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "4 tazas Arúgula cruda", "group": "Verduras", "qty": 1},
-      {"txt": "Café", "free": true}
-    ],steps:["Tuesta los panes en tu tostadora.", "Corta el aguacate en trozos, aplástalo con un tenedor y extiéndelo sobre cada tostada.", "Abre las latas de atún y escúrrelas. Coloca el atún sobre las tostadas con aguacate y esparce el aceite de oliva por encima.", "Prepara el café en la cantidad de leche indicada", "Sirve las tostadas acompañadas del café con leche y del plátano como postre"]},
-    {name:"Sándwich de pechuga de pavo con pera",img:'🍽️',ingredients:[
-      {"txt": "2 pieza Pan integral", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1/2 pieza Pera", "group": "Frutas", "qty": 1},
-      {"txt": "1 cucharadita Mayonesa", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "12 rebanadas delgadas Pechuga de pavo horneada", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "3 tazas Lechuga", "group": "Verduras", "qty": 1},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["Untar mayonesa en el pan integral.", "Agregar la pechuga de pavo horneada sobre la mayonesa.", "Añadir el queso panela y la lechuga en el sándwich.", "Cerrar el sándwich y partirlo a la mitad.", "Servir la pera como postre."]},
-    {name:"Pan integral tostado con aguacate y jitomate, con licuado de fresa",img:'🍽️',ingredients:[
-      {"txt": "2 pieza Pan integral tostado", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1 taza fresa rebanada", "group": "Frutas", "qty": 1},
-      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "1 taza Leche descremada", "group": "Leche descremada", "qty": 1},
-      {"txt": "1 pieza tomate / jitomate", "group": "Verduras", "qty": 1},
-      {"txt": "Sal", "free": true},
-      {"txt": "Limón", "free": true},
-      {"txt": "Pimienta", "free": true},
-      {"txt": "6 porciones proteína", "group": "Proteína muy baja en grasa", "qty": 6}
-    ],steps:["Tuesta el pan integral.", "Machaca el aguacate con sal y jugo de limón y úntalo sobre el pan.", "Cubre con el jitomate en rebanadas y termina con pimienta.", "Licúa las fresas con la leche descremada y sirve el licuado frío."]},
-    {name:"Sándwich de pollo con fruta y verdura",img:'🍽️',ingredients:[
-      {"txt": "2 pieza Pan integral", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "3/4 taza moras", "group": "Frutas", "qty": 1},
-      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "2 piezas tomate cherry / jitomate cherry", "group": "Verduras", "qty": 0.5},
-      {"txt": "1/2 pieza Pimiento de color", "group": "Verduras", "qty": 0.5},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["Arma el sándwich con el pollo, aguacate y jitomate. Pártelo a la mitad.", "Lava y/o desinfecta las frutas y verduras. Parte en bastones los pimientos.", "Coloca todo en un tupper con compartimientos separando la fruta.", "¡Disfruta!"]},
-    {name:"Chilaquiles verdes con pechuga de pollo deshebrada y aguacate",img:'🍽️',ingredients:[
-      {"txt": "60 gramos Totopos horneados", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "192 gramos Pechuga de pollo deshebrada", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "5 piezas Tomate verde", "group": "Verduras", "qty": 1},
-      {"txt": "Ajo", "free": true},
-      {"txt": "Epazote", "free": true},
-      {"txt": "Sal", "free": true},
-      {"txt": "1 porción fruta", "group": "Frutas", "qty": 1},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["Licúa el tomate verde con ajo, epazote y sal, y calienta la salsa.", "Baña los totopos horneados con la salsa y la pechuga de pollo deshebrada.", "Sirve con el aguacate en rebanadas."]}
+  "Desayuno": [
+    {
+      nombre: "Huevo revuelto con espinacas",
+      desc: "1 paquete Galleta salma, 3 huevos, espinaca",
+      ingredientes: [
+        {n:"Galleta salma",c:"1 paquete"},
+        {n:"Aceite de oliva",c:"2 cdta"},
+        {n:"Huevo entero",c:"3 pzas"},
+        {n:"Espinaca cruda picada",c:"1 taza"},
+        {n:"Sal",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Calienta el aceite en un sartén a fuego medio.",
+        "Agrega la espinaca y sofríe 1-2 minutos.",
+        "Bate los huevos, añade sal y vierte al sartén.",
+        "Revuelve hasta que estén cocidos al gusto.",
+        "Sirve con galletas salma."
+      ]
+    },
+    {
+      nombre: "Huevo revuelto con nopales",
+      desc: "1 pan integral, 3 huevos, nopal cocido",
+      ingredientes: [
+        {n:"Pan integral",c:"1 pieza"},
+        {n:"Aceite de oliva",c:"2 cdta"},
+        {n:"Huevo entero",c:"3 pzas"},
+        {n:"Nopal cocido",c:"1/2 taza"},
+        {n:"Sal",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Calienta el aceite en sartén.",
+        "Sofríe el nopal 2-3 minutos.",
+        "Bate los huevos con sal y añade al sartén.",
+        "Revuelve hasta cocinar.",
+        "Sirve con pan integral."
+      ]
+    },
+    {
+      nombre: "Rollitos de pollo rellenos de jalapeño y panela",
+      desc: "3 tortillas de nopal, pollo, queso panela, vegetales",
+      ingredientes: [
+        {n:"Tortilla de nopal",c:"3 pzas"},
+        {n:"Aceite de oliva",c:"2 cdta"},
+        {n:"Pechuga de pollo",c:"45g"},
+        {n:"Queso panela",c:"60g"},
+        {n:"Zanahoria cruda picada/rallada",c:"1/6 taza"},
+        {n:"Mix de vegetales verdes",c:"1/4 taza"},
+        {n:"Chile jalapeño",c:"al gusto",libre:true},
+        {n:"Sal, pimienta, paprika",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Cocina el pollo con sal y pimienta, deshebra o rebana finamente.",
+        "Extiende las tortillas de nopal.",
+        "Coloca pollo, queso panela, zanahoria y mix de vegetales.",
+        "Agrega jalapeño al gusto.",
+        "Enrolla y sirve."
+      ]
+    },
+    {
+      nombre: "Huevos con calabacitas",
+      desc: "1 paquete Galleta salma, 3 huevos, calabacita, aguacate",
+      ingredientes: [
+        {n:"Galleta salma",c:"1 paquete"},
+        {n:"Aceite",c:"1 cdta"},
+        {n:"Aguacate",c:"1/3 pza"},
+        {n:"Huevo entero",c:"3 pzas"},
+        {n:"Calabacita",c:"1/2 pza"}
+      ],
+      pasos: [
+        "Corta la calabacita en cubos pequeños.",
+        "Sofríe la calabacita en aceite hasta suave.",
+        "Bate los huevos y agrega al sartén.",
+        "Revuelve hasta cocinar.",
+        "Sirve con aguacate y galletas salma."
+      ]
+    },
+    {
+      nombre: "Huevo revuelto con pimientos",
+      desc: "3 tortillas de nopal, 3 huevos, pimiento de color",
+      ingredientes: [
+        {n:"Tortilla de nopal",c:"3 pzas"},
+        {n:"Aceite en spray",c:"10 disparos"},
+        {n:"Huevo entero",c:"3 pzas"},
+        {n:"Pimiento de color",c:"1/2 pza"},
+        {n:"Sal y pimienta",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Rocía sartén con aceite en spray.",
+        "Corta pimiento en tiras y sofríe.",
+        "Bate huevos con sal y pimienta, vierte al sartén.",
+        "Revuelve hasta cocinar.",
+        "Sirve con tortillas de nopal."
+      ]
+    },
+    {
+      nombre: "Omellete de champiñones",
+      desc: "1 pan integral, 3 huevos, champiñones, cebolla",
+      ingredientes: [
+        {n:"Pan integral",c:"1 pieza"},
+        {n:"Aceite de oliva",c:"2 cdta"},
+        {n:"Huevo entero",c:"3 pzas"},
+        {n:"Champiñón crudo",c:"1/4 taza"},
+        {n:"Cebolla morada/blanca",c:"1/6 taza"},
+        {n:"Sal",c:"pizca",libre:true}
+      ],
+      pasos: [
+        "Sofríe la cebolla y champiñones en aceite hasta dorar.",
+        "Bate los huevos con una pizca de sal.",
+        "Vierte los huevos sobre las verduras.",
+        "Dobla el omellete cuando esté cocido.",
+        "Sirve con pan integral."
+      ]
+    },
+    {
+      nombre: "Omelette de espinacas con aguacate",
+      desc: "1 paquete Galleta salma, 3 huevos, espinaca, aguacate",
+      ingredientes: [
+        {n:"Galleta salma",c:"1 paquete"},
+        {n:"Aceite en spray",c:"5 disparos"},
+        {n:"Aguacate",c:"1/3 pza"},
+        {n:"Huevo entero",c:"3 pzas"},
+        {n:"Espinaca cruda picada",c:"1 taza"},
+        {n:"Sal, pimienta",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Rocía sartén con aceite en spray.",
+        "Agrega espinaca y sofríe hasta marchitar.",
+        "Bate huevos con sal y pimienta, vierte.",
+        "Dobla el omelette cuando esté listo.",
+        "Sirve con aguacate y galletas salma."
+      ]
+    }
   ],
-  colacion1: [
-    {name:"Piña con cacahuates",img:'🍽️',ingredients:[
-      {"txt": "3/4 taza Piña picada", "group": "Frutas", "qty": 1},
-      {"txt": "14 piezas Cacahuate", "group": "Grasas con proteína", "qty": 1}
-    ],steps:["Remueve la cáscara y el corazón de la piña. Parte en cubos pequeños.", "Corta la naranja por la mitad y pártela en gajos.", "Sirve la piña con la naranja.", "¡Disfruta!", "***TIP: parte la piña entera cuando la compres, así será más práctico comerla durante la semana. Aprovecha la cáscara para preparar té."]},
-    {name:"Mix de berries y nueces",img:'🍽️',ingredients:[
-      {"txt": "1/4 taza moras", "group": "Frutas", "qty": 0.333},
-      {"txt": "1/3 taza Zarzamora", "group": "Frutas", "qty": 0.333},
-      {"txt": "1/3 taza Frambuesa", "group": "Frutas", "qty": 0.333},
-      {"txt": "1/4 taza Mix de frutos secos y semillas", "group": "Grasas con proteína", "qty": 1},
-      {"txt": "Té verde sin azúcar", "free": true}
-    ],steps:["Acompaña el mix de frutos secos con las berries y opcional té sin azúcar.", "¡Disfruta!"]},
-    {name:"Smoothie de fresas con crema de cacahuate",img:'🍽️',ingredients:[
-      {"txt": "1 taza fresa rebanada", "group": "Frutas", "qty": 1},
-      {"txt": "1 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 1},
-      {"txt": "Lechada de almendra sin endulzar", "free": true}
-    ],steps:["Licuar las fresas congeladas con la crema de cacahuate y la lechada."]},
-    {name:"Ensalada de frutos rojos y almendras.",img:'🍽️',ingredients:[
-      {"txt": "1/3 taza fresa rebanada", "group": "Frutas", "qty": 0.333},
-      {"txt": "1/3 taza Frambuesa", "group": "Frutas", "qty": 0.333},
-      {"txt": "1/4 taza moras", "group": "Frutas", "qty": 0.333},
-      {"txt": "10 piezas Almendra", "group": "Grasas con proteína", "qty": 1}
-    ],steps:["Lava y desinfecta muy bien los frutos rojos. Acompaña con almendras."]},
-    {name:"Chips de manzana horneadas",img:'🍽️',ingredients:[
-      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
-      {"txt": "7 mitades Nuez", "group": "Grasas con proteína", "qty": 1}
-    ],steps:["Cortar en rebanadas delgadas la manzana y poner canela en polvo por un lado.", "Hornear o en freidora de aire por 15 minutos o hasta tener la consistencia deseada.", "Acompañar con nueces y disfrutar!"]},
-    {name:"Galleta en manzana",img:'🍽️',ingredients:[
-      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
-      {"txt": "1 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 1},
-      {"txt": "3,4 chispas de chocolate amargo o semiamargo", "free": true}
-    ],steps:["Cortar la manzana en rebanadas y untar la crema de cacahuate", "Colocar de topping chispas de chocolate amargo como adorno. Disfrutar!"]},
-    {name:"Smoothie de moras y crema de cacahuate",img:'🍽️',ingredients:[
-      {"txt": "3/4 taza moras", "group": "Frutas", "qty": 1},
-      {"txt": "1 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 1},
-      {"txt": "Lechada de avena o almendras", "free": true},
-      {"txt": "Hielos", "free": true},
-      {"txt": "Stevia", "free": true}
-    ],steps:["Lava y desinfecta las moras.", "Licúa todos los ingredientes y el hielo. Sirve en un vaso, decora con una pieza de mora encima."]}
+  "Colación 1": [
+    {
+      nombre: "Yogurt con granola y fruta",
+      desc: "Yogurt griego, granola, fresa, chía",
+      ingredientes: [
+        {n:"Granola",c:"9 cdas"},
+        {n:"Fresa rebanada",c:"1 taza"},
+        {n:"Semilla de chía",c:"12g"},
+        {n:"Yogurt griego natural sin azúcar",c:"1 taza"}
+      ],
+      pasos: [
+        "Vierte el yogurt en un tazón.",
+        "Agrega la granola, las fresas y la semilla de chía.",
+        "Mezcla ligeramente y disfruta."
+      ]
+    },
+    {
+      nombre: "Paletas de yogurt con frutos rojos",
+      desc: "Amaranto, avena, frutos rojos, chía, yogurt",
+      ingredientes: [
+        {n:"Amaranto natural",c:"1/2 taza"},
+        {n:"Avena en hojuela cruda",c:"1/2 taza"},
+        {n:"Fresa rebanada",c:"1/2 taza"},
+        {n:"Zarzamora",c:"1/2 taza"},
+        {n:"Semilla de chía",c:"12g"},
+        {n:"Yogurt griego sin azúcar",c:"1 taza"},
+        {n:"Stevia/Splenda",c:"opcional",libre:true}
+      ],
+      pasos: [
+        "Mezcla el yogurt con stevia si deseas.",
+        "Incorpora el amaranto, avena, fresas, zarzamoras y chía.",
+        "Vierte en moldes de paleta.",
+        "Congela al menos 4 horas antes de consumir."
+      ]
+    },
+    {
+      nombre: "Licuado de frambuesa y arándano",
+      desc: "Avena, arándano, frambuesa, almendra, leche",
+      ingredientes: [
+        {n:"Avena en hojuela cruda",c:"1 taza"},
+        {n:"Arándano azul",c:"1/2 taza"},
+        {n:"Frambuesa",c:"1/2 taza"},
+        {n:"Almendra",c:"10 pzas"},
+        {n:"Leche deslactosada light",c:"1 taza"}
+      ],
+      pasos: [
+        "Coloca todos los ingredientes en la licuadora.",
+        "Licúa hasta obtener una mezcla homogénea.",
+        "Sirve frío."
+      ]
+    },
+    {
+      nombre: "Tortitas de arroz con yogurt de limón y frambuesas",
+      desc: "6 tortitas de arroz, frambuesa, coco rallado, yogurt, limón",
+      ingredientes: [
+        {n:"Tortitas de arroz inflado integral",c:"6 pzas"},
+        {n:"Frambuesa",c:"1 taza"},
+        {n:"Coco rallado",c:"1.5 cdas"},
+        {n:"Yogurt griego sin azúcar",c:"1 taza"},
+        {n:"Jugo de limón",c:"al gusto",libre:true},
+        {n:"Ralladura de naranja",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Mezcla el yogurt con jugo de limón y ralladura de naranja.",
+        "Unta el yogurt sobre las tortitas de arroz.",
+        "Coloca frambuesas encima.",
+        "Espolvorea coco rallado y disfruta."
+      ]
+    },
+    {
+      nombre: "Pudín de quinoa manzana",
+      desc: "Quinoa, manzana, chía, leche descremada, canela",
+      ingredientes: [
+        {n:"Quinoa cruda",c:"60g"},
+        {n:"Pasitas",c:"5 pzas"},
+        {n:"Manzana",c:"1/2 pza"},
+        {n:"Semilla de chía",c:"2 cdas"},
+        {n:"Leche descremada",c:"1 taza"},
+        {n:"Canela",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Cocina la quinoa con el doble de agua.",
+        "Mezcla la quinoa cocida con leche, chía y canela.",
+        "Refrigera 1-2 horas para que espese.",
+        "Sirve con manzana picada y pasitas."
+      ]
+    },
+    {
+      nombre: "Barritas con frutos rojos",
+      desc: "3 barras de avena, frutos rojos, crema de almendra, yogurt",
+      ingredientes: [
+        {n:"Barra de avena frutos rojos",c:"3 pzas"},
+        {n:"Fresa rebanada",c:"1/3 taza"},
+        {n:"Frambuesa",c:"1/3 taza"},
+        {n:"Zarzamora",c:"1/3 taza"},
+        {n:"Crema de almendra natural",c:"1 cda"},
+        {n:"Yogurt griego sin azúcar",c:"1 taza"},
+        {n:"Ralladura de naranja",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Coloca el yogurt en un tazón.",
+        "Agrega los frutos rojos y la ralladura de naranja.",
+        "Unta crema de almendra sobre las barritas.",
+        "Sirve las barritas junto al yogurt con frutas."
+      ]
+    },
+    {
+      nombre: "Postre de fresa y galleta maría con yogurt",
+      desc: "15 galletas marías, fresa, crema de cacahuate, yogurt",
+      ingredientes: [
+        {n:"Galletas marías",c:"15 pzas"},
+        {n:"Fresa rebanada",c:"1 taza"},
+        {n:"Crema de cacahuate natural",c:"1 cda"},
+        {n:"Yogurt griego sin azúcar",c:"1 taza"}
+      ],
+      pasos: [
+        "Coloca galletas en un tazón o plato.",
+        "Mezcla yogurt con crema de cacahuate.",
+        "Vierte el yogurt sobre las galletas.",
+        "Agrega fresas y disfruta."
+      ]
+    }
   ],
-  comida: [
-    {name:"Ensalada de pollo con garbanzos",img:'🍽️',ingredients:[
-      {"txt": "2 paquete Galleta salma", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/2 taza Garbanzo cocido", "group": "Leguminosas", "qty": 1},
-      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "1 tazas Espinaca cruda picada", "group": "Verduras", "qty": 0.5},
-      {"txt": "1 1/2 tazas Lechuga", "group": "Verduras", "qty": 0.5},
-      {"txt": "Limón", "free": true},
-      {"txt": "Sal y pimienta", "free": true}
-    ],steps:["Pollo: Agrega agua en una olla grande y honda. Añade la sal, cebolla, ajo, pimienta y pollo. Calienta el agua hasta que empiece a burbujear un poco. A medida que avanza la cocción, se formará espuma que debemos sacar con una cuchara. Deja cocinar entre 35 a 45 minutos. Deshebra el pollo con las manos o con ayuda de dos tenedores.", "Garbanzos: Deja remojar los garbanzos de 8 a 12 horas. Vacía el agua. En una olla coloca agua nueva y ponla a hervir con un poco de sal. Vacía los garbanzos hidratados una vez que el agua esté hirviendo y cuece alrededor de una hora hasta que estén suaves. Retira la espuma que se forma en los primeros minutos.", "Lava y desinfecta las espinacas y lechuga.", "En un bowl añade la lechuga y las espinacas, luego agrega los garbanzos cocidos y el pollo deshebrado.", "Agrega un poco de aceite de oliva y revuelve todos los ingredientes.", "Finalmente, acompaña con un poco de aguacate y galletas salmas."]},
-    {name:"Tortitas de atún",img:'🍽️',ingredients:[
-      {"txt": "8 piezas Galletas habaneras", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
-      {"txt": "2 lata Atún en agua", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "1/6 taza Ejote cocido", "group": "Verduras", "qty": 0.333},
-      {"txt": "1/6 taza Zanahoria cruda picada/rallada", "group": "Verduras", "qty": 0.333},
-      {"txt": "1 tazas Lechuga", "group": "Verduras", "qty": 0.333},
-      {"txt": "Sal", "free": true},
-      {"txt": "Pimienta", "free": true}
-    ],steps:["Cocer la zanahoria", "Mezclar la zanahoria con el ejote cocido y el atún en agua sin agua, formar tortitas", "Sazonar con sal y pimienta", "Echar el aceite de oliva en el sartén y dejar que se caliente un poco", "Cocinar las tortitas de atún en el sartén", "Acompañar de lechuga picada y frijol cocido", "Acompaña con galletas habaneras."]},
-    {name:"Pasta con requesón y tomates horneados",img:'🍽️',ingredients:[
-      {"txt": "2/3 taza Pasta integral cocida", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "1/2 taza Lenteja cocida", "group": "Leguminosas", "qty": 1},
-      {"txt": "18 cucharadas Requesón", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "4 piezas tomate cherry / jitomate cherry", "group": "Verduras", "qty": 1},
-      {"txt": "Albahaca", "free": true},
-      {"txt": "Sal y pimienta", "free": true},
-      {"txt": "Ajo", "free": true}
-    ],steps:["En un refractario agrega los jitomate cherry, requesón y sazona sal, pimienta, ajo finamente picado y agrega encima el aceite de oliva.", "Lleva al horno a 180ºc por 15 minutos o hasta que los jitomates estén suaves.", "Mientras cocina la pasta de acuerdo a las instrucciones de su empaque.", "Saca el refractario del horno y agrega la pasta previamente cocida, mezcla todo y agrega hojas de albahaca.", "Sirve y disfruta!"]},
-    {name:"Caldo de pollo con verduras, frijoles cocidos y tostadas con guacamole",img:'🍽️',ingredients:[
-      {"txt": "4 piezas Tostadas horneadas", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "2 cucharadas Guacamole", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
-      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "1/2 taza Sopa de verduras", "group": "Verduras", "qty": 1},
-      {"txt": "Cebolla", "free": true},
-      {"txt": "Diente de ajo", "free": true},
-      {"txt": "Sal", "free": true},
-      {"txt": "Orégano", "free": true}
-    ],steps:["Cocina la pechuga de pollo en agua.", "Agrega la cebolla y el diente de ajo picados al caldo.", "Añade la sopa de verduras al caldo y cocina hasta que todo esté tierno.", "Sirve el caldo en un tazón con frijoles cocidos al lado.", "Prepara las tostadas y acompaña con guacamole."]},
-    {name:"Taquitos de pollo con frijoles",img:'🍽️',ingredients:[
-      {"txt": "2 pieza Tortilla de maíz", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
-      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "3 tazas Lechuga", "group": "Verduras", "qty": 1},
-      {"txt": "Sal y pimienta", "free": true}
-    ],steps:["Cortar la pechuga de pollo en tiras, salpimienta", "Cocinar la pechuga de pollo en un sartén con poco aceite", "Calentar las tortillas de maíz", "Rellenar las tortillas con la pechuga de pollo, lechuga, frijol cocido y aguacate", "Enrollar las tortillas para formar los taquitos", "Servir los taquitos con salsa de tu preferencia"]},
-    {name:"Tacos de pollo con pico de gallo y frijoles cocidos",img:'🍽️',ingredients:[
-      {"txt": "2 pieza Tortilla de maíz", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1 cucharadita Aceite", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
-      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "1/2 pieza tomate / jitomate", "group": "Verduras", "qty": 0.5},
-      {"txt": "1/4 taza Cebolla morada/blanca", "group": "Verduras", "qty": 0.5},
-      {"txt": "1 cda de cilantro picado", "free": true}
-    ],steps:["Corta y mezcla el jitomate, la cebolla y el cilantro.", "Corta la pechuga en pequeños cubos y sazona.", "En una cacerola con un poco de aceite agrega el pollo y cocina.", "Calienta las tortillas en el sartén.", "Sirve el pollo sobre las tortillas.", "Acompaña con el pico de gallo y frijoles cocidos."]},
-    {name:"Fajitas de pollo con aguacate",img:'🍽️',ingredients:[
-      {"txt": "2 pieza Tortilla de maíz", "group": "Cereales sin grasa", "qty": 2},
-      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/2 taza Frijol cocido", "group": "Leguminosas", "qty": 1},
-      {"txt": "180 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 6},
-      {"txt": "1/2 pieza Pimiento de color", "group": "Verduras", "qty": 0.5},
-      {"txt": "1/4 taza Cebolla morada/blanca", "group": "Verduras", "qty": 0.5},
-      {"txt": "Sal", "free": true},
-      {"txt": "Limón", "free": true}
-    ],steps:["PARA COCER LOS GRANOS DE FRIJOL: Enjuágalos y déjalos remojando durante 12 horas. Al finalizar el remojo, estos ya deben estar relativamente suaves. Escurre el agua de remojo. Coloca los frijoles remojados en una olla y agrega agua fresca. El agua debe exceder 3 veces la porción de frijol. Añade 1/2 cebolla y 2 dientes de ajo (opcional). Cocina a fuego alto y cuando hierva el agua, tapa la olla y continúa cocinando durante aprox. 2 horas hasta que los frijoles estén completamente blandos y tenga consistencia de sopa (si usas olla exprés estarán listos antes). Revuelve ocasionalmente. ** No permitas que el agua esté por debajo del nivel de los frijoles para evitar que se quemen. Añade más agua hirviendo si es necesario.", "Corta el pollo y las verduras en tiras delgadas.", "Coloca el pollo y las verduras en un sartén con aceite caliente. Sazona al gusto con sal y limón. Cocina hasta que pollo esté dorado y las verduras suaves.", "Prepara guacamole aplastando el aguacate y sazonando con una pizca de sal y limón.", "Calienta las tortillas.", "Sirve las fajitas de pollo, acompañadas de frijol, guacamole y tortilla de maiz.", "¡Disfruta!"]}
+  "Comida": [
+    {
+      nombre: "Salmón con salsa de mango",
+      desc: "Salmón, mango, brócoli, aceite de oliva",
+      ingredientes: [
+        {n:"Mango picado",c:"2 tazas"},
+        {n:"Aceite de oliva",c:"2 cdta"},
+        {n:"Salmón",c:"90g"},
+        {n:"Brócoli cocido",c:"1/4 taza"},
+        {n:"Cilantro",c:"1 cda",libre:true},
+        {n:"Jugo de limón",c:"1/2 limón",libre:true},
+        {n:"Sal y pimienta",c:"al gusto",libre:true},
+        {n:"Cebollita cambray",c:"1 pza",libre:true}
+      ],
+      pasos: [
+        "Sazona el salmón con sal, pimienta y limón.",
+        "Cocina el salmón en aceite de oliva 4-5 min por lado.",
+        "Prepara la salsa: licúa o pica el mango con cebollita y cilantro.",
+        "Sirve el salmón con salsa de mango y brócoli al vapor."
+      ]
+    },
+    {
+      nombre: "Salmón en salsa de frutos rojos",
+      desc: "Salmón, mix de frutos rojos, aceite de oliva, vegetales",
+      ingredientes: [
+        {n:"Fresa",c:"1/2 taza"},
+        {n:"Frambuesa",c:"1/2 taza"},
+        {n:"Moras",c:"1/2 taza"},
+        {n:"Zarzamora",c:"1/2 taza"},
+        {n:"Aceite de oliva",c:"2 cdta"},
+        {n:"Salmón",c:"90g"},
+        {n:"Mix vegetales verdes",c:"1/2 taza"},
+        {n:"Chile chipotle",c:"1 pza",libre:true},
+        {n:"Cebolla",c:"1/4 tza",libre:true},
+        {n:"Ajo finamente picado",c:"1 diente",libre:true}
+      ],
+      pasos: [
+        "Cocina el salmón en aceite con sal y pimienta.",
+        "Licúa los frutos rojos con chipotle, cebolla y ajo.",
+        "Calienta la salsa y vierte sobre el salmón.",
+        "Sirve con mix de vegetales verdes."
+      ]
+    },
+    {
+      nombre: "Panela en salsa de frutos rojos",
+      desc: "Queso panela, frutos rojos, vegetales verdes",
+      ingredientes: [
+        {n:"Fresa",c:"1/2 taza"},
+        {n:"Frambuesa",c:"1/2 taza"},
+        {n:"Moras",c:"1/2 taza"},
+        {n:"Zarzamora",c:"1/2 taza"},
+        {n:"Aceite de oliva",c:"2 cdta"},
+        {n:"Queso panela",c:"120g"},
+        {n:"Mix vegetales verdes",c:"1/2 taza"},
+        {n:"Chile chipotle",c:"1 pza",libre:true},
+        {n:"Ajo finamente picado",c:"1 diente",libre:true},
+        {n:"Tiras de cebolla",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Dora el queso panela en aceite de oliva.",
+        "Licúa los frutos rojos con chipotle y ajo.",
+        "Calienta la salsa y vierte sobre la panela.",
+        "Sirve con mix de vegetales verdes."
+      ]
+    },
+    {
+      nombre: "Salmón al limón con espinacas y chile guajillo",
+      desc: "Salmón, plátano, espinacas, aguacate, mantequilla",
+      ingredientes: [
+        {n:"Plátano",c:"1 pza"},
+        {n:"Mantequilla de vaca",c:"1.5 cdta"},
+        {n:"Aguacate",c:"1/3 pza"},
+        {n:"Salmón",c:"90g"},
+        {n:"Cebolla morada/blanca",c:"1/6 taza"},
+        {n:"Espinaca cruda picada",c:"1/2 taza"},
+        {n:"Chile guajillo",c:"al gusto",libre:true},
+        {n:"Jengibre en polvo, sal, pimienta, limón",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Hidrata el chile guajillo en agua caliente.",
+        "Cocina el salmón en mantequilla con limón, sal y pimienta.",
+        "Sofríe espinacas con cebolla.",
+        "Sirve el salmón con espinacas, aguacate y plátano."
+      ]
+    },
+    {
+      nombre: "Ensalada de pollo con fresas",
+      desc: "Pollo, fresas, espinaca, lechuga, aguacate",
+      ingredientes: [
+        {n:"Fresa rebanada",c:"2 tazas"},
+        {n:"Aceite de oliva",c:"1 cdta"},
+        {n:"Aguacate",c:"1/3 pza"},
+        {n:"Pechuga de pollo",c:"90g"},
+        {n:"Espinaca cruda picada",c:"1/3 taza"},
+        {n:"Lechuga",c:"1/2 taza"},
+        {n:"Zanahoria cruda picada/rallada",c:"1/6 taza"},
+        {n:"Sal, pimienta, limón",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Cocina y deshebra el pollo.",
+        "Mezcla espinaca, lechuga y zanahoria.",
+        "Agrega el pollo, fresas y aguacate.",
+        "Aliña con aceite de oliva, limón, sal y pimienta."
+      ]
+    },
+    {
+      nombre: "Ensalada de pollo con manzana",
+      desc: "Pollo, manzana, espinaca, lechuga, aguacate",
+      ingredientes: [
+        {n:"Manzana",c:"2 pzas"},
+        {n:"Aceite de oliva",c:"1 cdta"},
+        {n:"Aguacate",c:"1/3 pza"},
+        {n:"Pechuga de pollo",c:"90g"},
+        {n:"Espinaca cruda picada",c:"1/2 taza"},
+        {n:"Lechuga",c:"3/4 taza"},
+        {n:"Limón, sal y pimienta",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Cocina y deshebra el pollo.",
+        "Pica la manzana en cubos.",
+        "Mezcla espinaca, lechuga, pollo y manzana.",
+        "Aliña con aceite, limón, sal y pimienta. Agrega aguacate."
+      ]
+    },
+    {
+      nombre: "Ceviche de atún con mango",
+      desc: "Atún, mango, aguacate, pepino, soja",
+      ingredientes: [
+        {n:"Mango picado",c:"2 tazas"},
+        {n:"Aguacate",c:"2/3 pza"},
+        {n:"Medallón de atún",c:"90g"},
+        {n:"Pepino rebanado",c:"1/2 taza"},
+        {n:"Limón",c:"al gusto",libre:true},
+        {n:"Salsa de soja",c:"al gusto",libre:true},
+        {n:"Pimienta",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Pica el atún en cubos pequeños.",
+        "Mezcla atún con limón, soja y pimienta.",
+        "Agrega mango, pepino y aguacate.",
+        "Refrigera 10-15 min antes de servir."
+      ]
+    }
   ],
-  colacion2: [
-    {name:"Naranja con crema de cacahuate natural",img:'🍽️',ingredients:[
-      {"txt": "2 piezas Naranja", "group": "Frutas", "qty": 1},
-      {"txt": "1 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 1}
-    ],steps:["Pela la naranja en gajos y acompaña con cacahuates naturales.", "¡disfrutar!"]},
-    {name:"Manzana con cacahuate",img:'🍽️',ingredients:[
-      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
-      {"txt": "14 piezas Cacahuate", "group": "Grasas con proteína", "qty": 1}
-    ],steps:["Parte la manzana en gajos.", "Acompaña con la porción indicada de cacahuate (cuida que no tenga mucha sal).", "¡Sirve y disfruta!"]},
-    {name:"Mango picado con mix de frutos secos y semillas",img:'🍽️',ingredients:[
-      {"txt": "1/2 pieza Mango ataúlfo", "group": "Frutas", "qty": 1},
-      {"txt": "1/4 taza Mix de frutos secos y semillas", "group": "Grasas con proteína", "qty": 1}
-    ],steps:["Lavar, pelar y picar el mango en cubos.", "Tomar la porción indicada de mango junto con la porción de frutos secos y semillas.", "¡Disfruta!"]},
-    {name:"Plátano con crema de cacahuate",img:'🍽️',ingredients:[
-      {"txt": "1/2 pieza Plátano", "group": "Frutas", "qty": 1},
-      {"txt": "1/2 cucharada Crema de cacahuate natural", "group": "Grasas con proteína", "qty": 0.5},
-      {"txt": "3 1/2 mitades Nuez", "group": "Grasas con proteína", "qty": 0.5}
-    ],steps:["Corta el plátano por la mitad y úntalo con la crema de cacahuate.", "Agrega trozos de nuez encima.", "¡sirve y disfruta!"]},
-    {name:"Manzanas cubiertas con chocolate amargo",img:'🍽️',ingredients:[
-      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
-      {"txt": "7 mitades Nuez", "group": "Grasas con proteína", "qty": 1},
-      {"txt": "Chocolate amargo", "free": true}
-    ],steps:["Corta la manzana en rebanadas a tu gusto.", "Derrite tu cuadrito de chocolate amargo en el microondas durante 1 min.", "Toma la manzana y cubrela con el chocolate, agrega las nueces encima.", "¡Sirve y disfruta!"]},
-    {name:"Mora y frambuesa con nuez de la india",img:'🍽️',ingredients:[
-      {"txt": "1/2 taza moras", "group": "Frutas", "qty": 0.667},
-      {"txt": "1/2 taza Frambuesa", "group": "Frutas", "qty": 0.5},
-      {"txt": "7 piezas Nuez de la india sin sal", "group": "Grasas con proteína", "qty": 1}
-    ],steps:["En un plato sirve la porción de frutas y nuez.", "Disfruta!"]},
-    {name:"Uvas y pistaches",img:'🍽️',ingredients:[
-      {"txt": "18 piezas Uva", "group": "Frutas", "qty": 1},
-      {"txt": "18 piezas Pistache", "group": "Grasas con proteína", "qty": 1}
-    ],steps:["Toma la porción señalada de uva y pistache.", "¡Disfruta!"]}
+  "Colación 2": [
+    {
+      nombre: "Sándwich de plátano",
+      desc: "Pan integral, plátano",
+      ingredientes: [
+        {n:"Pan integral",c:"3 pzas"},
+        {n:"Plátano",c:"1/2 pza"}
+      ],
+      pasos: [
+        "Rebana el plátano.",
+        "Coloca entre las rebanadas de pan integral.",
+        "Disfruta como sándwich."
+      ]
+    },
+    {
+      nombre: "Licuado de papaya con almendras",
+      desc: "Avena, papaya",
+      ingredientes: [
+        {n:"Avena en hojuela cruda",c:"1 taza"},
+        {n:"Papaya picada",c:"1 taza"}
+      ],
+      pasos: [
+        "Licúa la avena con la papaya y agua al gusto.",
+        "Sirve frío."
+      ]
+    },
+    {
+      nombre: "Uvas y quinoa cocida",
+      desc: "Quinoa, uvas",
+      ingredientes: [
+        {n:"Quinoa cruda",c:"60g"},
+        {n:"Uva",c:"18 pzas"}
+      ],
+      pasos: [
+        "Cocina la quinoa con el doble de agua.",
+        "Sirve con uvas frescas."
+      ]
+    },
+    {
+      nombre: "Papaya y avena cocida",
+      desc: "Avena, papaya, vainilla, canela",
+      ingredientes: [
+        {n:"Avena en hojuela cruda",c:"1 taza"},
+        {n:"Papaya picada",c:"1 taza"},
+        {n:"Extracto de vainilla",c:"gotas",libre:true},
+        {n:"Canela en polvo",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Cuece la avena con vainilla y canela por 15 minutos.",
+        "Acompaña con papaya picada."
+      ]
+    },
+    {
+      nombre: "Mango y avena cocida",
+      desc: "Avena, mango, vainilla, canela",
+      ingredientes: [
+        {n:"Avena en hojuela cruda",c:"1 taza"},
+        {n:"Mango picado",c:"1 taza"},
+        {n:"Extracto de vainilla",c:"gotas",libre:true},
+        {n:"Canela en polvo",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Cuece la avena con vainilla y canela por 15 minutos.",
+        "Acompaña con mango."
+      ]
+    },
+    {
+      nombre: "Kiwi, plátano y avena cocida",
+      desc: "Avena, kiwi, plátano, vainilla, canela",
+      ingredientes: [
+        {n:"Avena en hojuela cruda",c:"1 taza"},
+        {n:"Kiwi",c:"3/4 pza"},
+        {n:"Plátano",c:"1/4 pza"},
+        {n:"Extracto de vainilla",c:"gotas",libre:true},
+        {n:"Canela en polvo",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Cuece la avena con vainilla y canela por 15 minutos.",
+        "Acompaña con kiwi y plátano."
+      ]
+    },
+    {
+      nombre: "Quinoa cocida con plátano",
+      desc: "Quinoa, plátano, vainilla, canela",
+      ingredientes: [
+        {n:"Quinoa cruda",c:"60g"},
+        {n:"Plátano",c:"1/2 pza"},
+        {n:"Extracto de vainilla",c:"al gusto",libre:true},
+        {n:"Canela en polvo",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Enjuaga la quinoa y remoja al menos 2 horas.",
+        "Cocina con el doble de agua y sal hasta que luzca transparente.",
+        "Sirve con un poco de leche, extracto de vainilla y canela.",
+        "Acompaña con plátano machacado."
+      ]
+    }
   ],
-  cena: [
-    {name:"Ensalada de pollo con espinaca, aguacate y croutones, con naranja y vinagreta",img:'🍽️',ingredients:[
-      {"txt": "1/2 taza Croutones", "group": "Cereales sin grasa", "qty": 1},
-      {"txt": "2 piezas Naranja", "group": "Frutas", "qty": 1},
-      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/4 cucharada Vinagreta", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "150 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 5},
-      {"txt": "2 tazas Espinaca cruda picada", "group": "Verduras", "qty": 1},
-      {"txt": "Sal", "free": true},
-      {"txt": "Pimienta", "free": true},
-      {"txt": "Jugo de limón", "free": true},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["Cocina la pechuga de pollo con sal y pimienta hasta que esté bien cocida, y luego córtala en trozos.", "Lava la espinaca y colócala en un plato o tazón.", "Pela la naranja y córtala en gajos.", "Corta el aguacate en rebanadas o cubos.", "Agrega sobre la espinaca el pollo, la naranja, el aguacate y los croutones.", "Aliña con jugo de limón y vinagreta antes de servir."]},
-    {name:"Bowl de Salmón con Pepino y Mango",img:'🍽️',ingredients:[
-      {"txt": "1/3 taza Arroz integral cocido", "group": "Cereales sin grasa", "qty": 1},
-      {"txt": "1 taza mango picado", "group": "Frutas", "qty": 1},
-      {"txt": "1/6 pieza Aguacate", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/2 cucharadita Mayonesa", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "175 gramos Salmón ahumado", "group": "Proteína muy baja en grasa", "qty": 5},
-      {"txt": "1 taza pepino rebanado", "group": "Verduras", "qty": 1},
-      {"txt": "Siracha", "free": true},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["Comienza preparando los ingredientes de la siguiente forma. Lava y corta en rodajas finas el pepino. Pela y corta en trozos pequeños el mango. Corta el aguacate en trozos.", "En un recipiente vierte la mayonesa y la salsa sriracha, y mezcla.", "Añade el salmón ahumado cortado en tacos y/o lonchas y mézclalas con la salsa que acabas de preparar.", "En un recipiente coloca como base el arroz blanco. Coloca en un lado las rodajas de pepino, el salmón ahumado con su salsa, y termina poniendo los trozos de mango y aguacate."]},
-    {name:"Pan de pita con pollo",img:'🍽️',ingredients:[
-      {"txt": "1/3 pieza Pan árabe integral", "group": "Cereales sin grasa", "qty": 1},
-      {"txt": "3/4 taza Piña picada", "group": "Frutas", "qty": 1},
-      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "150 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 5},
-      {"txt": "1/4 taza Zanahoria cruda picada/rallada", "group": "Verduras", "qty": 0.5},
-      {"txt": "1/2 taza Mix de vegetales verdes", "group": "Verduras", "qty": 0.5},
-      {"txt": "Sal y pimienta", "free": true},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["Asar el pollo con sal y pimienta, partir en trozos pequeños", "Picar las verduras", "Calentar el pan pita con el pollo y las verduras", "Acompaña con la porción de fruta y disfruta"]},
-    {name:"Toast con claras de huevo, verduras y guacamole",img:'🍽️',ingredients:[
-      {"txt": "1 pieza Pan integral", "group": "Cereales sin grasa", "qty": 1},
-      {"txt": "2 piezas Naranja", "group": "Frutas", "qty": 1},
-      {"txt": "1/2 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1 cucharadas Guacamole", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "10 piezas Clara de huevo", "group": "Proteína muy baja en grasa", "qty": 5},
-      {"txt": "1 tazas Espinaca cruda picada", "group": "Verduras", "qty": 0.5},
-      {"txt": "1/2 pieza tomate / jitomate", "group": "Verduras", "qty": 0.5},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["En un sartén cuece las claras con un poco de aceite, sal, pimienta y espinacas.", "Tostar el pan y añadir el aguacate, las claras con espinacas y unas rodajas de tomate.", "Acompaña con una porción de fruta."]},
-    {name:"Pan tostado con requesón y aguacate",img:'🍽️',ingredients:[
-      {"txt": "1/3 pieza Baguette integral chico", "group": "Cereales sin grasa", "qty": 1},
-      {"txt": "1 pieza Manzana", "group": "Frutas", "qty": 1},
-      {"txt": "1/3 pieza Aguacate", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "15 cucharadas Requesón", "group": "Proteína muy baja en grasa", "qty": 5},
-      {"txt": "4 piezas tomate cherry / jitomate cherry", "group": "Verduras", "qty": 1},
-      {"txt": "Pimienta", "free": true},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["Tostar el pan y agregar el requesón, aguacate, jitomate y pimienta encima.", "Acompañar con una porción de fruta"]},
-    {name:"Filete de pescado con espárragos y papa",img:'🍽️',ingredients:[
-      {"txt": "1/2 pieza Papa cocida", "group": "Cereales sin grasa", "qty": 1},
-      {"txt": "1 cucharadita Aceite de oliva", "group": "Grasas sin proteína", "qty": 1},
-      {"txt": "200 gramos Filete de tilapia", "group": "Proteína muy baja en grasa", "qty": 5},
-      {"txt": "6 piezas Espárrago", "group": "Verduras", "qty": 1},
-      {"txt": "Jugo de limón", "free": true},
-      {"txt": "Sal al gusto", "free": true},
-      {"txt": "1 porción fruta", "group": "Frutas", "qty": 1},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["Comienza cocinando la papa en una olla con agua y un poco de sal hasta que esté tierna.", "Mientras se cocina la papa, prepara el filete de tilapia.", "Calienta un poco de aceite de oliva en una sartén a fuego medio.", "Coloca el filete de tilapia en la sartén y cocina hasta que esté dorado por ambos lados, agrega un poco de sal.", "Mientras se cocina el filete, corta los espárragos en trozos de aproximadamente 5 cm.", "Agrega los espárragos a la sartén con el filete de tilapia y cocina hasta que estén tiernos.", "Exprime el limón sobre el filete de tilapia y los espárragos para darles un toque fresco.", "Sirve el filete de tilapia con los espárragos y acompáñalo con la porción de papa cocida."]},
-    {name:"Ensalada de pollo",img:'🍽️',ingredients:[
-      {"txt": "1/4 pieza Papa cocida", "group": "Cereales sin grasa", "qty": 0.5},
-      {"txt": "1/4 taza Elote amarillo desgranado", "group": "Cereales sin grasa", "qty": 0.5},
-      {"txt": "1/2 cucharada Crema", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "1/2 cucharadita Mayonesa", "group": "Grasas sin proteína", "qty": 0.5},
-      {"txt": "150 gramos Pechuga de pollo", "group": "Proteína muy baja en grasa", "qty": 5},
-      {"txt": "1/6 taza Zanahoria cruda picada/rallada", "group": "Verduras", "qty": 0.333},
-      {"txt": "1/6 taza Chícharo cocido sin vaina", "group": "Verduras", "qty": 0.667},
-      {"txt": "1 tazas Lechuga", "group": "Verduras", "qty": 0.333},
-      {"txt": "Sal al gusto", "free": true},
-      {"txt": "Pimienta al gusto", "free": true},
-      {"txt": "1 porción fruta", "group": "Frutas", "qty": 1},
-      {"txt": "1 porción lácteo", "group": "Leche descremada", "qty": 1}
-    ],steps:["Cocina la pechuga de pollo en una olla con agua y un poco de sal hasta que esté bien cocida y luego déjala enfriar un poco.", "Mientras tanto, pela y corta la papa en cubos pequeños.", "Corta la zanahoria en cubos pequeños.", "Cocina la papa y zanahoria en una olla con un poco de sal y agua, hasta que este bien cocidas.", "En un tazón agrega la pechuga de pollo desmenuzada, la papa y la zanahoria.", "Incorpora la crema y la mayonesa a la mezcla.", "Agrega los granos de elotes y los chícharos.", "Lava y corta la lechuga en trozos y colócala con el resto de los ingredientes.", "Finalmente, mezcla todos y sazona con un poco de sal y pimienta."]}
+  "Cena": [
+    {
+      nombre: "Ensalada de pollo con garbanzos",
+      desc: "Pollo, garbanzo, espinaca, lechuga, aguacate",
+      ingredientes: [
+        {n:"Galleta salma",c:"1 paquete"},
+        {n:"Aceite de oliva",c:"1 cdta"},
+        {n:"Aguacate",c:"1/3 pza"},
+        {n:"Garbanzo cocido",c:"1/2 taza"},
+        {n:"Pechuga de pollo",c:"60g"},
+        {n:"Espinaca cruda picada",c:"1 taza"},
+        {n:"Lechuga",c:"1.5 tazas"},
+        {n:"Limón, sal y pimienta",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Cocina el pollo (35-45 min), deshebra.",
+        "Remoja los garbanzos 8-12 horas, luego cuece ~1 hora.",
+        "Lava y desinfecta espinacas y lechuga.",
+        "Mezcla lechuga, espinacas, garbanzos y pollo.",
+        "Agrega aceite de oliva y revuelve.",
+        "Acompaña con aguacate y galletas salma."
+      ]
+    },
+    {
+      nombre: "Ensalada de atún con frijoles",
+      desc: "Tostadas horneadas, atún, frijol, lechuga, espinaca",
+      ingredientes: [
+        {n:"Tostadas horneadas",c:"2 pzas"},
+        {n:"Aguacate",c:"2/3 pza"},
+        {n:"Frijol cocido",c:"1/2 taza"},
+        {n:"Atún en agua",c:"2/3 lata"},
+        {n:"Lechuga",c:"1 1/6 tazas"},
+        {n:"Espinaca cruda picada",c:"2/3 tazas"},
+        {n:"Tomate cherry/jitomate cherry",c:"1 1/3 pzas"}
+      ],
+      pasos: [
+        "Remoja los frijoles 8-12 horas, cuece ~1 hora.",
+        "Corta el tomate cherry, espinacas y lechuga.",
+        "Mezcla el atún, verduras, frijoles y aguacate.",
+        "Acompaña con tostadas horneadas."
+      ]
+    },
+    {
+      nombre: "Estofado de pollo y garbanzos",
+      desc: "Galleta salma, pollo, garbanzo, zanahoria, jitomate",
+      ingredientes: [
+        {n:"Galleta salma",c:"1 paquete"},
+        {n:"Aceite",c:"2 cdta"},
+        {n:"Garbanzo cocido",c:"1/2 taza"},
+        {n:"Pechuga de pollo",c:"60g"},
+        {n:"Zanahoria cruda picada/rallada",c:"1/2 taza"},
+        {n:"Jitomate",c:"1 pza"},
+        {n:"Cebolla chica",c:"1/4 pza"},
+        {n:"Ajo",c:"1 diente"},
+        {n:"Caldo de pollo",c:"1/2 tza"},
+        {n:"Orégano en polvo, sal y pimienta",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Remoja garbanzos 8-12 h, cuece ~1 hora.",
+        "Cuece el pollo con sal, cebolla, ajo y pimienta 35-45 min. Corta en cubos. GUARDA EL CALDO.",
+        "Licúa jitomate, cebolla, ajo y caldo de pollo.",
+        "Calienta aceite, agrega la salsa licuada.",
+        "Añade orégano, sal, pimienta y zanahoria en rodajas.",
+        "Incorpora garbanzos y pollo. Tapa y deja cocinar.",
+        "Acompaña con galletas salma."
+      ]
+    },
+    {
+      nombre: "Ensalada de salmón con lentejas",
+      desc: "Tostadas, salmón, lenteja, espinaca, arúgula, aguacate",
+      ingredientes: [
+        {n:"Tostadas horneadas",c:"2 pzas"},
+        {n:"Aceite de oliva",c:"1 cdta"},
+        {n:"Aguacate",c:"1/3 pza"},
+        {n:"Lenteja cocida",c:"1/2 taza"},
+        {n:"Salmón",c:"60g"},
+        {n:"Espinaca cruda picada",c:"1 taza"},
+        {n:"Arúgula cruda",c:"2 tazas"},
+        {n:"Sal y pimienta",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Remoja lentejas 8-12 h, cuece ~1 hora.",
+        "Sofríe brevemente las lentejas en aceite.",
+        "Cocina el salmón con sal y pimienta.",
+        "Sirve espinacas y arúgula, añade salmón y lentejas.",
+        "Acompaña con aguacate y tostadas."
+      ]
+    },
+    {
+      nombre: "Ensalada de garbanzos y queso de cabra",
+      desc: "Galleta salma, garbanzo, queso de cabra, lechuga, espinaca",
+      ingredientes: [
+        {n:"Galleta salma",c:"1 paquete"},
+        {n:"Aguacate",c:"1/3 pza"},
+        {n:"Aceite de oliva",c:"1 cdta"},
+        {n:"Garbanzo cocido",c:"1/2 taza"},
+        {n:"Queso fresco de cabra",c:"60g"},
+        {n:"Lechuga",c:"1 1/6 tazas"},
+        {n:"Espinaca cruda picada",c:"2/3 tazas"},
+        {n:"Tomate/jitomate",c:"1/3 pza"}
+      ],
+      pasos: [
+        "Remoja garbanzos 8-12 h, cuece ~1 hora.",
+        "Lava y desinfecta la verdura.",
+        "Mezcla espinacas, lechuga y jitomate.",
+        "Agrega garbanzos y queso de cabra.",
+        "Acompaña con aguacate, galletas salma y aceite de oliva."
+      ]
+    },
+    {
+      nombre: "Tortitas de lentejas con atún y zanahoria",
+      desc: "Tostadas, lenteja, atún, huevo, zanahoria",
+      ingredientes: [
+        {n:"Tostadas horneadas",c:"2 pzas"},
+        {n:"Aceite",c:"2 cdta"},
+        {n:"Lenteja cocida",c:"1/2 taza"},
+        {n:"Atún en agua",c:"1/3 lata"},
+        {n:"Huevo entero",c:"1 pza"},
+        {n:"Zanahoria cruda picada/rallada",c:"1/2 taza"},
+        {n:"Sal y pimienta",c:"al gusto",libre:true},
+        {n:"Perejil picado",c:"1 cda",libre:true}
+      ],
+      pasos: [
+        "Remoja lentejas 8-12 h, cuece ~1 hora.",
+        "Licúa lentejas con zanahoria (agrega agua si está muy espeso).",
+        "Mezcla con atún, huevo, perejil, sal y pimienta.",
+        "Forma pequeñas tortitas.",
+        "Cocina en sartén con aceite por ambos lados hasta dorar.",
+        "Acompaña con tostadas horneadas."
+      ]
+    },
+    {
+      nombre: "Tortitas de atún",
+      desc: "Galletas habaneras, atún, frijol, ejote, zanahoria, lechuga",
+      ingredientes: [
+        {n:"Galletas habaneras",c:"4 pzas"},
+        {n:"Aceite de oliva",c:"2 cdta"},
+        {n:"Frijol cocido",c:"1/2 taza"},
+        {n:"Atún en agua",c:"2/3 lata"},
+        {n:"Ejote cocido",c:"1/6 taza"},
+        {n:"Zanahoria cruda picada/rallada",c:"1/6 taza"},
+        {n:"Lechuga",c:"1 taza"},
+        {n:"Sal, pimienta",c:"al gusto",libre:true}
+      ],
+      pasos: [
+        "Cuece la zanahoria.",
+        "Mezcla zanahoria con ejote cocido y atún, forma tortitas.",
+        "Sazona con sal y pimienta.",
+        "Calienta aceite en sartén y cocina las tortitas.",
+        "Acompaña de lechuga picada y frijol cocido.",
+        "Sirve con galletas habaneras."
+      ]
+    }
   ]
 };
 
-
 // Shopping list data
-const SHOPPING = [
-  {name:'Arroz integral cocido',amount:'1/3 taza ~ 65 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Baguette integral chico',amount:'1/3 pieza ~ 27 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Croutones',amount:'1/2 taza ~ 15 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Elote amarillo desgranado',amount:'3/4 taza ~ 124.5 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Galleta salma',amount:'4 paquete ~ 72 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Galletas habaneras',amount:'8 piezas ~ 36 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Pan integral',amount:'8 pieza ~ 200 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Pan integral tostado',amount:'2 pieza ~ 30 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Pan árabe integral',amount:'1/3 pieza ~ 21 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Papa cocida',amount:'3/4 pieza ~ 102 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Pasta integral cocida',amount:'2/3 taza ~ 92 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Tortilla de maíz',amount:'6 pieza ~ 180 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Tostadas horneadas',amount:'4 piezas ~ 40 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Totopos horneados',amount:'60 gramos ~ 60 g',cat:'Cereal',shop:'🫓 Panadería',eq:'Cereales sin grasa',shelf:'larga'},
-  {name:'Leche descremada',amount:'1 taza ~ 245 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
-  {name:'Leche deslactosada light',amount:'2 taza ~ 480 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
-  {name:'Yogurt griego natural sin azúcar',amount:'1 taza ~ 250 g',cat:'Lácteo',shop:'🧀 Lácteos y Quesos',eq:'Leche descremada',shelf:'perec'},
-  {name:'Aceite',amount:'1 cucharadita ~ 5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Aguacate',amount:'2 y 2/3 pieza ~ 250.82 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Almendra',amount:'10 piezas ~ 12 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Cacahuate',amount:'28 piezas ~ 24 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Crema',amount:'1/2 cucharada ~ 7.5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Crema de cacahuate natural',amount:'4 y 1/2 cucharada ~ 45 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Guacamole',amount:'3 cucharadas ~ 42 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Mayonesa',amount:'2 cucharadita ~ 10 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Mix de frutos secos y semillas',amount:'1/2 taza ~ 50 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Nuez',amount:'17 y 1/2 mitades ~ 22.5 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Nuez de la india sin sal',amount:'7 piezas ~ 11 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Pistache',amount:'18 piezas ~ 13 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas con proteína',shelf:'larga'},
-  {name:'Vinagreta',amount:'1/4 cucharada ~ 4 g',cat:'Grasa',shop:'🥫 Abarrotes',eq:'Grasas sin proteína',shelf:'larga'},
-  {name:'Frambuesa',amount:'1 y 1/6 taza ~ 142.68 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Mandarina',amount:'2 piezas ~ 128 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Mango ataúlfo',amount:'1/2 pieza ~ 62 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Manzana',amount:'5 pieza ~ 530 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Naranja',amount:'6 piezas ~ 456 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Pera',amount:'1/2 pieza ~ 81 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Piña picada',amount:'1 y 1/2 taza ~ 248 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Plátano',amount:'1 pieza ~ 108 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Uva',amount:'18 piezas ~ 86 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Zarzamora',amount:'1/3 taza ~ 47.52 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Fresa rebanada',amount:'2 y 1/3 taza ~ 388.44 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Mango picado',amount:'2 taza ~ 330 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Moras',amount:'2 y 1/3 taza ~ 344.16 g',cat:'Fruta',shop:'🥬 Frutas y Verduras',eq:'Frutas',shelf:'perec'},
-  {name:'Frijol cocido',amount:'2 y 1/2 taza ~ 430 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
-  {name:'Garbanzo cocido',amount:'1/2 taza ~ 82 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
-  {name:'Lenteja cocida',amount:'1/2 taza ~ 99 g',cat:'Leguminosa',shop:'🌿 Granel / Naturista',eq:'Leguminosas',shelf:'larga'},
-  {name:'Atún en agua',amount:'4 lata ~ 396 g',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Clara de huevo',amount:'10 piezas ~ 330 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Filete de tilapia',amount:'200 gramos ~ 200 g',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Pechuga de pavo horneada',amount:'12 rebanadas delgadas ~ 192 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Pechuga de pollo',amount:'1530 gramos ~ 1530 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Pechuga de pollo deshebrada',amount:'384 gramos ~ 384 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Requesón',amount:'51 cucharadas ~ 714 g',cat:'Proteína',shop:'🥩 Carnicería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Salmón ahumado',amount:'175 gramos ~ 175 g',cat:'Proteína',shop:'🐟 Pescadería',eq:'Proteína muy baja en grasa',shelf:'perec'},
-  {name:'Arúgula cruda',amount:'4 tazas ~ 80 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Cebolla morada/blanca',amount:'1/2 taza ~ 58 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Chile poblano',amount:'1/2 pieza ~ 32 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Chícharo cocido sin vaina',amount:'1/6 taza ~ 12.8 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Ejote cocido',amount:'1/6 taza ~ 21.42 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Espinaca cruda picada',amount:'4 tazas ~ 240 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Espárrago',amount:'6 piezas ~ 90 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Lechuga',amount:'10 y 1/2 tazas ~ 472.5 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Mix de vegetales verdes',amount:'1/2 taza ~ 96 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Pimiento de color',amount:'1 pieza ~ 64 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Sopa de verduras',amount:'1/2 taza ~ 46 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Tomate verde',amount:'5 piezas ~ 86 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Zanahoria cruda picada/rallada',amount:'2/3 taza ~ 75.52 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Pepino rebanado',amount:'1 y 1/3 taza ~ 138.32 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Tomate / jitomate',amount:'2 y 1/3 pieza ~ 263.29 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'},
-  {name:'Tomate cherry / jitomate cherry',amount:'10 piezas ~ 237.5 g',cat:'Verdura',shop:'🥬 Frutas y Verduras',eq:'Verduras',shelf:'perec'}
-];
-
-
-const SHOP_CAT_COLORS = {
-  'Cereal':'var(--cat-cereal)','Lácteo':'var(--cat-lacteo)','Grasa':'var(--cat-grasa)',
-  'Fruta':'var(--cat-fruta)','Leguminosa':'var(--cat-leguminosa)',
-  'Proteína':'var(--cat-proteina)','Verdura':'var(--cat-verdura)'
+const SHOPPING = {
+  "Cereales": [
+    {n:"Amaranto natural",c:"1/3 taza (~24g)"},
+    {n:"Avena en hojuela cruda",c:"5½ tazas (~495g)"},
+    {n:"Barra de avena frutos rojos",c:"3 piezas (~69g)"},
+    {n:"Galleta salma",c:"6 paquetes (~108g)"},
+    {n:"Galletas habaneras",c:"4 piezas (~18g)"},
+    {n:"Galletas marías",c:"15 piezas (~57g)"},
+    {n:"Granola",c:"9 cucharadas (~63g)"},
+    {n:"Pan integral",c:"5 piezas (~125g)"},
+    {n:"Quinoa cruda",c:"180 gramos"},
+    {n:"Tortilla de nopal",c:"6 piezas (~138g)"},
+    {n:"Tortitas de arroz inflado integral",c:"6 piezas (~36g)"},
+    {n:"Tostadas horneadas",c:"6 piezas (~60g)"}
+  ],
+  "Lácteos": [
+    {n:"Leche descremada",c:"1 taza (~245g)"},
+    {n:"Leche deslactosada light",c:"1 taza (~240g)"},
+    {n:"Yogurt griego natural sin azúcar",c:"5 tazas (~1250g)"}
+  ],
+  "Grasas": [
+    {n:"Aceite",c:"5 cucharaditas (~25g)"},
+    {n:"Aceite de oliva",c:"21 cucharaditas (~105g)"},
+    {n:"Aceite en spray",c:"15 disparos (~15g)"},
+    {n:"Aguacate",c:"4 piezas (~372g)"},
+    {n:"Almendra",c:"10 piezas (~12g)"},
+    {n:"Coco rallado",c:"1½ cucharadas (~9g)"},
+    {n:"Crema de almendra natural",c:"1 cucharada (~15g)"},
+    {n:"Crema de cacahuate natural",c:"1 cucharada (~10g)"},
+    {n:"Mantequilla de vaca",c:"1½ cucharaditas (~6g)"},
+    {n:"Semilla de chía",c:"24 gramos + 2 cucharadas"}
+  ],
+  "Frutas": [
+    {n:"Arándano azul",c:"1/3 taza (~54g)"},
+    {n:"Frambuesa",c:"2⅘ tazas (~348g)"},
+    {n:"Fresa rebanada",c:"5⅘ tazas (~969g)"},
+    {n:"Kiwi",c:"3/4 pieza (~57g)"},
+    {n:"Mango picado",c:"5 tazas (~825g)"},
+    {n:"Manzana",c:"2½ piezas (~265g)"},
+    {n:"Moras",c:"3/4 taza (~109g)"},
+    {n:"Papaya picada",c:"2 tazas (~280g)"},
+    {n:"Pasitas",c:"5 piezas (~10g)"},
+    {n:"Plátano",c:"2¼ piezas (~243g)"},
+    {n:"Uva",c:"18 piezas (~86g)"},
+    {n:"Zarzamora",c:"1⅘ tazas (~264g)"}
+  ],
+  "Leguminosas": [
+    {n:"Frijol cocido",c:"1 taza (~172g)"},
+    {n:"Garbanzo cocido",c:"1½ tazas (~246g)"},
+    {n:"Lenteja cocida",c:"1 taza (~198g)"}
+  ],
+  "Proteínas": [
+    {n:"Atún en agua",c:"1⅔ latas (~165g)"},
+    {n:"Huevo entero",c:"19 piezas (~836g)"},
+    {n:"Medallón de atún",c:"90 gramos"},
+    {n:"Pechuga de pollo",c:"345 gramos"},
+    {n:"Queso fresco de cabra",c:"60 gramos"},
+    {n:"Queso panela",c:"180 gramos"},
+    {n:"Salmón",c:"330 gramos"}
+  ],
+  "Verduras": [
+    {n:"Arúgula cruda",c:"2 tazas (~40g)"},
+    {n:"Brócoli cocido",c:"1/4 taza (~46g)"},
+    {n:"Calabacita",c:"½ pieza (~46g)"},
+    {n:"Cebolla morada/blanca",c:"1/4 taza (~30g)"},
+    {n:"Champiñón crudo",c:"1/4 taza (~23g)"},
+    {n:"Ejote cocido",c:"1/6 taza (~21g)"},
+    {n:"Espinaca cruda picada",c:"6⅔ tazas (~398g)"},
+    {n:"Lechuga",c:"5⅘ tazas (~261g)"},
+    {n:"Mix de vegetales verdes",c:"1¼ tazas (~240g)"},
+    {n:"Nopal cocido",c:"½ taza (~75g)"},
+    {n:"Pepino rebanado",c:"½ taza (~52g)"},
+    {n:"Pimiento de color",c:"½ pieza (~32g)"},
+    {n:"Tomate cherry/jitomate cherry",c:"1⅓ piezas (~31g)"},
+    {n:"Tomate/jitomate",c:"1/3 pieza (~37g)"},
+    {n:"Zanahoria cruda picada/rallada",c:"1⅓ tazas (~178g)"}
+  ]
 };
 
-const SHOP_LOC_COLORS = {
-  '🥬 Frutas y Verduras':'var(--cat-verdura)',
-  '🥩 Carnicería':'var(--cat-proteina)',
-  '🐟 Pescadería':'var(--cat-lacteo)',
-  '🧀 Lácteos y Quesos':'var(--cat-lacteo)',
-  '🫓 Panadería':'var(--cat-cereal)',
-  '🥫 Abarrotes':'var(--cat-grasa)',
-  '🌿 Granel / Naturista':'var(--cat-leguminosa)'
+const SHOP_COLORS = {
+  "Cereales": {bg:"#e8d5b7",color:"#7a5c2e"},
+  "Lácteos": {bg:"#d4e8f7",color:"#2e5a7a"},
+  "Grasas": {bg:"#f7e4d4",color:"#7a4a2e"},
+  "Frutas": {bg:"#f7d4e8",color:"#7a2e5a"},
+  "Leguminosas": {bg:"#d4f7e4",color:"#2e7a4a"},
+  "Proteínas": {bg:"#f7d4d4",color:"#7a2e2e"},
+  "Verduras": {bg:"#d4f7d4",color:"#2e7a2e"}
 };
 
-// ============ STATE ============
-function getState(key, def) {
-  try { return JSON.parse(localStorage.getItem(key)) || def; } catch { return def; }
+// Equivalentes data
+const EQUIVALENTES = {
+  "Verduras": [
+    "Acelga cruda 2 taza","Alcachofa mediana 1 pieza","Apio 1½ taza","Arúgula cruda 4 tazas",
+    "Berenjena picada cocida 1 taza","Berro crudo 2 taza","Betabel crudo ¼ pieza","Brócoli cocido ½ taza",
+    "Calabacita 1 pieza","Calabaza de castilla cocida ½ taza","Cebolla morada/blanca ½ taza",
+    "Cebollín picado 3 cucharadas","Cebollita cambray 3 piezas","Champiñón crudo 1 taza","Chayote ½ pieza",
+    "Chícharo cocido sin vaina ¼ taza","Chile poblano ½ pieza","Col cruda 2 taza","Col de bruselas 63 gramos",
+    "Col morada cruda picada 1 taza","Col rizada 1 taza","Coliflor cocida 1 taza","Ejote cocido ½ taza",
+    "Espárrago 6 piezas","Espinaca cruda picada 2 tazas","Flor de calabaza cocida 1 taza",
+    "Germen de alfalfa crudo 3 tazas","Germen de lenteja crudo ¼ taza","Germen de soya cocido 1/3 taza",
+    "Haba verde 4 pieza","Hongo portobello crudo 1 pieza","Huitlacoche cocido 1/3 taza","Jícama picada ½ taza",
+    "Jitomate o tomate deshidratado 5 pieza","Lechuga 3 tazas","Mix de vegetales verdes 1 taza",
+    "Nopal cocido 1 taza","Nopal crudo 2 piezas","Palmito enlatado 1 pieza","Pepinillo 1/3 taza",
+    "Pepino rebanado 1 taza","Pimiento de color 1 pieza","Puerro crudo ¼ pieza","Puré de tomate ¼ taza",
+    "Rábano crudo rebanado 1 taza","Sopa de verduras ½ taza","Tomate/jitomate 1 pieza",
+    "Tomate cherry/jitomate cherry 4 piezas","Tomate verde 5 piezas","Verdolaga cruda 2 taza",
+    "Verduras picadas ½ taza","Zanahoria cruda picada/rallada ½ taza","Zanahoria miniatura cruda 4 piezas"
+  ],
+  "Frutas": [
+    "Acaí 4 cucharadas","Agua de coco 1½ taza","Arándano azul ¾ taza","Arándano deshidratado 2 cucharadas",
+    "Carambolo 1½ pieza mediana","Cereza 20 piezas","Chabacano 4 pieza","Ciruela amarilla 3 pieza pequeña",
+    "Ciruela criolla roja o amarilla 3 piezas","Ciruela negra ½ pieza","Ciruela pasa deshuesada 7 piezas",
+    "Dátil seco 2 piezas","Durazno amarillo 2 piezas","Frambuesa 1 taza","Fresa rebanada 1 taza",
+    "Granada roja 1 pieza","Guanábana 1 pieza pequeña","Guayaba 3 piezas","Higo 2 piezas",
+    "Kiwi 1½ pieza","Lima 3 piezas","Limón 4 pieza","Mamey 1/3 pieza","Mandarina 2 piezas",
+    "Mango ataúlfo ½ pieza","Mango manila 1 pieza","Mango petacón ½ pieza","Mango picado 1 taza",
+    "Manzana 1 pieza","Maracuya 3 pieza","Melón picado 1 taza","Moras ¾ taza","Naranja 2 piezas",
+    "Nectarina 1 pieza","Papaya picada 1 taza","Pasitas 10 piezas","Pera ½ pieza","Piña picada ¾ taza",
+    "Pitahaya 2 pieza","Plátano ½ pieza","Plátano dominico 3 piezas","Plátano macho ¼ pieza",
+    "Pulpa de tamarindo sin azúcar 8 cucharadas","Sandía picada 1 taza","Toronja 1 pieza","Tuna 2 piezas",
+    "Uva 18 piezas","Yaca 30 gramos","Zarzamora 1 taza"
+  ],
+  "Cereales sin grasa": [
+    "Amaranto natural ¼ taza","Arepa ½ pieza","Arroz cocido ¼ taza","Arroz integral cocido 1/3 taza",
+    "Arroz salvaje cocido 1/3 taza","Atole en polvo 7 cucharaditas","Avena en hojuela cruda 1/3 taza",
+    "Baguette integral chico 1/3 pieza","Barra de avena frutos rojos 1 pieza","Bolillo/birote sin migajón 1/3 pieza",
+    "Camote al horno 1/3 taza","Camote cocido 1/3 taza","Cebada 20 gramos","Cereal infantil fortificado 15 gramos",
+    "Couscous cocido 1/3 taza","Croutones ½ taza","Elote ½ taza","Elote amarillo desgranado ½ taza",
+    "Fécula de maíz 2 cucharadas","Fideo cocido ½ taza","Fideos chinos de arroz 20 gramos",
+    "Galleta de animalito 6 piezas","Galleta salma 1 paquete","Galletas gluten free tipo maría 5 piezas",
+    "Galletas habaneras 4 piezas","Galletas marías 5 piezas","Galletas saladas 4 piezas","Granola 3 cucharadas",
+    "Harina de avena 2 cucharadas","Harina de maíz 2½ cucharadas","Harina de maíz precocido 1½ cucharadas",
+    "Harina de tapioca 2½ cucharadas","Harina de trigo 2½ cucharadas","Harina de yuca 2 cucharada",
+    "Harina gluten free 2½ cucharadas","Harina integral 2½ cucharadas","Hojas crudas de lasagna 20 gramos",
+    "Maíz pozolero 1/3 taza","Palomitas naturales 2½ taza","Pan árabe integral 1/3 pieza",
+    "Pan blanco 1 pieza","Pan de hamburguesa 1/3 pieza","Pan de hotdog ½ pieza",
+    "Pan de masa madre 30 gramos","Pan integral 1 pieza","Pan integral tostado 1 pieza",
+    "Pan molido 1 cucharada","Pan pita taquero 1 pieza","Pan thin integral 1½ pieza",
+    "Papa cambray 5 piezas","Papa cocida ½ pieza","Papel de arroz comestible 5 pieza",
+    "Pasta cocida ½ taza","Pasta de quinoa 1/3 taza","Pasta integral cocida 1/3 taza",
+    "Pretzel 6 pieza","Quinoa cruda 20 gramos","Seitán (gluten de trigo) 30 gramos",
+    "Sémola de maíz ½ taza","Sope de maíz 1 pieza","Tapioca 1 cucharada","Tortilla de harina ½ pieza",
+    "Tortilla de maíz 1 pieza","Tortilla de nopal 3 piezas","Tortitas de arroz 2 piezas",
+    "Tortitas de arroz inflado integral 2 piezas","Tostadas horneadas 2 piezas",
+    "Totopos horneados 30 gramos","Waffle sin azúcar 1 pieza","Yuca ¼ pieza"
+  ],
+  "Leguminosas": [
+    "Alubia cocida ½ taza","Bebida vegetal de soya sin azúcar y sin endulzar 1 taza",
+    "Edamame 27 gramos","Frijol cocido ½ taza","Frijol de soya cocido ½ taza",
+    "Frijoles refritos caseros 1/3 taza","Garbanzo cocido ½ taza","Haba cocida ½ taza",
+    "Lenteja cocida ½ taza","Miso 60 gramos","Soya texturizada 30 gramos",
+    "Tempeh (soya fermentada) 30 gramos"
+  ],
+  "Proteína muy baja en grasa": [
+    "Almeja fresca sin concha 4 piezas","Atún en agua 1/3 lata","Calamar crudo 45 gramos",
+    "Camarón mediano 6 piezas","Camarón seco 10 gramos","Carne molida de pavo 30 gramos",
+    "Clara de huevo 2 piezas","Filete de tilapia 40 gramos","Huachinango 35 gramos",
+    "Machaca de res 15 gramos","Medallón de atún 30 gramos","Pechuga de pavo horneada 2 rebanadas delgadas",
+    "Pechuga de pollo 30 gramos","Pechuga de pollo deshebrada 32 gramos","Pechuga de pollo molida 30 gramos",
+    "Pescado blanco 40 gramos","Pescado molido 30 gramos","Pulpo crudo 45 gramos",
+    "Queso cottage 3 cucharadas","Requesón 3 cucharadas","Salmón ahumado 35 gramos","Surimi 40 gramos"
+  ],
+  "Proteína baja en grasa": [
+    "Arrachera de res 30 gramos","Atún en aceite 1/3 lata","Chuleta de cerdo 45 gramos",
+    "Hígado de pollo cocido 30 gramos","Hígado de res cocido 30 gramos","Jamón bajo en grasa 2 rebanadas",
+    "Lomo 40 gramos","Muslo de pollo sin piel ½ pieza","Pierna 40 gramos","Pierna de cerdo 40 gramos",
+    "Pierna de pollo sin piel 1/3 pieza","Queso cheddar bajo en grasa 30 gramos","Queso fresco 40 gramos",
+    "Queso fresco de cabra 30 gramos","Queso oaxaca light 30 gramos","Queso panela 40 gramos",
+    "Queso ricotta bajo en grasa 3 cucharadas","Res molida magra 30 gramos","Res sin grasa 30 gramos",
+    "Salmón 30 gramos","Ternera 35 gramos","Tofu firme 40 gramos"
+  ],
+  "Proteína moderada en grasa": [
+    "Bistec bola 25 gramos","Carne res deshebrada 30 gramos","Costilla de cerdo con hueso 50 gramos",
+    "Huevo entero 1 pieza","Queso mozzarella bajo en grasa 1 rebanadas","Queso parmesano 20 gramos",
+    "Salchicha de pavo 1 pieza","Sardina 3 piezas"
+  ],
+  "Leche descremada": [
+    "Leche descremada 1 taza","Leche deslactosada light 1 taza","Leche evaporada descremada ½ taza",
+    "Sustituto lácteo de almendra 1 taza","Sustituto lácteo de arroz 1 taza",
+    "Sustituto lácteo de coco 1 taza","Sustituto lácteo de nuez 1 taza",
+    "Yogurt griego natural sin azúcar 1 taza"
+  ],
+  "Grasas sin proteína": [
+    "Aceite 1 cucharadita","Aceite de aguacate 1 cucharadita","Aceite de ajonjolí 1 cucharadita",
+    "Aceite de coco 1 cucharadita","Aceite de linaza 1 cucharadita","Aceite de oliva 1 cucharadita",
+    "Aceite de palma 1 cucharadita","Aceite de uva 1 cucharadita","Aceite en spray 5 disparos de 1 seg",
+    "Aceituna negra 5 piezas","Aceituna verde 6 piezas","Aguacate 1/3 pieza","Coco fresco 12 gramos",
+    "Coco rallado 1½ cucharadas","Crema 1 cucharada","Crema batida 1½ cucharada",
+    "Crema para batir 1 cucharada","Guacamole 2 cucharadas","Mantequilla de vaca 1½ cucharadita",
+    "Mayonesa 1 cucharadita","Queso crema 1 cucharada","Queso philadelphia 1 cucharada",
+    "Tocino 1 rebanadas delgadas","Vinagreta ½ cucharada"
+  ],
+  "Grasas con proteína": [
+    "Almendra 10 piezas","Almendra fileteada 2 cucharadas","Avellana 9 piezas","Cacahuate 14 piezas",
+    "Cacahuate con cascara 12 gramos","Chocolate sin azúcar 15 gramos","Crema de almendra natural 1 cucharada",
+    "Crema de cacahuate natural 1 cucharada","Harina de almendras 11 gramos","Harina de linaza 2 cucharadas",
+    "Harina de nuez 2 cucharadas","Hummus de garbanzo 1 cucharada","Linaza molida 1 cucharada",
+    "Mazapán sin azúcar 1 pieza","Mix de frutos secos y semillas ¼ taza","Nuez 7 mitades",
+    "Nuez de brasil 2 pieza","Nuez de la india sin sal 7 piezas","Nuez de macadamia 4 pieza",
+    "Pepita de calabaza 1½ cucharadas","Piñon 1 cucharada","Pistache 18 piezas",
+    "Semilla de ajonjolí 4 cucharaditas","Semilla de calabaza 1½ cucharada",
+    "Semilla de cártamo 1¼ cucharadas","Semilla de chía 2 cucharadas","Semilla de chía 12 gramos",
+    "Semilla de girasol 4 cucharaditas","Semilla de linaza 1 cucharada","Tahini 1 cucharada"
+  ]
+};
+
+const EQ_COLORS = {
+  "Verduras": {bg:"var(--cat-verdura)",color:"#2e6a2e"},
+  "Frutas": {bg:"var(--cat-fruta)",color:"#6a2e5a"},
+  "Cereales sin grasa": {bg:"var(--cat-cereal)",color:"#5a3e1e"},
+  "Leguminosas": {bg:"var(--cat-leguminosa)",color:"#1e5a3e"},
+  "Proteína muy baja en grasa": {bg:"var(--cat-proteina)",color:"#5a1e1e"},
+  "Proteína baja en grasa": {bg:"var(--cat-proteina)",color:"#5a2e1e"},
+  "Proteína moderada en grasa": {bg:"var(--cat-proteina)",color:"#3e1e1e"},
+  "Leche descremada": {bg:"var(--cat-lacteo)",color:"#1e3e5a"},
+  "Grasas sin proteína": {bg:"var(--cat-grasa)",color:"#5a3e1e"},
+  "Grasas con proteína": {bg:"var(--cat-grasa)",color:"#3e2e1e"}
+};
+
+// ===================== HELPERS =====================
+
+function getTodayDayIndex() {
+  const d = new Date().getDay();
+  return d === 0 ? 6 : d - 1; // Mon=0..Sun=6
 }
-function setState(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
 
-// ============ THEME ============
-function toggleTheme() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
-  setState('theme', isDark ? 'light' : 'dark');
-}
-(function initTheme() {
-  const t = getState('theme', 'light');
-  document.documentElement.setAttribute('data-theme', t);
-  document.getElementById('themeBtn').textContent = t === 'dark' ? '☀️' : '🌙';
-})();
-
-// ============ TABS ============
-function switchTab(id) {
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  event.target.classList.add('active');
+function getMealTypeIndex() {
+  const h = new Date().getHours();
+  if (h < 9.5) return 0;
+  if (h < 12.5) return 1;
+  if (h < 15.5) return 2;
+  if (h < 18.5) return 3;
+  return 4;
 }
 
-// ============ DATE HELPERS ============
-const PLAN_START = new Date(2026, 8, 21); // Lunes 21 de septiembre de 2026 (semana del plan asignado el 27/9/2026)
-function getDayIndex() {
-  const today = new Date();
-  const diff = Math.floor((today - PLAN_START) / 86400000);
-  if (diff < 0 || diff >= 28) return Math.max(0, diff % 7);
-  return diff % 7;
-}
-function getWeekIndex() {
-  const today = new Date();
-  const diff = Math.floor((today - PLAN_START) / 86400000);
-  return Math.min(3, Math.max(0, Math.floor(diff / 7)));
-}
-function getDateKey() {
-  const d = new Date();
-  return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
-}
-
-// ============ RENDER: HOY ============
-function renderHoy() {
-  const dayIdx = getDayIndex();
-  const dayName = DAYS[dayIdx];
-  const dateKey = getDateKey();
-  const suppState = getState('supps-' + dateKey, {});
-  const waterState = getState('water-' + dateKey, 0);
-
-  // Levo timer logic
-  const levoTakenAt = getState('levo-time-' + dateKey, null);
-  let timerHtml = '';
-  if (suppState.levo && levoTakenAt) {
-    const elapsed = Date.now() - levoTakenAt;
-    const remaining = Math.max(0, 45 * 60 * 1000 - elapsed);
-    if (remaining > 0) {
-      const mins = Math.floor(remaining / 60000);
-      const secs = Math.floor((remaining % 60000) / 1000);
-      timerHtml = `<div class="levo-timer" id="levoTimer">
-        ⏱ Puedes desayunar en
-        <div class="timer-big" id="timerDisplay">${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}</div>
-      </div>`;
-    } else {
-      timerHtml = `<div class="levo-timer done">✅ ¡Ya puedes desayunar!</div>`;
-    }
-  }
-
-  let html = `
-    <div class="levo-banner">
-      <strong>💊 Levotiroxina — 7:00 AM</strong><br>
-      En ayuno, solo con agua. Esperar 30-60 min antes de comer.
-      ${timerHtml}
-    </div>
-
-    <div class="card">
-      <div class="card-title">💧 Agua de hoy</div>
-      <div class="water-row">
-  `;
-  for (let i = 0; i < 8; i++) {
-    html += `<div class="water-circle ${i < waterState ? 'filled' : ''}" onclick="toggleWater(${i})">💧</div>`;
-  }
-  html += `</div>
-      <div class="water-count">${waterState} / 8 vasos (${waterState * 250} ml)</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">💊 Suplementos de hoy</div>
-  `;
-  SUPPLEMENTS.forEach(s => {
-    const checked = suppState[s.id] || false;
-    html += `
-      <div class="supp-row ${checked ? 'supp-done' : ''}">
-        <input type="checkbox" class="supp-check" ${checked ? 'checked' : ''} onchange="toggleSupp('${s.id}')">
-        <div class="supp-info">
-          <div class="supp-name">${s.emoji} ${s.name}</div>
-          <div class="supp-detail">${s.detail}</div>
-        </div>
-        <div class="supp-time">${s.time}</div>
+function buildMealCard(mealType, dayIdx, showRecipe) {
+  const m = MEALS[mealType][dayIdx];
+  if (!m) return '';
+  const id = `meal-${mealType.replace(/\s/g,'-')}-${dayIdx}`;
+  const ings = m.ingredientes.map((i,idx) => {
+    const cls = i.libre ? 'ing-free' : 'ing-clickable';
+    const onclick = i.libre ? '' : `onclick="openModal('${escH(i.n)}')"`;
+    return `<li><span class="${cls}" ${onclick}>${escH(i.n)}</span><span>${escH(i.c)}</span></li>`;
+  }).join('');
+  const steps = m.pasos.map(p=>`<li>${escH(p)}</li>`).join('');
+  const recipeBlock = showRecipe ? `
+    <div class="recipe-steps">
+      <h4>📝 Preparación</h4>
+      <ol>${steps}</ol>
+    </div>` : '';
+  return `
+  <div class="meal-card">
+    <div class="meal-header" onclick="toggleMeal('${id}')">
+      <div class="meal-img">🍽️</div>
+      <div class="meal-info">
+        <div class="meal-time">${mealType} · ${COMIDA_TIMES[mealType]}</div>
+        <div class="meal-name">${escH(m.nombre)}</div>
+        <div class="meal-desc">${escH(m.desc)}</div>
       </div>
-    `;
-  });
-  html += '</div>';
-
-  html += `<h3 style="margin:16px 0 10px;font-size:16px">${dayName} — ¿Qué cocino hoy?</h3>`;
-
-  MEAL_TIMES.forEach(mt => {
-    const meal = MEALS[mt.key][dayIdx];
-    if (!meal) return;
-    const mealId = `hoy-${mt.key}`;
-    html += renderMealCard(meal, mt, mealId);
-  });
-
-  document.getElementById('tab-hoy').innerHTML = html;
-
-  // Start timer interval if levo taken
-  if (suppState.levo && levoTakenAt) {
-    startLevoTimer(levoTakenAt);
-  }
+      <div class="meal-toggle" id="${id}-toggle">▼</div>
+    </div>
+    <div class="meal-detail" id="${id}-detail">
+      <ul class="ingredient-list">${ings}</ul>
+      ${recipeBlock}
+    </div>
+  </div>`;
 }
 
-// ============ WATER TRACKER ============
-function toggleWater(idx) {
-  const dateKey = getDateKey();
-  const current = getState('water-' + dateKey, 0);
-  // If tapping the last filled circle, decrease; otherwise set to idx+1
-  const newVal = (idx + 1 === current) ? idx : idx + 1;
-  setState('water-' + dateKey, newVal);
-  renderHoy();
-}
-
-// ============ LEVO TIMER ============
-let levoInterval = null;
-
-function startLevoTimer(takenAt) {
-  if (levoInterval) clearInterval(levoInterval);
-  levoInterval = setInterval(() => {
-    const el = document.getElementById('timerDisplay');
-    const timerContainer = document.getElementById('levoTimer');
-    if (!el || !timerContainer) { clearInterval(levoInterval); return; }
-    const remaining = Math.max(0, 45 * 60 * 1000 - (Date.now() - takenAt));
-    if (remaining <= 0) {
-      timerContainer.classList.add('done');
-      timerContainer.innerHTML = '✅ ¡Ya puedes desayunar!';
-      clearInterval(levoInterval);
-      return;
-    }
-    const mins = Math.floor(remaining / 60000);
-    const secs = Math.floor((remaining % 60000) / 1000);
-    el.textContent = `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
-  }, 1000);
-}
-
-// ============ RENDER MEAL CARD ============
-// ============ IMAGE LOOKUP ============
-function getMealImg(mealKey, mealId) {
-  // mealId formats: "hoy-desayuno", "plan-comida-3", "rec-colacion1-5"
-  let dayIdx = -1;
-  const parts = mealId.split('-');
-  if (parts[0] === 'hoy') {
-    dayIdx = getDayIndex();
-  } else if (parts.length >= 3) {
-    dayIdx = parseInt(parts[parts.length - 1]);
-  }
-  if (dayIdx < 0 || dayIdx > 6) return null;
-  const key = `${mealKey}_${dayIdx}`;
-  return MEAL_IMAGES[key] || null;
-}
-
-// ============ RENDER MEAL CARD ============
-function renderMealCard(meal, mealTime, mealId) {
-  const imgSrc = getMealImg(mealTime.key, mealId);
-  const imgHtml = imgSrc
-    ? `<img src="${imgSrc}" alt="${meal.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`
-    : meal.img;
-  let html = `
-    <div class="meal-card">
-      <div class="meal-header" onclick="toggleMeal('${mealId}')">
-        <div class="meal-img">${imgHtml}</div>
-        <div class="meal-info">
-          <div class="meal-time">${mealTime.emoji} ${mealTime.label} · ${mealTime.time}</div>
-          <div class="meal-name">${meal.name}</div>
-          <div class="meal-desc">${meal.ingredients.filter(i=>!i.free).map(i=>i.txt.split(' ').slice(-2).join(' ')).join(', ')}</div>
-        </div>
-        <div class="meal-toggle" id="toggle-${mealId}">▼</div>
-      </div>
-      <div class="meal-detail" id="detail-${mealId}">
-        <h4 style="font-size:13px;font-weight:600;margin-bottom:8px">Ingredientes</h4>
-        <ul class="ingredient-list">
-  `;
-  meal.ingredients.forEach(ing => {
-    if (ing.free) {
-      html += `<li><span class="ing-free">${ing.txt}</span></li>`;
-    } else {
-      html += `<li><span class="ing-clickable" onclick="showEquiv('${ing.group}', ${ing.qty}, '${ing.txt.replace(/'/g,"\\\'")}')">${ing.txt}</span><span class="badge time-badge">${ing.qty} porc.</span></li>`;
-    }
-  });
-  html += '</ul>';
-  if (meal.steps && meal.steps.length) {
-    html += '<div class="recipe-steps"><h4>Preparación</h4><ol>';
-    meal.steps.forEach(s => html += `<li>${s}</li>`);
-    html += '</ol></div>';
-  }
-  html += '</div></div>';
-  return html;
+function escH(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 function toggleMeal(id) {
-  const detail = document.getElementById('detail-' + id);
-  const toggle = document.getElementById('toggle-' + id);
-  detail.classList.toggle('open');
-  toggle.classList.toggle('open');
+  const det = document.getElementById(id+'-detail');
+  const tog = document.getElementById(id+'-toggle');
+  det.classList.toggle('open');
+  tog.classList.toggle('open');
 }
 
-// ============ SUPPLEMENTS ============
-function toggleSupp(id) {
-  const dateKey = getDateKey();
-  const state = getState('supps-' + dateKey, {});
-  state[id] = !state[id];
-  setState('supps-' + dateKey, state);
-  // Save timestamp when levo is checked for timer
-  if (id === 'levo' && state[id]) {
-    setState('levo-time-' + dateKey, Date.now());
-  } else if (id === 'levo' && !state[id]) {
-    setState('levo-time-' + dateKey, null);
-    if (levoInterval) clearInterval(levoInterval);
-  }
-  renderHoy();
-  renderSupps();
-}
+// ===================== INIT =====================
 
-// ============ RENDER: PLAN SEMANAL ============
-function renderPlan() {
-  const selectedDay = getState('planDay', getDayIndex());
-  let html = '<div class="day-tabs">';
-  DAYS.forEach((d, i) => {
-    html += `<button class="day-tab ${i === selectedDay ? 'active' : ''}" onclick="selectPlanDay(${i})">${d.substring(0,3)}</button>`;
-  });
-  html += '</div>';
+let currentDay = getTodayDayIndex();
+let currentRecetasType = 0;
 
-  MEAL_TIMES.forEach(mt => {
-    const meal = MEALS[mt.key][selectedDay];
-    if (!meal) return;
-    html += renderMealCard(meal, mt, `plan-${mt.key}-${selectedDay}`);
-  });
-
-  document.getElementById('tab-plan').innerHTML = html;
-}
-
-function selectPlanDay(idx) {
-  setState('planDay', idx);
-  renderPlan();
-}
-
-// ============ RENDER: COMPRAS ============
-
-// Parse grams from amount string like "1/2 taza ~ 81 g" or "720 gramos"
-function parseBaseGrams(amount) {
-  const match = amount.match(/~\s*([\d.]+)\s*(g|kg)/i);
-  if (match) {
-    let val = parseFloat(match[1]);
-    if (match[2].toLowerCase() === 'kg') val *= 1000;
-    return val;
-  }
-  // Try "XXX gramos" format
-  const match2 = amount.match(/([\d.]+)\s*gramos/i);
-  if (match2) return parseFloat(match2[1]);
-  return null;
-}
-
-// Parse descriptive qty like "3 y 3/4 lata", "18 pieza", "1/2 pieza"
-function parseDescQty(amount) {
-  const beforeTilde = amount.split('~')[0].trim();
-  // Match patterns: "3 y 3/4 lata", "18 pieza", "1/2 pieza", "2 y 1/2 taza"
-  const m = beforeTilde.match(/^([\d\s\/y.]+)\s+(.+)$/);
-  if (!m) return null;
-  const num = parseFraction(m[1]);
-  return { qty: num, unit: m[2].trim() };
-}
-
-function formatShopAmount(item, weeks) {
-  const desc = parseDescQty(item.amount);
-  const grams = parseBaseGrams(item.amount);
-
-  // If the descriptive unit is "gramos", just show weight
-  if (desc && desc.unit.toLowerCase() === 'gramos') {
-    const totalG = desc.qty * weeks;
-    if (totalG >= 1000) return `${roundNice(totalG / 1000)} kg`;
-    return `${roundNice(totalG)} g`;
-  }
-
-  let parts = [];
-
-  // Descriptive part (piezas, latas, tazas, etc.)
-  if (desc) {
-    const scaled = roundNice(desc.qty * weeks);
-    parts.push(`${scaled} ${desc.unit}`);
-  }
-
-  // Weight part
-  if (grams) {
-    const totalG = grams * weeks;
-    if (totalG >= 1000) {
-      parts.push(`${roundNice(totalG / 1000)} kg`);
-    } else {
-      parts.push(`${roundNice(totalG)} g`);
-    }
-  }
-
-  return parts.join(' · ');
-}
-
-function renderCompras() {
-  const weeks = getState('shopWeeks', 1);
-  const viewMode = getState('shopView', 'shop');
-  const shelfFilter = getState('shopShelf', 'all'); // 'all', 'larga', 'perec'
-
-  // Slider
-  let html = `
-    <div class="shop-slider-container">
-      <div class="shop-slider-label">
-        <span>🛒 Comprar para:</span>
-        <span class="shop-slider-value" id="sliderLabel">${weeks} semana${weeks > 1 ? 's' : ''}</span>
-      </div>
-      <input type="range" class="shop-slider" min="1" max="4" value="${weeks}" oninput="updateShopWeeks(this.value)">
-      <div class="shop-slider-ticks">
-        <span>1 sem</span><span>2 sem</span><span>3 sem</span><span>4 sem</span>
-      </div>
-    </div>
-  `;
-
-  // View toggle row 1: grouping
-  html += `<div style="display:flex;gap:6px;margin-bottom:6px">
-    <button class="week-btn ${viewMode === 'shop' ? 'active' : ''}" onclick="setShopView('shop')" style="flex:1;font-size:12px">🏪 Por lugar</button>
-    <button class="week-btn ${viewMode === 'cat' ? 'active' : ''}" onclick="setShopView('cat')" style="flex:1;font-size:12px">📊 Por grupo</button>
-  </div>`;
-
-  // View toggle row 2: shelf filter
-  html += `<div style="display:flex;gap:6px;margin-bottom:12px">
-    <button class="week-btn ${shelfFilter === 'all' ? 'active' : ''}" onclick="setShelfFilter('all')" style="flex:1;font-size:12px">🛒 Todos</button>
-    <button class="week-btn ${shelfFilter === 'larga' ? 'active' : ''}" onclick="setShelfFilter('larga')" style="flex:1;font-size:12px">📦 Despensa</button>
-    <button class="week-btn ${shelfFilter === 'perec' ? 'active' : ''}" onclick="setShelfFilter('perec')" style="flex:1;font-size:12px">🥬 Frescos</button>
-  </div>`;
-
-  // Filter items by shelf
-  const filteredItems = shelfFilter === 'all' ? SHOPPING : SHOPPING.filter(s => s.shelf === shelfFilter);
-
-  const shopState = getState('shop-checked', {});
-  const total = filteredItems.length;
-  const checked = filteredItems.filter(s => shopState[s.name]).length;
-
-  const filterLabel = shelfFilter === 'larga' ? ' de despensa' : shelfFilter === 'perec' ? ' frescos' : '';
-  html += `<div class="progress-text">${checked}/${total} artículos${filterLabel} comprados</div>`;
-  html += `<div class="progress-bar"><div class="progress-fill" style="width:${total > 0 ? (checked/total)*100 : 0}%"></div></div>`;
-
-  // Group by selected view
-  const groupKey = viewMode === 'shop' ? 'shop' : 'cat';
-  const colorMap = viewMode === 'shop' ? SHOP_LOC_COLORS : SHOP_CAT_COLORS;
-  const groups = {};
-  filteredItems.forEach(s => {
-    const g = s[groupKey];
-    if (!groups[g]) groups[g] = [];
-    groups[g].push(s);
-  });
-
-  // Sort: pending first
-  const sortedGroups = Object.entries(groups).sort((a, b) => {
-    const aPending = a[1].filter(i => !shopState[i.name]).length;
-    const bPending = b[1].filter(i => !shopState[i.name]).length;
-    if (aPending === 0 && bPending > 0) return 1;
-    if (bPending === 0 && aPending > 0) return -1;
-    return 0;
-  });
-
-  for (const [group, items] of sortedGroups) {
-    const catChecked = items.filter(i => shopState[i.name]).length;
-    const allDone = catChecked === items.length;
-    html += `<div class="shop-category" style="${allDone ? 'opacity:0.5' : ''}">
-      <div class="shop-cat-header">
-        <span class="shop-cat-badge" style="background:${colorMap[group] || '#ddd'}">${group}</span>
-        <span>${catChecked}/${items.length}</span>
-      </div>`;
-    items.forEach(item => {
-      const isChecked = shopState[item.name] || false;
-      const escapedName = item.name.replace(/'/g, "\\'");
-      const escapedEq = item.eq.replace(/'/g, "\\'");
-      const scaledAmount = formatShopAmount(item, weeks);
-      html += `<div class="shop-item ${isChecked ? 'checked' : ''}">
-        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleShopItem('${escapedName}')">
-        <label><strong>${item.name}</strong><br><em style="font-size:12px">${scaledAmount}</em></label>
-        <button onclick="showShopEquiv('${escapedName}','${escapedEq}')" style="background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;cursor:pointer;color:var(--accent);white-space:nowrap;flex-shrink:0" title="Ver equivalencias">🔄</button>
-      </div>`;
-    });
-    html += '</div>';
-  }
-
-  // Sync & Reset
-  html += `<div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
-    <button class="btn btn-primary" onclick="shareProgress()">📤 Compartir</button>
-    <button class="btn btn-outline" onclick="importFromFile()">📥 Importar</button>
-    <button class="btn btn-outline" onclick="exportAllData()">💾 Exportar</button>
-    <button class="btn btn-danger" onclick="if(confirm('¿Reiniciar compras?')){setState('shop-checked',{});renderCompras();}">🗑️ Reiniciar</button>
-  </div>
-  <p style="text-align:center;font-size:11px;color:var(--text2);margin-top:8px">📲 Usa "Compartir" para sincronizar entre dispositivos</p>`;
-
-  document.getElementById('tab-compras').innerHTML = html;
-}
-
-function updateShopWeeks(val) {
-  val = parseInt(val);
-  setState('shopWeeks', val);
-  renderCompras();
-}
-
-function toggleShopItem(name) {
-  const state = getState('shop-checked', {});
-  state[name] = !state[name];
-  setState('shop-checked', state);
-  renderCompras();
-}
-
-function setShopView(mode) {
-  setState('shopView', mode);
-  renderCompras();
-}
-
-function setShelfFilter(mode) {
-  setState('shopShelf', mode);
-  renderCompras();
-}
-
-// ============ RENDER: SUPLEMENTOS ============
-function renderSupps() {
-  const year = 2026, month = 8; // Septiembre 2026 (0-indexed: 8)
-  let html = `
-    <div class="card">
-      <div class="card-title">💊 Protocolo de Suplementos</div>
-      <div class="supp-row">
-        <div class="supp-info"><div class="supp-name">💊 Levotiroxina</div><div class="supp-detail">En ayuno, solo con agua · 30-60 min antes de comer · evitar calcio/hierro/antiácidos/multivitamínicos/fibra 4 hrs después</div></div>
-        <div class="supp-time">7:00 AM</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">📅 Calendario — Septiembre/Octubre 2026</div>
-  `;
-
-  // Render calendar for Septiembre 27 (plan asignado) al 31 de Octubre (próxima revisión), 2026
-  const totalSupps = SUPPLEMENTS.length;
-  html += '<div class="cal-grid">';
-  ['L','M','Mi','J','V','S','D'].forEach(d => html += `<div class="cal-day-header">${d}</div>`);
-
-  // 27 de septiembre de 2026 es domingo; añadimos 6 celdas vacías (L-S) antes de empezar la semana
-  for (let i = 0; i < 6; i++) html += '<div class="cal-day empty"></div>';
-
-  for (let day = 27; day <= 30; day++) {
-    const dateKey = `2026-9-${day}`;
-    const suppState = getState('supps-' + dateKey, {});
-    const doneCount = SUPPLEMENTS.filter(s => suppState[s.id]).length;
-    const today = new Date();
-    const isToday = today.getDate() === day && today.getMonth() === 8 && today.getFullYear() === 2026;
-    html += `<div class="cal-day ${isToday ? 'today' : ''} ${doneCount === totalSupps ? 'all-done' : ''}" onclick="showDaySupps(2026,8,${day})">
-      <span>${day} sep</span>
-      <div class="cal-dots">${SUPPLEMENTS.map((s,i) => `<div class="cal-dot ${suppState[s.id]?'done':''}"></div>`).join('')}</div>
-    </div>`;
-  }
-  for (let day = 1; day <= 31; day++) {
-    const dateKey = `2026-10-${day}`;
-    const suppState = getState('supps-' + dateKey, {});
-    const doneCount = SUPPLEMENTS.filter(s => suppState[s.id]).length;
-    const today = new Date();
-    const isToday = today.getDate() === day && today.getMonth() === 9 && today.getFullYear() === 2026;
-    html += `<div class="cal-day ${isToday ? 'today' : ''} ${doneCount === totalSupps ? 'all-done' : ''}" onclick="showDaySupps(2026,9,${day})">
-      <span>${day}</span>
-      <div class="cal-dots">${SUPPLEMENTS.map((s,i) => `<div class="cal-dot ${suppState[s.id]?'done':''}"></div>`).join('')}</div>
-    </div>`;
-  }
-  const totalCells = 6 + 4 + 31;
-  const remainder = (7 - (totalCells % 7)) % 7;
-  for (let i = 0; i < remainder; i++) html += '<div class="cal-day empty"></div>';
-
-  html += '</div></div>';
-
-  // Adherence history card
-  const adh = calcAdherence();
-  html += `
-    <div class="card adherence-card">
-      <div class="card-title">📊 Adherencia (${adh.totalDays} días)</div>
-
-      <div class="adherence-row">
-        <span class="adherence-label">💊 Suplementos</span>
-        <div class="adherence-bar"><div class="adherence-fill" style="width:${adh.suppPct}%;background:var(--accent)"></div></div>
-        <span class="adherence-pct">${adh.suppPct}%</span>
-      </div>
-      <div style="font-size:11px;color:var(--text2);margin:-4px 0 8px 90px">${adh.suppPerfectDays}/${adh.totalDays} días completos</div>
-
-      <div class="adherence-row">
-        <span class="adherence-label">💧 Agua</span>
-        <div class="adherence-bar"><div class="adherence-fill" style="width:${Math.min(100, adh.waterAvg / 8 * 100)}%;background:var(--info)"></div></div>
-        <span class="adherence-pct">${adh.waterAvg}/8</span>
-      </div>
-      <div style="font-size:11px;color:var(--text2);margin:-4px 0 8px 90px">${adh.waterGoodDays} días con 6+ vasos</div>
-
-      <div class="adherence-row">
-        <span class="adherence-label">🛒 Compras</span>
-        <div class="adherence-bar"><div class="adherence-fill" style="width:${adh.shopPct}%;background:var(--warning)"></div></div>
-        <span class="adherence-pct">${adh.shopPct}%</span>
-      </div>
-      <div style="font-size:11px;color:var(--text2);margin:-4px 0 0 90px">${SHOPPING.filter(s=>getState('shop-checked',{})[s.name]).length}/${SHOPPING.length} artículos</div>
-    </div>
-  `;
-
-  document.getElementById('tab-supps').innerHTML = html;
-}
-
-function showDaySupps(y, m, d) {
-  const dateKey = `${y}-${m+1}-${d}`;
-  const suppState = getState('supps-' + dateKey, {});
-  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-
-  // Store current editing day globally
-  window._editingSuppDay = { y, m, d, dateKey };
-
-  document.getElementById('modalTitle').textContent = `${d} de ${months[m]} ${y}`;
-  document.getElementById('modalSubtitle').textContent = 'Toca para marcar/desmarcar';
-  document.getElementById('modalSearch').style.display = 'none';
-
-  const listEl = document.getElementById('modalList');
-  listEl.innerHTML = SUPPLEMENTS.map(s => {
-    const checked = suppState[s.id] || false;
-    return `<div class="modal-item" style="cursor:pointer;padding:12px 0" onclick="toggleDaySupp('${s.id}')">
-      <span>${checked ? '✅' : '⬜'} ${s.emoji} ${s.name}</span>
-      <span style="color:var(--text2);font-size:12px">${s.time}</span>
-    </div>`;
-  }).join('');
-
-  document.getElementById('modalOverlay').classList.add('open');
-}
-
-function toggleDaySupp(suppId) {
-  const { dateKey } = window._editingSuppDay;
-  const state = getState('supps-' + dateKey, {});
-  state[suppId] = !state[suppId];
-  setState('supps-' + dateKey, state);
-  // Re-render the modal and calendar
-  showDaySupps(window._editingSuppDay.y, window._editingSuppDay.m, window._editingSuppDay.d);
-  renderSupps();
-  renderHoy();
-}
-
-// Close modal - restore search visibility
-const _origForceClose = forceCloseModal;
-forceCloseModal = function() {
-  document.getElementById('modalSearch').style.display = '';
-  _origForceClose();
-};
-const _origCloseModal = closeModal;
-closeModal = function(e) {
-  document.getElementById('modalSearch').style.display = '';
-  _origCloseModal(e);
-};
-
-// ============ ADHERENCE HISTORY ============
-function calcAdherence() {
-  const today = new Date();
-  let totalDays = 0;
-  let suppDays = 0;
-  let totalSupps = 0;
-  let takenSupps = 0;
-  let waterTotal = 0;
-  let waterDays = 0;
-
-  // Check from September 27 to today
-  const start = new Date(2026, 8, 27);
-  const end = new Date(Math.min(today.getTime(), new Date(2026, 9, 31).getTime()));
-
-  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-    const dk = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
-    const ss = getState('supps-' + dk, {});
-    const water = getState('water-' + dk, 0);
-    totalDays++;
-    const dayTaken = SUPPLEMENTS.filter(s => ss[s.id]).length;
-    totalSupps += SUPPLEMENTS.length;
-    takenSupps += dayTaken;
-    if (dayTaken === SUPPLEMENTS.length) suppDays++;
-    waterTotal += water;
-    if (water >= 6) waterDays++; // 6+ vasos = good day
-  }
-
-  const shopState = getState('shop-checked', {});
-  const shopChecked = SHOPPING.filter(s => shopState[s.name]).length;
-
-  return {
-    totalDays,
-    suppPct: totalDays > 0 ? Math.round((takenSupps / totalSupps) * 100) : 0,
-    suppPerfectDays: suppDays,
-    waterAvg: totalDays > 0 ? roundNice(waterTotal / totalDays) : 0,
-    waterGoodDays: waterDays,
-    shopPct: Math.round((shopChecked / SHOPPING.length) * 100)
-  };
-}
-
-// ============ RENDER: EQUIVALENTES ============
-function renderEquiv() {
-  let html = '<input type="text" class="search-box" placeholder="🔍 Buscar alimento equivalente..." oninput="filterEquiv(this.value)">';
-
-  for (const [group, data] of Object.entries(EQUIVALENTS)) {
-    html += `<div class="eq-group" data-group="${group}">
-      <div class="eq-group-title" style="background:${data.color}" onclick="this.nextElementSibling.classList.toggle('open')">
-        ${group} <span>(${data.items.length})</span>
-      </div>
-      <div class="eq-items">`;
-    data.items.forEach(([name, portion]) => {
-      html += `<div class="eq-item" data-name="${name.toLowerCase()}"><span>${name}</span><span style="color:var(--text2)">${portion}</span></div>`;
-    });
-    html += '</div></div>';
-  }
-  document.getElementById('tab-equiv').innerHTML = html;
-}
-
-function filterEquiv(val) {
-  val = val.toLowerCase();
-  document.querySelectorAll('.eq-group').forEach(g => {
-    let anyVisible = false;
-    g.querySelectorAll('.eq-item').forEach(item => {
-      const show = item.dataset.name.includes(val);
-      item.style.display = show ? '' : 'none';
-      if (show) anyVisible = true;
-    });
-    g.style.display = anyVisible ? '' : 'none';
-    if (val.length > 0 && anyVisible) g.querySelector('.eq-items').classList.add('open');
-    else if (val.length === 0) g.querySelector('.eq-items').classList.remove('open');
-  });
-}
-
-// ============ RENDER: RECETAS ============
-function renderRecetas() {
+function initHoy() {
+  const dayIdx = getTodayDayIndex();
   let html = '';
-  MEAL_TIMES.forEach(mt => {
-    html += `<h3 style="margin:14px 0 10px;font-size:15px">${mt.emoji} ${mt.label}</h3>`;
-    MEALS[mt.key].forEach((meal, i) => {
-      html += renderMealCard(meal, mt, `rec-${mt.key}-${i}`);
+  COMIDAS.forEach(ct => {
+    html += buildMealCard(ct, dayIdx, true);
+  });
+  document.getElementById('hoy-meals').innerHTML = html;
+}
+
+function initPlan() {
+  const tabs = document.getElementById('dayTabs');
+  tabs.innerHTML = DIAS.map((d,i) =>
+    `<button class="day-tab ${i===currentDay?'active':''}" onclick="showDay(${i})">${d}</button>`
+  ).join('');
+  showDay(currentDay);
+}
+
+function showDay(idx) {
+  currentDay = idx;
+  document.querySelectorAll('#dayTabs .day-tab').forEach((b,i)=>{
+    b.classList.toggle('active', i===idx);
+  });
+  let html = '';
+  COMIDAS.forEach(ct => {
+    html += buildMealCard(ct, idx, true);
+  });
+  document.getElementById('plan-meals').innerHTML = html;
+}
+
+function initRecetas() {
+  const tabs = document.getElementById('recetasTabs');
+  tabs.innerHTML = COMIDAS.map((c,i)=>
+    `<button class="day-tab ${i===0?'active':''}" onclick="showRecetaType(${i})">${COMIDA_EMOJI[c]} ${c}</button>`
+  ).join('');
+  showRecetaType(0);
+}
+
+function showRecetaType(idx) {
+  currentRecetasType = idx;
+  document.querySelectorAll('#recetasTabs .day-tab').forEach((b,i)=>{
+    b.classList.toggle('active', i===idx);
+  });
+  const ct = COMIDAS[idx];
+  let html = '';
+  DIAS.forEach((d,di) => {
+    html += buildMealCard(ct, di, true);
+  });
+  document.getElementById('recetas-meals').innerHTML = html;
+}
+
+// ===================== SHOPPING =====================
+const SHOP_KEY = 'shopChecked_nov2026';
+
+function loadShopState() {
+  try { return JSON.parse(localStorage.getItem(SHOP_KEY)||'{}'); } catch(e) { return {}; }
+}
+function saveShopState(s) {
+  try { localStorage.setItem(SHOP_KEY, JSON.stringify(s)); } catch(e) {}
+}
+
+function initShop() {
+  const state = loadShopState();
+  let html = '';
+  let total = 0, checked = 0;
+  Object.entries(SHOPPING).forEach(([cat, items]) => {
+    const col = SHOP_COLORS[cat] || {bg:'#eee',color:'#333'};
+    const catItems = items.map((item,i) => {
+      const key = `${cat}-${i}`;
+      const isChecked = !!state[key];
+      total++;
+      if (isChecked) checked++;
+      return `<div class="shop-item${isChecked?' checked':''}" id="si-${key}">
+        <input type="checkbox" id="cb-${key}" ${isChecked?'checked':''} onchange="toggleShop('${key}')">
+        <label for="cb-${key}">${escH(item.n)} <span style="color:var(--text2);font-size:11px;">${escH(item.c)}</span></label>
+      </div>`;
+    }).join('');
+    html += `<div class="shop-category">
+      <div class="shop-cat-header">
+        <span class="shop-cat-badge" style="background:${col.bg};color:${col.color}">${cat}</span>
+        <span style="font-size:11px;color:var(--text2)">${items.length} artículos</span>
+      </div>
+      ${catItems}
+    </div>`;
+  });
+  document.getElementById('shopList').innerHTML = html;
+  updateShopProgress(checked, total);
+}
+
+function toggleShop(key) {
+  const state = loadShopState();
+  const cb = document.getElementById('cb-'+key);
+  state[key] = cb.checked;
+  saveShopState(state);
+  const row = document.getElementById('si-'+key);
+  row.classList.toggle('checked', cb.checked);
+  // recount
+  let total=0,checked=0;
+  Object.entries(SHOPPING).forEach(([cat,items])=>items.forEach((_,i)=>{
+    total++;
+    if(state[`${cat}-${i}`]) checked++;
+  }));
+  updateShopProgress(checked, total);
+}
+
+function updateShopProgress(checked, total) {
+  const pct = total ? Math.round(checked/total*100) : 0;
+  document.getElementById('shopProgress').style.width = pct+'%';
+  document.getElementById('shopProgressText').textContent = `${checked} / ${total} artículos (${pct}%)`;
+}
+
+function resetShop() {
+  if (!confirm('¿Resetear toda la lista de compras?')) return;
+  try { localStorage.removeItem(SHOP_KEY); } catch(e) {}
+  initShop();
+}
+
+// ===================== EQUIVALENTES =====================
+
+function initEquiv() {
+  renderEquiv('');
+}
+
+function renderEquiv(q) {
+  const search = q.toLowerCase();
+  let html = '';
+  Object.entries(EQUIVALENTES).forEach(([grupo, items]) => {
+    const filtered = search ? items.filter(i=>i.toLowerCase().includes(search)) : items;
+    if (!filtered.length) return;
+    const col = EQ_COLORS[grupo] || {};
+    html += `<div class="eq-group">
+      <div class="eq-group-title" style="background:${col.bg||'var(--bg3)'};color:${col.color||'var(--text)'}" onclick="toggleEquivGroup(this)">
+        <span>${grupo}</span><span>▼ ${filtered.length}</span>
+      </div>
+      <div class="eq-items${search?' open':''}">
+        ${filtered.map(i => {
+          const parts = i.match(/^(.+?)\s+([\d½¼¾/\.]+\s*\w+.*)$/);
+          if (parts) return `<div class="eq-item"><span>${escH(parts[1])}</span><span style="color:var(--text2)">${escH(parts[2])}</span></div>`;
+          return `<div class="eq-item"><span>${escH(i)}</span></div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  });
+  document.getElementById('equivList').innerHTML = html || '<p style="padding:16px;color:var(--text2)">Sin resultados.</p>';
+}
+
+function toggleEquivGroup(el) {
+  const items = el.nextElementSibling;
+  items.classList.toggle('open');
+}
+
+function filterEquiv(q) {
+  renderEquiv(q);
+}
+
+// ===================== MODAL =====================
+
+let modalAllItems = [];
+
+function openModal(ingredientName) {
+  // find which group this ingredient belongs to
+  let found = null;
+  Object.entries(EQUIVALENTES).forEach(([grupo, items]) => {
+    items.forEach(item => {
+      if (item.toLowerCase().includes(ingredientName.toLowerCase())) {
+        if (!found) found = grupo;
+      }
     });
   });
-  document.getElementById('tab-recetas').innerHTML = html;
-}
-
-// ============ MODAL: EQUIVALENCES ============
-let currentModalItems = [];
-
-function showShopEquiv(itemName, eqGroup) {
-  const data = EQUIVALENTS[eqGroup];
-  if (!data) return;
-
-  document.getElementById('modalTitle').textContent = `¿No encuentras ${itemName}?`;
-  document.getElementById('modalSubtitle').textContent = `Grupo: ${eqGroup} · Cada opción = 1 porción`;
-  document.getElementById('modalSearch').value = '';
-
-  currentModalItems = data.items.map(([name, portion]) => [name, portion]);
-  renderModalList(currentModalItems);
+  const grupo = found || 'Equivalentes';
+  const items = EQUIVALENTES[grupo] || [];
+  modalAllItems = items;
+  document.getElementById('modalTitle').textContent = grupo;
+  document.getElementById('modalSubtitle').textContent = `Equivalentes para: ${ingredientName}`;
+  renderModalList(items, '');
   document.getElementById('modalOverlay').classList.add('open');
 }
 
-function showEquiv(group, portions, originalTxt) {
-  const data = EQUIVALENTS[group];
-  if (!data) return;
-
-  const p = Math.round(portions * 100) / 100;
-  document.getElementById('modalTitle').textContent = `Sustitutos: ${originalTxt}`;
-  document.getElementById('modalSubtitle').textContent = `= ${p} porción(es) de ${group}`;
-  document.getElementById('modalSearch').value = '';
-
-  currentModalItems = data.items.map(([name, basePortion]) => {
-    let scaled = basePortion;
-    if (portions !== 1) {
-      const match = basePortion.match(/([\d\/\s.y]+)\s*(.*)/);
-      if (match) {
-        let num = parseFraction(match[1]);
-        scaled = `${roundNice(num * portions)} ${match[2]}`;
-      }
-    }
-    return [name, scaled];
-  });
-
-  renderModalList(currentModalItems);
-  document.getElementById('modalOverlay').classList.add('open');
+function renderModalList(items, q) {
+  const filtered = q ? items.filter(i=>i.toLowerCase().includes(q.toLowerCase())) : items;
+  document.getElementById('modalList').innerHTML = filtered.map(i=>{
+    const parts = i.match(/^(.+?)\s+([\d½¼¾/\.]+\s*\w+.*)$/);
+    if (parts) return `<div class="modal-item"><span>${escH(parts[1])}</span><span style="color:var(--text2)">${escH(parts[2])}</span></div>`;
+    return `<div class="modal-item"><span>${escH(i)}</span></div>`;
+  }).join('');
 }
 
-function parseFraction(str) {
-  str = str.trim().replace('y ', '');
-  if (str.includes('/')) {
-    const parts = str.split('/');
-    const whole = parts[0].includes(' ') ? parseFloat(parts[0].split(' ')[0]) : 0;
-    const numStr = parts[0].includes(' ') ? parts[0].split(' ')[1] : parts[0];
-    return whole + parseFloat(numStr) / parseFloat(parts[1]);
-  }
-  return parseFloat(str) || 1;
-}
-
-function roundNice(n) {
-  if (Math.abs(n - Math.round(n)) < 0.05) return Math.round(n);
-  return Math.round(n * 10) / 10;
-}
-
-function renderModalList(items) {
-  const list = document.getElementById('modalList');
-  list.innerHTML = items.map(([name, portion]) =>
-    `<div class="modal-item"><span>${name}</span><span style="color:var(--accent);font-weight:500">${portion}</span></div>`
-  ).join('');
-}
-
-function filterModal() {
-  const val = document.getElementById('modalSearch').value.toLowerCase();
-  const filtered = currentModalItems.filter(([name]) => name.toLowerCase().includes(val));
-  renderModalList(filtered);
+function filterModal(q) {
+  renderModalList(modalAllItems, q);
 }
 
 function closeModal(e) {
-  if (e.target === document.getElementById('modalOverlay')) {
+  if (!e || e.target === document.getElementById('modalOverlay') || !e.target) {
     document.getElementById('modalOverlay').classList.remove('open');
+    document.querySelector('.modal-search').value = '';
   }
 }
 
-function forceCloseModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
+// ===================== WATER =====================
+const WATER_KEY = 'water_nov2026_' + new Date().toDateString();
+
+function initWater() {
+  const filled = parseInt(localStorage.getItem(WATER_KEY)||'0');
+  const row = document.getElementById('waterRow');
+  row.innerHTML = Array.from({length:8},(_,i)=>`
+    <div class="water-circle${i<filled?' filled':''}" onclick="setWater(${i+1})">💧</div>
+  `).join('');
+  document.getElementById('waterCount').textContent = `${filled} / 8 vasos`;
 }
 
-function openModal(title, subtitle, items) {
-  document.getElementById('modalTitle').textContent = title;
-  document.getElementById('modalSubtitle').textContent = subtitle;
-  document.getElementById('modalSearch').value = '';
-  currentModalItems = items;
-  renderModalList(items);
-  document.getElementById('modalOverlay').classList.add('open');
-}
-
-// ============ SYNC: Share & Import ============
-
-// Collect all localStorage data relevant to the plan
-function getAllPlanData() {
-  const data = {};
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (key.startsWith('shop-') || key.startsWith('supps-') || key.startsWith('water-') || key.startsWith('levo-time-')) {
-      data[key] = JSON.parse(localStorage.getItem(key));
-    }
-  }
-  return data;
-}
-
-// Compress state to URL-safe string
-function encodeState(data) {
-  const json = JSON.stringify(data);
-  // Use base64url encoding
-  return btoa(unescape(encodeURIComponent(json)))
-    .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-}
-
-function decodeState(str) {
-  try {
-    const padded = str.replace(/-/g, '+').replace(/_/g, '/');
-    const json = decodeURIComponent(escape(atob(padded)));
-    return JSON.parse(json);
-  } catch (e) {
-    console.error('Failed to decode state:', e);
-    return null;
-  }
-}
-
-// Share progress via URL
-function shareProgress() {
-  const data = getAllPlanData();
-  if (Object.keys(data).length === 0) {
-    alert('No hay datos para compartir aún.');
-    return;
-  }
-  const encoded = encodeState(data);
-  const url = window.location.origin + window.location.pathname + '?sync=' + encoded;
-
-  // Try native share first (mobile), fallback to clipboard
-  if (navigator.share) {
-    navigator.share({
-      title: 'Plan Nutricional — Progreso',
-      text: 'Mi progreso de compras y suplementos',
-      url: url
-    }).catch(() => copyToClipboard(url));
-  } else {
-    copyToClipboard(url);
-  }
-}
-
-function copyToClipboard(url) {
-  navigator.clipboard.writeText(url).then(() => {
-    alert('✅ Link copiado al portapapeles.\n\nÁbrelo en tu otro dispositivo para sincronizar.\n\n⚠️ El link contiene tu progreso actual. Cada vez que quieras sincronizar, genera uno nuevo.');
-  }).catch(() => {
-    // Fallback: show modal with URL
-    prompt('Copia este link y ábrelo en tu otro dispositivo:', url);
+function setWater(n) {
+  const current = parseInt(localStorage.getItem(WATER_KEY)||'0');
+  const newVal = current === n ? n-1 : n;
+  try { localStorage.setItem(WATER_KEY, newVal); } catch(e) {}
+  initWater();
+  // re-render
+  const filled = newVal;
+  document.querySelectorAll('.water-circle').forEach((c,i)=>{
+    c.classList.toggle('filled', i<filled);
   });
+  document.getElementById('waterCount').textContent = `${filled} / 8 vasos`;
 }
 
-// Export all data as JSON file
-function exportAllData() {
-  const data = getAllPlanData();
-  data._theme = getState('theme', 'light');
-  data._shopView = getState('shopView', 'shop');
-  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `plan-nutricional-backup-${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
+// ===================== TABS =====================
+
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
 }
 
-// Import data from URL on page load
-function loadFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  const syncData = params.get('sync');
-  if (!syncData) return;
+// ===================== THEME =====================
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? '' : 'dark');
+  document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '☀️';
+  try { localStorage.setItem('theme', isDark ? '' : 'dark'); } catch(e) {}
+}
 
-  const data = decodeState(syncData);
-  if (!data) {
-    alert('❌ No se pudo leer los datos del link.');
-    return;
-  }
-
-  const count = Object.keys(data).length;
-  if (count === 0) return;
-
-  const merge = confirm(
-    `📲 Se encontraron datos de otro dispositivo:\n\n` +
-    `• ${Object.keys(data).filter(k=>k.startsWith('shop-')).length} semanas de compras\n` +
-    `• ${Object.keys(data).filter(k=>k.startsWith('supps-')).length} días de suplementos\n\n` +
-    `¿Quieres importar estos datos?\n(Reemplazará tu progreso actual)`
-  );
-
-  if (merge) {
-    for (const [key, val] of Object.entries(data)) {
-      localStorage.setItem(key, JSON.stringify(val));
+(function initTheme() {
+  try {
+    const t = localStorage.getItem('theme');
+    if (t === 'dark') {
+      document.documentElement.setAttribute('data-theme','dark');
+      document.addEventListener('DOMContentLoaded', ()=>{
+        const btn = document.querySelector('.theme-toggle');
+        if(btn) btn.textContent = '☀️';
+      });
     }
-    // Clean the URL
-    window.history.replaceState({}, '', window.location.pathname);
-    alert('✅ Datos importados correctamente.');
-    location.reload();
-  } else {
-    window.history.replaceState({}, '', window.location.pathname);
-  }
-}
+  } catch(e) {}
+})();
 
-// Import from JSON file
-function importFromFile() {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = '.json';
-  input.onchange = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      try {
-        const data = JSON.parse(ev.target.result);
-        for (const [key, val] of Object.entries(data)) {
-          if (key.startsWith('_')) continue; // skip meta
-          localStorage.setItem(key, JSON.stringify(val));
-        }
-        alert('✅ Datos importados correctamente.');
-        location.reload();
-      } catch {
-        alert('❌ Archivo inválido.');
-      }
-    };
-    reader.readAsText(file);
-  };
-  input.click();
-}
-
-// ============ INIT ============
-loadFromURL(); // Check for sync data in URL first
-renderHoy();
-renderPlan();
-renderCompras();
-renderSupps();
-renderEquiv();
-renderRecetas();
+// ===================== BOOT =====================
+document.addEventListener('DOMContentLoaded', () => {
+  initHoy();
+  initPlan();
+  initRecetas();
+  initShop();
+  initEquiv();
+  initWater();
+});
 </script>
 </body>
 </html>
